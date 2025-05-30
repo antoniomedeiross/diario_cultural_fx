@@ -1,0 +1,130 @@
+{
+  "livros": [
+    {
+      "author": "Nycolas",
+      "publisher": "Vivara",
+      "isbn": "12564",
+      "haveBook": true,
+      "title": "abençoado",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "romance",
+      "yearReleased": 2005.0,
+      "type": "livro"
+    },
+    {
+      "author": "Nycolas",
+      "publisher": "Vivara",
+      "isbn": "12564",
+      "haveBook": true,
+      "title": "adençoado",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "romance",
+      "yearReleased": 2005.0,
+      "type": "livro"
+    },
+    {
+      "author": "Nycolas",
+      "publisher": "Vivara",
+      "isbn": "12564",
+      "haveBook": true,
+      "title": "alvo",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "romance",
+      "yearReleased": 2005.0,
+      "type": "livro"
+    }
+  ],
+  "filmes": [
+    {
+      "duration": 999.0,
+      "director": "UEFS",
+      "writer": "Cordenação",
+      "cast": [
+        "Allany",
+        "Davi",
+        "Guilherme"
+      ],
+      "originalTitle": "Ecomp",
+      "whereWatch": [
+        "Prime video",
+        "Netflix"
+      ],
+      "watched": false,
+      "title": "PBL Java",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "Terror",
+      "yearReleased": 2025.0,
+      "type": "filme"
+    }
+  ],
+  "series": [
+    {
+      "yearEnding": 2020.0,
+      "note": 0.0,
+      "cast": [
+        "Ator A",
+        "Ator B"
+      ],
+      "originalTitle": "Fantastic Adventures",
+      "whereWatch": [
+        "Netflix",
+        "Prime Video"
+      ],
+      "seasons": [],
+      "title": "Aventuras Fantásticas",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "Fantasia",
+      "yearReleased": 2015.0,
+      "type": "serie"
+    },
+    {
+      "yearEnding": 2018.0,
+      "note": 0.0,
+      "cast": [
+        "Ator C",
+        "Ator D"
+      ],
+      "originalTitle": "Space Mysteries",
+      "whereWatch": [
+        "HBO Max",
+        "Disney+"
+      ],
+      "seasons": [],
+      "title": "Mistérios do Espaço",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "Ficção Científica",
+      "yearReleased": 2010.0,
+      "type": "serie"
+    }
+  ]
+}
