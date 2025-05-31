@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox  fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="500" spacing="20">
+        <Label text="DIÁRIO CULTURAL" fx:id="titulo"/>
+        <Button mnemonicParsing="false" text="Cadastrar Midia"/>
+        <Button mnemonicParsing="false" text="Avaliar Midia"/>
+        <Button mnemonicParsing="false" text="Listar Midia"/>
+        <Button mnemonicParsing="false" text="Buscar Midia"/>
+        <Button mnemonicParsing="false" text="Sair"/>
+    </VBox>
+</VBox>
