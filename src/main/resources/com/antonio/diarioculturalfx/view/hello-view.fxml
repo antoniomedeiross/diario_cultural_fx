@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      fx:id="div_main"
-      xmlns:fx="http://javafx.com/fxml"
-      alignment="CENTER"
-      spacing="20"
-      prefWidth="1000"
-      prefHeight="800">
+<VBox fx:id="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.HelloController">
 
-    <VBox alignment="CENTER"
-        maxWidth="1080"
-        minWidth="500"
-          minHeight="500"
-        fx:id="div_titulo"
-        spacing="20">
+    <VBox fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="500" spacing="20">
 
-        <Label text="DIÁRIO CULTURAL" fx:id="titulo"/>
-        <Label text="Bem-vindo"/>
-        <Button text="Entrar" fx:id="botaoEntrar"/>
+        <Label fx:id="titulo" text="DIÁRIO CULTURAL" />
+        <Label text="Bem-vindo" />
+        <Button fx:id="botaoEntrar" onAction="#onEntrarButtonClick" text="Entrar" />
     </VBox>
 </VBox>

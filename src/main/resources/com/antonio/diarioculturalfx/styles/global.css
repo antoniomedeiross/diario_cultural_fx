@@ -4,6 +4,10 @@ Button{
     -fx-text-fill: white;
     -fx-background-radius: 8;
 }
+Button:hover{
+    -fx-background-color: #09367e;
+    -fx-cursor: hand;
+}
 
 Label{
     -fx-font-size: 20px;
