@@ -31,3 +31,24 @@ Label{
     -fx-alignment: center;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 4);
 }
+TextFild {
+    -fx-border-width: 2;
+    -fx-border-color: transparent;
+    -fx-max-width: 15em;
+    -fx-max-height: 2.5em;
+    -fx-padding: 0 0 0 0.8em;
+    -fx-background-color: #F3F3F3;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-text-alignment: rigth;
+}
+
+TextFild:hover,
+TextFild:focused {
+    -fx-border-color: #4A9DEC;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(74,157,236,0.2), 7, 0.0, 0, 0);
+}

@@ -13,8 +13,6 @@ import java.net.URL;
 import static com.antonio.diarioculturalfx.HelloApplication.trocarScene;
 
 public class HelloController {
-    @FXML
-    private Label label;
 
     @FXML
     protected void onEntrarButtonClick() {
