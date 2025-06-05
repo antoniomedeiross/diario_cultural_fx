@@ -3,29 +3,37 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<!--LIVRO: String title, String gender, int yearReleased, String author,-->
+<!--String publisher, String isbn, boolean haveBook-->
+
 <VBox fx:id="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.MenuPrincipalController">
     <VBox fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
         <Label fx:id="titulo" text="DIÁRIO CULTURAL" />
         <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
-            <Label prefWidth="100.0" text="Nome:" textAlignment="RIGHT" />
-         <TextField />
+
+
+            <Label prefWidth="100.0" text="Titulo" textAlignment="RIGHT" />
+            <TextField fx:id="nomeField" />
+            <Label layoutX="380.0" layoutY="21.0" prefWidth="100.0" text="Titulo" textAlignment="RIGHT" />
+            <TextField fx:id="nomeField1" layoutX="435.0" layoutY="17.0" />
         </HBox>
         <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
-            <Label prefWidth="100.0" text="autor" textAlignment="RIGHT" />
-         <TextField />
+            <Label prefWidth="100.0" text="Gênero" textAlignment="RIGHT" />
+            <TextField fx:id="generoField" />
+            <Label layoutX="380.0" layoutY="21.0" prefWidth="100.0" text="Gênero" textAlignment="RIGHT" />
+            <TextField fx:id="generoField1" layoutX="491.0" layoutY="17.0" />
         </HBox>
         <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
-            <Label prefWidth="100.0" text="Label" textAlignment="RIGHT" />
-         <TextField />
+            <Label prefWidth="100.0" text="Gênero" textAlignment="RIGHT" />
+            <TextField fx:id="generici" />
+            <Label layoutX="380.0" layoutY="21.0" prefWidth="100.0" text="Gênero" textAlignment="RIGHT" />
+            <TextField fx:id="teste" layoutX="491.0" layoutY="17.0" />
         </HBox>
         <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
-            <Label prefWidth="100.0" text="Label" textAlignment="RIGHT" />
-         <TextField />
+            <Label prefWidth="100.0" text="Gênero" textAlignment="RIGHT" />
+            <TextField fx:id="generic" />
         </HBox>
-        <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
-            <Label prefWidth="100.0" text="Label" textAlignment="RIGHT" />
-         <TextField />
-        </HBox>
-        <Button mnemonicParsing="false" text="Cadastrar" />
+
+        <Button mnemonicParsing="false" onAction="#onEnviarClick" text="Cadastrar" />
     </VBox>
 </VBox>

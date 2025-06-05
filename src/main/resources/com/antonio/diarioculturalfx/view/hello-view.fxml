@@ -10,6 +10,9 @@
 
         <Label fx:id="titulo" text="DIÁRIO CULTURAL" />
         <Label text="Bem-vindo" />
+        <Label styleClass="features" text="📖 Registre experiências unicas"/>
+        <Label styleClass="features" text="🌟 Preserve memórias especiais"/>
+        <Label styleClass="features" text="🎯 Explore novos horizontes"/>
         <Button fx:id="botaoEntrar" onAction="#onEntrarButtonClick" text="Entrar" />
     </VBox>
 </VBox>
