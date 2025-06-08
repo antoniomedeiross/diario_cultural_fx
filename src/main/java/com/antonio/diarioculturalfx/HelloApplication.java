@@ -1,5 +1,6 @@
 package com.antonio.diarioculturalfx;
 
+import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class HelloApplication extends Application {
+    public static MemoryManagement memoryManagement = new MemoryManagement("/com/antonio/diarioculturalfx/db/dataBase.json");
     private static Stage stageTroca;
     private static Scene bemVindoScene;
     private static Scene menuPrincipalScene;
@@ -17,7 +19,7 @@ public class HelloApplication extends Application {
     private static Scene buscaScene;
 
     // método start do javaFx
-    @Override
+    @Overridegit add. 
     public void start(Stage stage) throws IOException {
         stageTroca = stage;
 

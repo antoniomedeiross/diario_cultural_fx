@@ -19,5 +19,6 @@ public class HelloController {
         System.out.println("Entrando no Controller");
         // carregar menu principal
         trocarScene("Entrar");
+
     }
 }

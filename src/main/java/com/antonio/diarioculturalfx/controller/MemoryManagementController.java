@@ -1,7 +1,7 @@
 package com.antonio.diarioculturalfx.controller;
 
 
-import com.antonio.diarioculturalfx.model.Review;
+import javafx.fxml.FXML;
 import com.antonio.diarioculturalfx.model.Serie;
 import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Book;
@@ -10,7 +10,13 @@ import com.antonio.diarioculturalfx.model.Season;
 
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import com.antonio.diarioculturalfx.services.MemoryManagementService;
+import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
+
 
 /**
  * Controlador de manejo de memoria
@@ -195,4 +201,6 @@ public class MemoryManagementController {
 
         return "Temporada deletada com SUCESSO";
     }
+
+
 }
