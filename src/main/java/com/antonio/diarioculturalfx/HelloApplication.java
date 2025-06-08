@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
     private static Scene buscaScene;
 
     // método start do javaFx
-    @Overridegit add. 
+    @Override
     public void start(Stage stage) throws IOException {
         stageTroca = stage;
 
