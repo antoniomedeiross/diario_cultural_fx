@@ -54,3 +54,63 @@ Label{
     -fx-effect: dropshadow(gaussian, rgba(74,157,236,0.2), 7, 0, 0, 0);
 }
 
+.check-box {
+    -fx-font-size: 16px;
+    -fx-font-family: 'Segoe UI';
+    -fx-text-fill: #4b5563;
+    -fx-padding: 8 0 8 0;
+}
+
+.check-box .box {
+    -fx-background-color: #f3f3f3;
+    -fx-border-color: #3b82f6;
+    -fx-border-width: 2;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(74,157,236,0.2), 7, 0, 0, 0);
+}
+
+.check-box:selected .box {
+    -fx-background-color: #3b82f6;
+    -fx-border-color: #09367e;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+.date-picker {
+    -fx-font-size: 16px;
+    -fx-font-family: 'Segoe UI';
+    -fx-text-fill: #4b5563;
+    -fx-background-color: #f3f3f3;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: transparent;
+    -fx-pref-width: 15em;
+    -fx-pref-height: 2.5em;
+    -fx-effect: dropshadow(gaussian, rgb(196, 219, 248), 8, 0.3, 0, 4);
+}
+
+.date-picker:hover,
+.date-picker:focused {
+    -fx-border-color: #4a9dec;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(74,157,236,0.2), 7, 0, 0, 0);
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #659aec;
+    -fx-background-radius: 0 10 10 0;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #09367e;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4b5563;
+    -fx-font-family: 'Segoe UI';
+}

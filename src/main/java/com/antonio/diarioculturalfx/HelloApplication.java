@@ -64,6 +64,7 @@ public class HelloApplication extends Application {
     // Método que troca as Scenes do app
     public static void trocarScene(String click) {
         deixaTamanhoDaSceneIgual(stageTroca);
+        // swich menu principal
         switch (click){
             case "Entrar":
                 stageTroca.setTitle("Menu Principal!");
@@ -76,6 +77,7 @@ public class HelloApplication extends Application {
             case "Sair":
                 stageTroca.close();
         }
+
     }
     private static void deixaTamanhoDaSceneIgual(Stage stage) {
         double largura = stage.getWidth();

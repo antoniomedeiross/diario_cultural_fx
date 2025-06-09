@@ -2,11 +2,15 @@ package com.antonio.diarioculturalfx.controller;
 
 import com.antonio.diarioculturalfx.HelloApplication;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+
+import java.io.IOException;
+import java.util.Objects;
 
 import static com.antonio.diarioculturalfx.HelloApplication.memoryManagement;
 import static com.antonio.diarioculturalfx.HelloApplication.trocarScene;
@@ -73,4 +77,28 @@ public class MenuPrincipalController {
         alert.setContentText("Preencha todos os campos!.");
         alert.showAndWait();
     }
+
+
+
+    @ FXML
+    private VBox div_titulo;
+
+    public void mudarSceneCadastro(ActionEvent actionEvent) throws IOException {
+        Button botao = (Button) actionEvent.getSource();
+        String destino = botao.getText();
+
+        String caminho = switch (destino) {
+            case "Livro" -> "cadastro-livro.fxml";
+            case "Filme" -> "cadastro-filme.fxml";
+            case "Série" -> "cadastro-serie.fxml";
+            default -> null;
+        };
+
+        if (caminho != null) {
+            Parent formulario = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/antonio/diarioculturalfx/view/sub_menus/" + caminho)));
+            div_titulo.getChildren().setAll(formulario);
+        }
+    }
+
+
 }
