@@ -3,16 +3,86 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.HelloController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 
-    <VBox fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<VBox  alignment="CENTER" prefHeight="600" prefWidth="800" spacing="20" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.HelloController">
+        <!-- Background com gradiente -->
+        <StackPane styleClass="div_main" VBox.vgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
+            <!-- Container principal -->
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="900.0" styleClass="container"
+                  maxHeight="600.0" maxWidth="900.0">
 
-        <Label fx:id="titulo" text="DIÁRIO CULTURAL" />
-        <Label text="Bem-vindo" />
-        <Label styleClass="features" text="📖 Registre experiências unicas"/>
-        <Label styleClass="features" text="🌟 Preserve memórias especiais"/>
-        <Label styleClass="features" text="🎯 Explore novos horizontes"/>
-        <Button fx:id="botaoEntrar" onAction="#onEntrarButtonClick" text="Entrar" />
-    </VBox>
+
+                <!-- Título -->
+                <Label styleClass="titulo" text="DIÁRIO CULTURAL"/>
+
+                <!-- Subtítulo -->
+                <Label styleClass="subtitulo" text="Bem-vindo(a)!"/>
+
+                <!-- Container dos cards de funcionalidades -->
+                <HBox styleClass="container-funcionalidades" alignment="CENTER" spacing="15.0">
+                    <!-- Card 1: Preserve memórias -->
+                    <VBox fx:id="card1" styleClass="cards" alignment="CENTER" onMouseClicked="#handleMemoriesClick"
+                          prefHeight="100.0" prefWidth="120.0">
+
+                        <!-- Ícone do livro -->
+                        <Label  styleClass="simbolos" text="📚"/>
+                        <!-- Texto -->
+                        <Label text="Preserve memórias especiais" textAlignment="CENTER"
+                               textFill="WHITE" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="11.0"/>
+                            </font>
+                        </Label>
+                    </VBox>
+
+                    <!-- Card 2: Registre experiências -->
+                    <VBox fx:id="card2" styleClass="cards" alignment="CENTER" onMouseClicked="#handleExperiencesClick"
+                          prefHeight="100.0" prefWidth="120.0">
+                        <!-- Ícone da câmera -->
+                        <Label styleClass="simbolos" text="📷"/>
+                        <!-- Texto -->
+                        <Label text="Registre experiências únicas" textAlignment="CENTER"
+                               textFill="WHITE" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="11.0"/>
+                            </font>
+                        </Label>
+                    </VBox>
+
+                    <!-- Card 3: Explore horizontes -->
+                    <VBox fx:id="card3" styleClass="cards" alignment="CENTER" onMouseClicked="#handleExploreClick" prefHeight="100.0" prefWidth="120.0">
+                        <!-- Ícone de busca -->
+                        <Label styleClass="simbolos" text="🔍"/>
+                        <!-- Texto -->
+                        <Label text="Explore novos horizontes" textAlignment="CENTER" textFill="WHITE"
+                               wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="11.0"/>
+                            </font>
+                        </Label>
+                    </VBox>
+                </HBox>
+
+
+                <!-- Botão Entrar -->
+                <Button fx:id="enterButton" styleClass="botao-entrar" mnemonicParsing="false" onAction="#handleEnterButton"
+                        text="Entrar" textFill="WHITE"/>
+            </VBox>
+        </StackPane>
 </VBox>
