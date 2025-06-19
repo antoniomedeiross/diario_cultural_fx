@@ -24,10 +24,7 @@
         <!-- Background com gradiente -->
         <StackPane styleClass="div_main" VBox.vgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
             <!-- Container principal -->
-            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="900.0" styleClass="container"
-                  maxHeight="600.0" maxWidth="900.0">
-
-
+            <VBox alignment="CENTER"  styleClass="container">
                 <!-- Título -->
                 <Label styleClass="titulo" text="DIÁRIO CULTURAL"/>
 
@@ -81,8 +78,8 @@
 
 
                 <!-- Botão Entrar -->
-                <Button fx:id="enterButton" styleClass="botao-entrar" mnemonicParsing="false" onAction="#handleEnterButton"
-                        text="Entrar" textFill="WHITE"/>
+                <Button fx:id="enterButton" styleClass="botao" mnemonicParsing="false" onAction="#handleEnterButton"
+                        text="Entrar"/>
             </VBox>
         </StackPane>
 </VBox>

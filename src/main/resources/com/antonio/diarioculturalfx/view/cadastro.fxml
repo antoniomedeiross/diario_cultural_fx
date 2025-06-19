@@ -4,7 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.MenuPrincipalController">
+<VBox fx:id="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.antonio.diarioculturalfx.controller.MenuPrincipalController">
     <VBox fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
         <Label fx:id="titulo" text="DIÁRIO CULTURAL" />
         <Label fx:id="subtitulo" text="ESCOLHA O TIPO DE MÍDIA" />

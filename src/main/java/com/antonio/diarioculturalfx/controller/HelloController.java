@@ -28,15 +28,6 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable{
 
     @FXML
-    protected void onEntrarButtonClick() {
-        System.out.println("Entrando no Controller");
-        // carregar menu principal
-        trocarScene("Entrar");
-
-    }
-
-
-    @FXML
     private VBox card1;
 
     @FXML
@@ -79,21 +70,26 @@ public class HelloController implements Initializable{
         });
     }
 
-    private void setupButtonHoverEffect() {
+    /**
+     * Adicona efeitos ao passar mouse pelo botao
+     */
+    private void setupButtonHoverEffect() { // Copiar para outros controllers
+        // efeito quando o mouse entra
         enterButton.setOnMouseEntered(e -> {
             ScaleTransition scaleIn = new ScaleTransition(Duration.millis(150), enterButton);
+            enterButton.setStyle("-fx-background-color: linear-gradient(to right, #1d8147, #2ECC71); -fx-background-radius: 25; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
             scaleIn.setToX(1.03);
             scaleIn.setToY(1.03);
             scaleIn.play();
 
         });
-
+        // quando mouse sai do botao retira efeito
         enterButton.setOnMouseExited(e -> {
             ScaleTransition scaleOut = new ScaleTransition(Duration.millis(150), enterButton);
+            enterButton.setStyle("-fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec); -fx-background-radius: 25;-fx-padding: 15 40; -fx-cursor: hand; -fx-font-size: 20");
             scaleOut.setToX(1.0);
             scaleOut.setToY(1.0);
             scaleOut.play();
-
         });
     }
 
@@ -126,28 +122,9 @@ public class HelloController implements Initializable{
         scaleUp.setToX(1.0);
         scaleUp.setToY(1.0);
 
-        scaleDown.setOnFinished(e -> {
-            scaleUp.play();
-
-            // Simular loading
-            String originalText = enterButton.getText();
-            enterButton.setText("Entrando...");
-            enterButton.setDisable(true);
-            enterButton.setStyle("-fx-background-color: linear-gradient(to right, #27AE60, #2ECC71); -fx-background-radius: 25; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
-
-            // Restaurar após 1.5 segundos
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(new javafx.animation.KeyFrame(Duration.seconds(1.5), ev -> {
-                enterButton.setText(originalText);
-                enterButton.setDisable(false);
-                enterButton.setStyle("-fx-background-color: linear-gradient(to right, #4A90E2, #5DADE2); -fx-background-radius: 25; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
-
-                showAlert("Bem-vindx!", "Bem-vindx ao Diário Cultural! 🎨✨", Alert.AlertType.INFORMATION);
-            }));
-            timeline.play();
-        });
-
         scaleDown.play();
+        trocarScene("Entrar");
+
     }
 
     private void animateCardClick(VBox card) {
@@ -163,7 +140,7 @@ public class HelloController implements Initializable{
         scaleDown.play();
     }
 
-    private void showAlert(String title, String message, Alert.AlertType type) {
+    static void showAlert(String title, String message, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -171,10 +148,11 @@ public class HelloController implements Initializable{
 
         // Personalizar o estilo do Alert
         alert.getDialogPane().setStyle(
-                "-fx-background-color: linear-gradient(to bottom right, #f8f9fa, #e9ecef); " +
+                "-fx-background-color: linear-gradient(to bottom right, #4A90E2, #7B68EE, #DA70D6, #FF69B4); " +
                         "-fx-border-color: #dee2e6; " +
                         "-fx-border-radius: 10; " +
-                        "-fx-background-radius: 10;"
+                        "-fx-background-radius: 10;"+
+                        "-fx-text-alignment: center;"
         );
 
         alert.showAndWait();

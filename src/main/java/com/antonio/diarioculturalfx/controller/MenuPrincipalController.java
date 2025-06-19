@@ -14,6 +14,7 @@ import java.util.Objects;
 
 import static com.antonio.diarioculturalfx.HelloApplication.memoryManagement;
 import static com.antonio.diarioculturalfx.HelloApplication.trocarScene;
+import static com.antonio.diarioculturalfx.controller.HelloController.showAlert;
 
 public class MenuPrincipalController {
     MemoryManagementController memoryManagementController = new MemoryManagementController(memoryManagement);
@@ -62,22 +63,12 @@ public class MenuPrincipalController {
     private boolean validarCampos() {
         if (nomeField.getText().trim().isEmpty() || generoField.getText().trim().isEmpty() || publicacaoField.getValue() == null || autorField.getText().trim().isEmpty()
                 || autorField.getText().trim().isEmpty() || editoraField.getText().trim().isEmpty() || isbnField.getText().trim().isEmpty()) {
-            mostrarAlerta();
+            showAlert("Erro na validação", "CAMPOS INVÁLIDOS OU VAZIOS", Alert.AlertType.ERROR);
             return false;
         }
 
         return true;
     }
-
-
-    private void mostrarAlerta() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erro de Validação");
-        alert.setHeaderText(null);
-        alert.setContentText("Preencha todos os campos!.");
-        alert.showAndWait();
-    }
-
 
 
     @ FXML

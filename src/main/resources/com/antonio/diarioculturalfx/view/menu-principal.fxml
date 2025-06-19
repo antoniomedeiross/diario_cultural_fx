@@ -3,14 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12"
+<VBox styleClass="div_main" alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.MenuPrincipalController">
-    <VBox  fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
-        <Label text="DIÁRIO CULTURAL" fx:id="titulo"/>
-        <Button mnemonicParsing="false" text="Cadastrar Midia" onAction="#onCadastroButtonClick"/>
-        <Button mnemonicParsing="false" text="Avaliar Midia"/>
-        <Button mnemonicParsing="false" text="Listar Midia"/>
-        <Button mnemonicParsing="false" text="Buscar Midia"/>
-        <Button mnemonicParsing="false" text="Sair" onAction="#onSairButtonClick"/>
+    <VBox  fx:id="div_titulo" styleClass="container" alignment="CENTER" spacing="20">
+        <Label styleClass="titulo" text="DIÁRIO CULTURAL" fx:id="titulo"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Cadastrar Midia" onAction="#onCadastroButtonClick"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Avaliar Midia"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Listar Midia"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Buscar Midia"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Sair" onAction="#onSairButtonClick"/>
     </VBox>
 </VBox>
