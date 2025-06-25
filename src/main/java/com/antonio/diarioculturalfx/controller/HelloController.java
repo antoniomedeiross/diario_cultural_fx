@@ -77,7 +77,7 @@ public class HelloController implements Initializable{
         // efeito quando o mouse entra
         enterButton.setOnMouseEntered(e -> {
             ScaleTransition scaleIn = new ScaleTransition(Duration.millis(150), enterButton);
-            enterButton.setStyle("-fx-background-color: linear-gradient(to right, #1d8147, #2ECC71); -fx-background-radius: 25; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
+            enterButton.setStyle("-fx-background-color: linear-gradient(to left, #1d8147, #2ECC71); -fx-background-radius: 25; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
             scaleIn.setToX(1.03);
             scaleIn.setToY(1.03);
             scaleIn.play();
@@ -112,7 +112,7 @@ public class HelloController implements Initializable{
     }
 
     @FXML
-    private void handleEnterButton() {
+    private void handleEnterButton() throws IOException {
         // Animação de clique no botão
         ScaleTransition scaleDown = new ScaleTransition(Duration.millis(100), enterButton);
         scaleDown.setToX(0.95);
@@ -145,14 +145,14 @@ public class HelloController implements Initializable{
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
-
         // Personalizar o estilo do Alert
         alert.getDialogPane().setStyle(
-                "-fx-background-color: linear-gradient(to bottom right, #4A90E2, #7B68EE, #DA70D6, #FF69B4); " +
+                "-fx-background-color: linear-gradient(to bottom right, #ffffff, #4a90e2, #ffffff); " +
                         "-fx-border-color: #dee2e6; " +
                         "-fx-border-radius: 10; " +
                         "-fx-background-radius: 10;"+
-                        "-fx-text-alignment: center;"
+                        "-fx-text-alignment: center;" +
+                        "-fx-text-fill: #ffffff;"
         );
 
         alert.showAndWait();

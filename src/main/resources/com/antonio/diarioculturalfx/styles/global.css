@@ -28,6 +28,7 @@
 /* Subtítulo */
 .subtitulo {
     -fx-font-size: 20px;
+    -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: #888888;
 }
 
@@ -79,3 +80,58 @@
     -fx-text-fill: white;
 }
 
+.botao-voltar {
+    -fx-background-color: transparent;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-prefHeight: 50;
+    -fx-prefWidth: 80;
+    -fx-min-height: 50;
+    -fx-min-width: 80;
+}
+
+
+.texto{
+    -fx-font-size: 15px;
+    -fx-font-family: "JetBrains Mono Light";
+    -fx-pref-width: 150;
+}
+
+CheckBox{
+
+}
+CheckBox:hover{
+    -fx-cursor: Hand;
+}
+
+.inputs{
+    -fx-font-size: 15px;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color:linear-gradient(to right, #4a90e2, #7B68EE, #DA70D6) ;
+    -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
+}
+.inputs:hover{
+    -fx-font-size: 15px;
+    -fx-border-color:linear-gradient(to left, #4b9eff, #7663ff, #ff4cf4) ;
+    -fx-scale-y: 1.03;
+    -fx-scale-x: 1.03;
+    -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
+}
+.inputs:focused{
+    -fx-background-color: #f1f1f1;
+}
+
+.listaInputs{
+    -fx-max-width: 150;
+    -fx-font-size: 15px;
+    -fx-pref-width: 110.0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color:linear-gradient(to right, #4a90e2, #7B68EE, #DA70D6) ;
+    -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
+}

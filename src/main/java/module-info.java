@@ -11,6 +11,7 @@ module com.antonio.diarioculturalfx {
     requires eu.hansolo.tilesfx;
     requires com.google.gson;
     requires com.google.errorprone.annotations;
+    requires java.desktop;
 
     opens com.antonio.diarioculturalfx to javafx.fxml;
     exports com.antonio.diarioculturalfx;
