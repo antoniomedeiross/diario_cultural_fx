@@ -16,5 +16,8 @@ module com.antonio.diarioculturalfx {
     opens com.antonio.diarioculturalfx to javafx.fxml;
     exports com.antonio.diarioculturalfx;
     exports com.antonio.diarioculturalfx.controller;
+    exports com.antonio.diarioculturalfx.repository;
+    exports com.antonio.diarioculturalfx.model;
+    exports com.antonio.diarioculturalfx.services;
     opens com.antonio.diarioculturalfx.controller to javafx.fxml;
 }

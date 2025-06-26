@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.MenuPrincipalController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.CadastroController">
     <VBox fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20" styleClass="container">
         <HBox prefHeight="0.0" prefWidth="1000.0">
             <!-- Botão voltar no canto esquerdo -->
@@ -66,14 +66,14 @@
                 <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
                     <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Onde Assistir" />
                     <TextField fx:id="ondeAssistirField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
-                    <Button fx:id="addOndeAssistir" text="add" onAction="#adicionarNome" />
+                    <Button fx:id="addOndeAssistir" text="add" onAction="#adicionarNome" styleClass="botao-ver-lista"/>
                     <Button text="ver" onAction="#verListaOndeAssistir" styleClass="botao-ver-lista" />
                 </HBox>
 
                 <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
                     <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Elenco" />
                     <TextField fx:id="elencoField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
-                    <Button fx:id="addElenco" text="add" onAction="#adicionarNome" />
+                    <Button fx:id="addElenco" text="add" onAction="#adicionarNome" styleClass="botao-ver-lista" />
                     <Button text="ver" onAction="#verListaElenco" styleClass="botao-ver-lista" />
                 </HBox>
 

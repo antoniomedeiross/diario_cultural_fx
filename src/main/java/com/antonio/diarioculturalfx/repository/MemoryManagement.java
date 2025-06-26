@@ -7,7 +7,6 @@ import com.antonio.diarioculturalfx.model.Book;
 import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Media;
 import com.antonio.diarioculturalfx.model.Serie;
-import com.antonio.diarioculturalfx.model.Season;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -36,11 +35,11 @@ public class MemoryManagement {
 
     /**
      * Adiciona uma mídia em ordem
-     * @param book
+     * @param book objeto book
      */
     public void addBook(Book book) {
 
-        Book bookNãoPodeSerNulo = Objects.requireNonNull(book, "Book não pode ser nulo");
+        Book bookNaoPodeSerNulo = Objects.requireNonNull(book, "Book não pode ser nulo");
         int i = 0;
 
         while(i < books.size() && books.get(i).getTitle().compareToIgnoreCase(book.getTitle()) < 1) {
@@ -54,11 +53,11 @@ public class MemoryManagement {
 
     /**
      * Adiciona uma mídia em ordem
-     * @param film
+     * @param film objeto film
      */
     public void addFilm(Film film) {
 
-        Film filmNãoPodeSerNulo = Objects.requireNonNull(film, "Film não pode ser nulo");
+        Film filmNaoPodeSerNulo = Objects.requireNonNull(film, "Film não pode ser nulo");
         int i = 0;
 
         while(i < films.size() && films.get(i).getTitle().compareToIgnoreCase(film.getTitle()) < 1) {
@@ -72,11 +71,11 @@ public class MemoryManagement {
 
     /**
      * Adiciona uma mídia em ordem
-     * @param serie
+     * @param serie objeto serie
      */
     public void addSerie(Serie serie) {
 
-        Serie serieNãoPodeSerNulo = Objects.requireNonNull(serie, "Serie não pode ser nulo");
+        Serie serieNaoPodeSerNulo = Objects.requireNonNull(serie, "Serie não pode ser nulo");
         int i = 0;
 
         while(i < series.size() && series.get(i).getTitle().compareToIgnoreCase(serie.getTitle()) < 1) {
@@ -101,7 +100,7 @@ public class MemoryManagement {
 
     /**
      * Busca o arquivo informado pelo parametro 'caminho', se nao existir, ele o cria ou retorna uma exception
-     * @param caminho
+     * @param caminho string caminho
      */
     public File buscaOuCriarArquivo(String caminho) {
         try{
@@ -119,8 +118,8 @@ public class MemoryManagement {
 
     /**
      * Escreve o texto no arquivo informado
-     * @param texto
-     * @param caminho
+     * @param texto string
+     * @param caminho string
      */
     public void escreveArquivo(String texto, String caminho) {
         try (FileWriter fw = new FileWriter(caminho)){
@@ -134,7 +133,6 @@ public class MemoryManagement {
 
     /**
      * Tranforma os atributos da classe em String com formatação json
-     * @return String em estrutura json
      */
     public void salvaArquivosBd() {
 
@@ -164,7 +162,7 @@ public class MemoryManagement {
 
     /**
      * Reconstroi as classes presentes em um arquivo jsom
-     * @param caminho
+     * @param caminho arquivo
      * @return Map de arraylists
      */
     public Map<String, List<Media>> jsonToClass(File caminho) {
@@ -190,7 +188,7 @@ public class MemoryManagement {
 
     /**
      * Popula os arrays com o map obtido pela leitura do json
-     * @param response
+     * @param response resposta
      */
     public void populaOsArrays(Map<String, List<Media>> response) {
         if(response != null) {
@@ -221,7 +219,7 @@ public class MemoryManagement {
 
     /**
      * Deleta objeto do tipo Film
-     * @param film
+     * @param film obj film
      */
     public void deleteMedia(Film film){
         films.removeIf(film1 -> film1.equals(film));
@@ -229,7 +227,7 @@ public class MemoryManagement {
 
     /**
      * Deleta objeto do tipo Book
-     * @param book
+     * @param book obj book
      */
     public void deleteMedia(Book book){
         books.removeIf(book1 -> book1.equals(book));
@@ -237,11 +235,9 @@ public class MemoryManagement {
 
     /**
      * Deleta objeto do tipo Serie
-     * @param serie
+     * @param serie obj serie
      */
     public void deleteMedia(Serie serie){
         series.removeIf(serie1 -> serie1.equals(serie));
     }
-
-
 }

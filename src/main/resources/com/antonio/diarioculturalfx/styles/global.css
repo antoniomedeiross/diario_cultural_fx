@@ -8,7 +8,7 @@
     -fx-background-color: rgba(255, 255, 255, 0.95);
     -fx-background-radius: 20;
     -fx-padding: 40;
-    -fx-effect: dropshadow(one-pass-box, #00000033, 10, 0, 6, 6);
+    -fx-effect: dropshadow(one-pass-box, #00000044, 8, 0, 4, 4);
     -fx-pref-height: 600;
     -fx-pref-width: 900;
     -fx-max-width: 900;
@@ -132,6 +132,74 @@ CheckBox:hover{
     -fx-border-width: 2px;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
-    -fx-border-color:linear-gradient(to right, #4a90e2, #7B68EE, #DA70D6) ;
+    -fx-border-color: linear-gradient(to right, #4a90e2, #7B68EE, #DA70D6) ;
     -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
+}
+
+
+
+/* Área que mostra os detalhes do objeto */
+.detalhes-box {
+    -fx-background-color: rgba(255, 255, 255, 0.85);
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-spacing: 12;
+    -fx-effect: dropshadow(one-pass-box, #00000044, 8, 0, 4, 4);
+}
+
+
+
+.list-view-midia {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-border-color: linear-gradient(to right, #4A90E2, #7B68EE);
+    -fx-min-width: 300;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.1), 5, 0, 2, 2);
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14px;
+}
+
+.list-cell-hbox {
+    -fx-background-color: linear-gradient(to right, #DA70D6, #FF69B4);
+    -fx-background-radius: 10;
+    -fx-padding: 8 8;
+    -fx-spacing: 20;
+    -fx-alignment: center-left;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.15), 3, 0, 2, 2);
+}
+
+.list-cell-hbox:hover {
+    -fx-background-color: linear-gradient(to left, #FF69B4, #DA70D6);
+    -fx-cursor: hand;
+}
+.botao-ver-mais {
+    -fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec);
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 6 18;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.15), 3, 0, 2, 2);
+    -fx-transition: background-color 0.3s ease;
+}
+
+.botao-ver-mais:hover {
+    -fx-background-color: linear-gradient(to left, #4A90E2, #60b4ec);
+}
+.botao-ver-lista {
+    -fx-min-width: 40;
+    -fx-font-size: 10;
+    -fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec);
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.15), 3, 0, 2, 2);
+    -fx-transition: background-color 0.3s ease;
+}
+.botao-ver-lista:hover {
+    -fx-background-color: linear-gradient(to left, #4A90E2, #60b4ec);
 }

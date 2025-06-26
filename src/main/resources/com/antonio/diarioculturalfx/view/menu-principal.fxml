@@ -8,9 +8,9 @@
     <VBox fx:id="div_titulo" styleClass="container" alignment="CENTER" spacing="20">
         <Label styleClass="titulo" text="DIÁRIO CULTURAL"/>
         <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Cadastrar Midia" onAction="#onCadastroButtonClick"/>
-        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Avaliar Midia"/>
-        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Listar Midia"/>
-        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Buscar Midia"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Avaliar Midia" onAction="#onAvaliarButtonClick"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Listar Midia" onAction="#onListarButtonClick"/>
+        <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Buscar Midia" onAction="#onBuscarButtonClick"/>
         <Button prefWidth="250" styleClass="botao" mnemonicParsing="false" text="Sair" onAction="#onSairButtonClick"/>
     </VBox>
 </VBox>

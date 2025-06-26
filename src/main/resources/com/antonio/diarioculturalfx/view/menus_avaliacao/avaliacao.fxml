@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.SearchController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.EvaluationController">
     <VBox styleClass="container" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
         <HBox prefHeight="0.0" prefWidth="1000.0">
             <!-- Botão voltar no canto esquerdo -->
@@ -19,11 +19,21 @@
             <Region prefHeight="30" prefWidth="62" />
         </HBox>
 
-        <Label styleClass="subtitulo" text="BUSCAR MÍDIAS" />
+        <Label styleClass="subtitulo" text="ESCOLHA O TIPO DE MÍDIA" />
 
         <HBox alignment="CENTER">
-            <Button fx:id="bt_busca" styleClass="botao" onAction="#buscar" text="Série" />
-
+            <Button fx:id="bt_livro" styleClass="botao" onAction="#mudarSceneAvaliacao" text="Livro">
+                <HBox.margin>
+                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                </HBox.margin></Button>
+            <Button fx:id="bt_filme" styleClass="botao" onAction="#mudarSceneAvaliacao" text="Filme">
+                <HBox.margin>
+                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                </HBox.margin></Button>
+            <Button fx:id="bt_serie" styleClass="botao" onAction="#mudarSceneAvaliacao" text="Série">
+                <HBox.margin>
+                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                </HBox.margin></Button>
         </HBox>
 
         <Region VBox.vgrow="ALWAYS"/>

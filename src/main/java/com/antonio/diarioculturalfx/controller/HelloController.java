@@ -1,29 +1,20 @@
 package com.antonio.diarioculturalfx.controller;
 
-import com.antonio.diarioculturalfx.HelloApplication;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 
-import static com.antonio.diarioculturalfx.HelloApplication.trocarScene;
-import javafx.animation.FadeTransition;
+import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
+
 import javafx.animation.ScaleTransition;
-import javafx.animation.Timeline;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-import java.net.URL;
 import java.util.ResourceBundle;
 public class HelloController implements Initializable{
 
