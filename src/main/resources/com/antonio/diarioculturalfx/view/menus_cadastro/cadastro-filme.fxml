@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.CadastroController">
+    <VBox fx:id="div_titulo" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20" styleClass="container">
+        <HBox prefHeight="0.0" prefWidth="1000.0">
+            <!-- Botão voltar no canto esquerdo -->
+            <Button fx:id="voltarButton" onAction="#handleVoltarCadastro" styleClass="botao-voltar" />
+            <!-- Um espaço "vazio" que cresce para empurrar o título para o centro -->
+            <Region HBox.hgrow="ALWAYS" />
+            <!-- Título centralizado -->
+            <Label fx:id="titulo" styleClass="titulo" text="DIÁRIO CULTURAL" />
+            <!-- Outro espaço "vazio" para equilibrar -->
+            <Region HBox.hgrow="ALWAYS" />
+            <Region prefHeight="30" prefWidth="62" />
+        </HBox>
+
+        <Label fx:id="subtitulo" styleClass="subtitulo" text="CADASTRO DE FILMES" />
+
+
+
+        <HBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <VBox spacing="20">
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Título" />
+                    <TextField fx:id="nomeField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Gênero" />
+                    <TextField fx:id="generoField" layoutX="435.0" layoutY="17.0" styleClass="inputs" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Duração" />
+                    <TextField fx:id="duracaoField" styleClass="inputs" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Diretor" />
+                    <TextField fx:id="diretorField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Titulo Original" />
+                    <TextField fx:id="tituloOriginalField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
+                </HBox>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox spacing="20">
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Escritor" />
+                    <TextField fx:id="escritorField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="20.0" prefWidth="110.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Data de publicação" />
+                    <DatePicker fx:id="publicacaoField" styleClass="inputs" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Onde Assistir" />
+                    <TextField fx:id="ondeAssistirField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
+                    <Button fx:id="addOndeAssistir" text="add" onAction="#adicionarNome" styleClass="botao-ver-lista"/>
+                    <Button text="ver" onAction="#verListaOndeAssistir" styleClass="botao-ver-lista" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Elenco" />
+                    <TextField fx:id="elencoField" layoutX="491.0" layoutY="17.0" styleClass="inputs" />
+                    <Button fx:id="addElenco" text="add" onAction="#adicionarNome" styleClass="botao-ver-lista" />
+                    <Button text="ver" onAction="#verListaElenco" styleClass="botao-ver-lista" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Assistido" />
+                    <CheckBox fx:id="possuiField" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" />
+                </HBox>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <Button mnemonicParsing="false" onAction="#onEnviarClick" styleClass="botao" text="Cadastrar" />
+        <Region VBox.vgrow="ALWAYS"/>
+    </VBox>
+</VBox>

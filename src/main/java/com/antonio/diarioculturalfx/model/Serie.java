@@ -25,7 +25,8 @@ public class Serie extends Media {
      * @param originalTitle
      * @param whereWatch
      */
-    public Serie(String title, String gender, int yearReleased, int yearEnding, ArrayList<String> cast, String originalTitle, ArrayList<String> whereWatch) {
+    public Serie(String title, String gender, int yearReleased, int yearEnding, ArrayList<String> cast,
+                String originalTitle, ArrayList<String> whereWatch) {
         super(title, gender, yearReleased);
         this.yearEnding = yearEnding;
         this.cast = cast;

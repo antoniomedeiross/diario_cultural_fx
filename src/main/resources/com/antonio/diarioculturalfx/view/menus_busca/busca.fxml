@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.SearchController">
+    <VBox styleClass="container" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
+        <HBox prefHeight="0.0" prefWidth="1000.0">
+            <!-- Botão voltar no canto esquerdo -->
+            <Button fx:id="voltarButton" onAction="#handleVoltarMenu" styleClass="botao-voltar" />
+            <!-- Um espaço "vazio" que cresce para empurrar o título para o centro -->
+            <Region HBox.hgrow="ALWAYS" />
+            <!-- Título centralizado -->
+            <Label fx:id="titulo" styleClass="titulo" text="DIÁRIO CULTURAL" />
+            <!-- Outro espaço "vazio" para equilibrar -->
+            <Region HBox.hgrow="ALWAYS" />
+            <Region prefHeight="30" prefWidth="62" />
+        </HBox>
+
+        <Label styleClass="subtitulo" text="BUSCAR MÍDIAS" />
+
+        <HBox alignment="CENTER">
+            <Button fx:id="bt_busca" styleClass="botao" onAction="#buscar" text="Série" />
+
+        </HBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+    </VBox>
+</VBox>
