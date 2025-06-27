@@ -1,11 +1,8 @@
 package com.antonio.diarioculturalfx.controller;
 
 
+import com.antonio.diarioculturalfx.model.*;
 import javafx.fxml.FXML;
-import com.antonio.diarioculturalfx.model.Serie;
-import com.antonio.diarioculturalfx.model.Film;
-import com.antonio.diarioculturalfx.model.Book;
-import com.antonio.diarioculturalfx.model.Season;
 //
 
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
@@ -15,7 +12,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -54,10 +54,10 @@ public class MemoryManagementController {
             memoryManagementService.registerMedia(title, gender, yearReleased, author,
                 publisher, isbn, haveBook);
         } catch (IllegalArgumentException e) {
-            return "Tentativa de registro FALHO - " + e.getMessage();
+            return "Tentativa de registro FALHO\n" + e.getMessage();
         }
 
-        return "Livro registrado com SUCESSO!";
+        return "Registrado com SUCESSO!";
     }
 
     // Registro de Filmes
@@ -83,10 +83,10 @@ public class MemoryManagementController {
             memoryManagementService.registerMedia(title, gender, yearReleased, duration, director,
                 writer, cast, originalTitle, whereWatch);
         } catch (IllegalArgumentException e) {
-            return "Tentativa de registro FALHO - " + e.getMessage();
+            return "Tentativa de registro FALHO\n" + e.getMessage();
         }
 
-        return "Filme registrado com SUCESSO!";
+        return "Registrado com SUCESSO!";
     }
 
     // Registro de Series
@@ -109,10 +109,10 @@ public class MemoryManagementController {
         try {
             memoryManagementService.registerMedia(title, gender, yearReleased, yearEnding, cast, originalTitle, whereWatch);
         } catch (IllegalArgumentException e) {
-            return "Tentativa de registro FALHO - " + e.getMessage();
+            return "Tentativa de registro FALHO\n" + e.getMessage();
         }
 
-        return "Serie registrada com SUCESSO!";
+        return "Registrada com SUCESSO!";
     }
 
     /**
@@ -128,7 +128,7 @@ public class MemoryManagementController {
         try {
             memoryManagementService.registerMedia(serie, year, title, numberEpisodes);
         } catch (IllegalArgumentException e) {
-            return "Tentativa de registro FALHO - " + e.getMessage();
+            return "Tentativa de registro FALHO\n" + e.getMessage();
         }
 
         return "Temporada registrada com SUCESSO!";
@@ -142,7 +142,7 @@ public class MemoryManagementController {
             memoryManagement.salvaArquivosBd();
             return "Arquivos salvo com SUCESSO!";
         } catch (IllegalArgumentException e) {
-            return "Tentativa de salvar arquivos FALHO - " + e.getMessage();
+            return "Tentativa de salvar arquivos FALHO\n" + e.getMessage();
         }
     }
 
@@ -154,7 +154,7 @@ public class MemoryManagementController {
         try{
             memoryManagement.deleteMedia(film);
         } catch(Exception e){
-            return "Tentativa de deletar filme Falho - " + e.getMessage();
+            return "Tentativa de deletar filme Falho\n" + e.getMessage();
         }
 
         return "Filme deletado com SUCESSO";
@@ -168,7 +168,7 @@ public class MemoryManagementController {
         try{
             memoryManagement.deleteMedia(serie);
         } catch(Exception e){
-            return "Tentativa de deletar série Falho - " + e.getMessage();
+            return "Tentativa de deletar série Falho\n" + e.getMessage();
         }
 
         return "Série deletada com SUCESSO";
@@ -182,7 +182,7 @@ public class MemoryManagementController {
         try{
             memoryManagement.deleteMedia(book);
         } catch(Exception e){
-            return "Tentativa de deletar livro Falho - " + e.getMessage();
+            return "Tentativa de deletar livro Falho\n" + e.getMessage();
         }
 
         return "Livro deletado com SUCESSO";
@@ -196,11 +196,18 @@ public class MemoryManagementController {
         try {
             serie.deleteSeason(season);
         } catch (Exception e) {
-            return "Tentativa de deletar Temporada Falho - " + e.getMessage();
+            return "Tentativa de deletar Temporada Falho\n" + e.getMessage();
         }
 
         return "Temporada deletada com SUCESSO";
     }
 
+    public Map<String, List<Media>> loadDataBase(File arq) {
+        try{
+            return  memoryManagement.jsonToClass(arq);
+        } catch (IllegalStateException e){
+            return null;
+        }
+    }
 
 }

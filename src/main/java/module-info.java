@@ -20,4 +20,5 @@ module com.antonio.diarioculturalfx {
     exports com.antonio.diarioculturalfx.model;
     exports com.antonio.diarioculturalfx.services;
     opens com.antonio.diarioculturalfx.controller to javafx.fxml;
+    opens com.antonio.diarioculturalfx.model to com.google.gson;
 }

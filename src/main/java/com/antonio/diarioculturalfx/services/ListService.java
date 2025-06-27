@@ -54,11 +54,12 @@ public class ListService {
 
     public void ordenarPorNota(ArrayList<? extends Media> midias) {
 
-        if(midias.get(0) instanceof Book || midias.get(0) instanceof Film) {
-            midias.sort((m1, m2) -> Integer.compare(m2.getReview().getNote(), m1.getReview().getNote()));
-        } else if((midias.get(0) instanceof Serie)){
-            midias.sort((m1, m2) -> Integer.compare(((Serie)m2).getNote(),((Serie)m1).getNote()));
+        if(!midias.isEmpty()) {
+            if (midias.get(0) instanceof Book || midias.get(0) instanceof Film) {
+                midias.sort((m1, m2) -> Integer.compare(m2.getReview().getNote(), m1.getReview().getNote()));
+            } else if ((midias.get(0) instanceof Serie)) {
+                midias.sort((m1, m2) -> Integer.compare(((Serie) m2).getNote(), ((Serie) m1).getNote()));
+            }
         }
-
     }
 }
