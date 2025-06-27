@@ -8,16 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
-import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
+import static com.antonio.diarioculturalfx.DiarioCultural.*;
 import static com.antonio.diarioculturalfx.controller.HelloController.showAlert;
-import static com.antonio.diarioculturalfx.util.Util.addImgOnButton;
-import static com.antonio.diarioculturalfx.util.Util.setupHoverEffect;
+import static com.antonio.diarioculturalfx.util.Util.*;
 
 public class CadastroController implements Initializable {
-    MemoryManagementController memoryManagementController = new MemoryManagementController(memoryManagement);
+    private static String tipoCadastro;
 
     // Adiciona efeitos nos botoes
 
@@ -60,10 +59,55 @@ public class CadastroController implements Initializable {
 
     @FXML
     protected void onEnviarClick() {
+        String validar = "";
+
         if (validarCampos()) {
             // prosseguir com o envio
             System.out.println("Chamando o cadastro...");
-            // Fazer integração aqui
+            System.out.println(tipoCadastro);
+            ArrayList<String> elencoArraylist = new ArrayList<>(elencoList);
+            ArrayList<String> ondeAssistirArrayList = new ArrayList<>(ondeAssistirList);
+            // cadastro das mídias
+
+            switch (tipoCadastro){
+
+                // livro
+                case "Livro":
+                    validar = memoryManagementController.registerMedia(
+                        nomeField.getText(), generoField.getText(), publicacaoField.getValue().getYear(),
+                        autorField.getText(), editoraField.getText(), isbnField.getText(),
+                        possuiField.isSelected()
+                    );
+                    break;
+
+                // filme
+                case "Filme":
+                    validar = memoryManagementController.registerMedia(nomeField.getText(), generoField.getText(),
+                            publicacaoField.getValue().getYear(), Integer.parseInt(duracaoField.getText()),
+                            diretorField.getText(), escritorField.getText(), elencoArraylist,
+                            tituloOriginalField.getText(), ondeAssistirArrayList
+                    );
+                    break;
+
+                // serie
+                case "Série":
+                    validar = memoryManagementController.registerMedia(nomeField.getText(), generoField.getText(),
+                            publicacaoField.getValue().getYear(), anoEncerramentoField.getValue().getYear(), elencoArraylist,
+                            tituloOriginalField.getText(), ondeAssistirArrayList
+                    );
+                    break;
+            }
+
+            // cadastro sucesso
+            if(validar.equals("Registrado com SUCESSO!") || validar.equals("Registrada com SUCESSO!")){
+                showAlert("Cadastro feito com Sucesso",  tipoCadastro + " " +validar, Alert.AlertType.CONFIRMATION);
+                memoryManagementController.salvarArquivos();
+                limparCampos();
+            }
+            // erro no cadastro
+            else {
+                showAlert("Erro na Validação", validar, Alert.AlertType.ERROR);
+            }
         }
     }
 
@@ -73,12 +117,39 @@ public class CadastroController implements Initializable {
      * @return true para campos validos, false para inválidos
      */
     private boolean validarCampos() {
-        if (nomeField.getText().trim().isEmpty() || generoField.getText().trim().isEmpty() || publicacaoField.getValue() == null || autorField.getText().trim().isEmpty()
-                || autorField.getText().trim().isEmpty() || editoraField.getText().trim().isEmpty() || isbnField.getText().trim().isEmpty()) {
-            showAlert("Erro na validação", "CAMPOS INVÁLIDOS OU VAZIOS", Alert.AlertType.ERROR);
-            return false;
-        }
 
+        // valida de acordo a midia
+        switch(tipoCadastro){
+
+            case "Livro":
+                if (nomeField.getText().trim().isEmpty() || generoField.getText().trim().isEmpty() || publicacaoField.getValue() == null || autorField.getText().trim().isEmpty()
+                        || autorField.getText().trim().isEmpty() || editoraField.getText().trim().isEmpty() || isbnField.getText().trim().isEmpty()) {
+                    showAlert("Erro na Validação", "CAMPOS VAZIOS", Alert.AlertType.ERROR);
+                    return false;
+                }
+                break;
+
+            case "Filme":
+                if (nomeField.getText().trim().isEmpty() || generoField.getText().trim().isEmpty() || publicacaoField.getValue() == null || diretorField.getText().trim().isEmpty()
+                        || tituloOriginalField.getText().trim().isEmpty() || duracaoField.getText().trim().isEmpty() || escritorField.getText().trim().isEmpty() ||
+                        ondeAssistirList.isEmpty() || elencoList.isEmpty()) {
+                    showAlert("Erro na Validação", "CAMPOS VAZIOS", Alert.AlertType.ERROR);
+                    return false;
+                } else if(!isNumeric(duracaoField.getText())){ // valida a duracao
+                    showAlert("Erro na Validação", "CAMPO DURAÇÃO INVÁLIDO", Alert.AlertType.ERROR);
+                    return false;
+                }
+                break;
+
+            case "Série":
+                if (nomeField.getText().trim().isEmpty() || generoField.getText().trim().isEmpty() || publicacaoField.getValue() == null ||
+                        ondeAssistirList.isEmpty() || elencoList.isEmpty() || anoEncerramentoField.getValue() == null ||
+                        tituloOriginalField.getText().trim().isEmpty()) {
+                    showAlert("Erro na Validação", "CAMPOS VAZIOS", Alert.AlertType.ERROR);
+                    return false;
+                }
+                break;
+        }
         return true;
     }
 
@@ -87,6 +158,7 @@ public class CadastroController implements Initializable {
     public void mudarSceneCadastro(ActionEvent actionEvent) {
         Button botao = (Button) actionEvent.getSource();
         String destino = botao.getText();
+        tipoCadastro = destino;
 
         switch (destino) {
             case "Livro":
@@ -105,6 +177,14 @@ public class CadastroController implements Initializable {
 
     // Cadastro Filmes e Séries
     @FXML
+    private TextField diretorField;
+    @FXML
+    private TextField duracaoField;
+    @FXML
+    private TextField tituloOriginalField;
+    @FXML
+    private TextField escritorField;
+    @FXML
     private TextField elencoField;
     @FXML
     private TextField ondeAssistirField;
@@ -112,6 +192,8 @@ public class CadastroController implements Initializable {
     private Button addElenco;
     @FXML
     private Button addOndeAssistir;
+    @FXML
+    private DatePicker anoEncerramentoField;
 
     private final ObservableList<String> elencoList = FXCollections.observableArrayList();
     private final ObservableList<String> ondeAssistirList = FXCollections.observableArrayList();
@@ -167,6 +249,48 @@ public class CadastroController implements Initializable {
         }
 
         showAlert("Lista", conteudo.toString(), Alert.AlertType.INFORMATION);
+    }
+
+    // limpa os campos
+    void limparCampos(){
+
+        switch (tipoCadastro){
+            case "Livro":
+                nomeField.clear();
+                generoField.clear();
+                publicacaoField.setValue(null);
+                autorField.clear();
+                editoraField.clear();
+                possuiField.setSelected(false);
+                isbnField.clear();
+                break;
+
+            case "Filme":
+                nomeField.clear();
+                generoField.clear();
+                publicacaoField.setValue(null);
+                diretorField.clear();
+                duracaoField.clear();
+                tituloOriginalField.clear();
+                escritorField.clear();
+                elencoField.clear();
+                elencoList.clear();
+                ondeAssistirField.clear();
+                ondeAssistirList.clear();
+                break;
+
+            case "Série":
+                nomeField.clear();
+                generoField.clear();
+                publicacaoField.setValue(null);
+                tituloOriginalField.clear();
+                elencoField.clear();
+                elencoList.clear();
+                ondeAssistirField.clear();
+                anoEncerramentoField.setValue(null);
+                ondeAssistirList.clear();
+                break;
+        }
     }
 
 }
