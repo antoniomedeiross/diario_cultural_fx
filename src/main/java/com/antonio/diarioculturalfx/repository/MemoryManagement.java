@@ -100,9 +100,8 @@ public class MemoryManagement {
 
     /**
      * Busca o arquivo informado pelo parametro 'caminho', se nao existir, ele o cria ou retorna uma exception
-     * @param caminho string caminho
      */
-    public File buscaOuCriarArquivo(String caminho) {
+    public File buscaOuCriarArquivo() {
         try{
             File file = new File(caminho);
             if (file.createNewFile()) {

@@ -52,11 +52,11 @@ public class MemoryManagementService {
         int actualYear = LocalDate.now().getYear();
         // Se ano de lançamento > ano atual lança uma excessão
         if(yearReleased > actualYear){
-            throw new IllegalArgumentException("Year released cannot be greater than actual year");
+            throw new IllegalArgumentException("Ano de lançamento maior que o ano atual.");
         }
         // Se ano de lancamento nao for no padrão 0000
         if(!matcher.matches()){
-            throw new IllegalArgumentException("Year invalid!");
+            throw new IllegalArgumentException("Ano inválido.");
         }
         // Se chegou aqui tudo esta nos trilhos
         Book book = new Book(title, gender, yearReleased, author, publisher, isbn, haveBook);
@@ -85,13 +85,13 @@ public class MemoryManagementService {
         int actualYear = LocalDate.now().getYear();
 
         if(yearReleased > actualYear){
-            throw new IllegalArgumentException("Year released cannot be greater than actual year");
+            throw new IllegalArgumentException("Ano de lançamento maior que o ano atual.");
         }
         Matcher matcher = pattern.matcher(String.valueOf(yearReleased));
 
 
         if(!matcher.matches()){
-            throw new IllegalArgumentException("Year invalid!");
+            throw new IllegalArgumentException("Ano inválido.");
         }
 
         Film film = new Film(title, gender, yearReleased, duration, director, writer, cast, originalTitle, whereWatch);
@@ -115,19 +115,19 @@ public class MemoryManagementService {
 
         Matcher matcher = pattern.matcher(String.valueOf(yearReleased));
         if(!matcher.matches()){
-            throw new IllegalArgumentException("Year invalid!");
+            throw new IllegalArgumentException("Ano inválido.");
         }
         int actualYear = LocalDate.now().getYear();
 
         if(yearReleased > actualYear){
-            throw new IllegalArgumentException("Year released cannot be greater than actual year");
+            throw new IllegalArgumentException("Ano de lançamento maior que o ano atual.");
         }
 
         validateRequiredFields(title, gender);
         if((yearEnding < yearReleased) ){
-            throw new IllegalArgumentException("Year ending is less than year released");
+            throw new IllegalArgumentException("Ano de encerramento menor que o ano de lançamento.");
         } else if(yearEnding > now.getYear()){
-            throw new IllegalArgumentException("Year ending is greater than current year");
+            throw new IllegalArgumentException("Ano de encerramento maior que o ano atual.");
         }
         Serie serie = new Serie(title, gender, yearReleased, yearEnding, cast, originalTitle,  whereWatch);
         memoryManagement.addSerie (serie);
@@ -144,7 +144,7 @@ public class MemoryManagementService {
      */
     public void registerMedia(Serie serie, int year, String title, int numberEpisodes) {
         if(year < serie.getYearReleased()) { // Se o ano da temporada for menor que o ano da série
-            throw new IllegalArgumentException("Year of the season cannot be less than the year of the series");
+            throw new IllegalArgumentException("Ano da temporada menor que o ano de lançamento da série");
         }
         Season season = new Season(year, title, numberEpisodes);
         serie.setSeason(season); // Adiciona a temporada na série

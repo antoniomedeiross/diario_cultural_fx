@@ -1,18 +1,25 @@
 package com.antonio.diarioculturalfx;
 
+import com.antonio.diarioculturalfx.controller.MemoryManagementController;
+import com.antonio.diarioculturalfx.model.Media;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import static com.antonio.diarioculturalfx.util.Util.deixaTamanhoDaSceneIgual;
 
 public class DiarioCultural extends Application {
-    public static MemoryManagement memoryManagement = new MemoryManagement("/com/antonio/diarioculturalfx/db/dataBase.json");
+    public static MemoryManagement memoryManagement = new MemoryManagement("src/main/java/com/antonio/diarioculturalfx/db/dataBase.json");
+    public static MemoryManagementController memoryManagementController = new MemoryManagementController(memoryManagement);
     private static Stage stageTroca;
     private static Scene bemVindoScene;
     private static Scene menuPrincipalScene;
@@ -89,6 +96,7 @@ public class DiarioCultural extends Application {
 
 
     }
+
 
 
     /**
