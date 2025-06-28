@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.EvaluationController">
     <VBox styleClass="container" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
@@ -19,6 +20,30 @@
         </HBox>
 
         <Label styleClass="subtitulo" text="AVALIAR FILME" />
+
+        <BorderPane fx:id="root">
+            <left>
+                <VBox>
+                    <Label text="Selecione o filme" styleClass="subtitulo"/>
+                    <ListView fx:id="listaFilms" prefWidth="200"/>
+                </VBox>
+            </left>
+            <center>
+                <VBox fx:id="campoAvaliacao" spacing="10" >
+                    <Label text="Nota:" />
+                    <TextField fx:id="notaField"/>
+                    <Label text="Ano de leitura:"/>
+                    <TextField fx:id="quandoLeuField"/>
+                    <Label text="Comentário:"/>
+                    <TextArea fx:id="comentField"/>
+                    <Button text="Salvar" onAction="#salvarProduto" styleClass="botao"/>
+
+                    <BorderPane.margin>
+                        <Insets left="10"/>
+                    </BorderPane.margin>
+                </VBox>
+            </center>
+        </BorderPane>
 
         <Region VBox.vgrow="ALWAYS"/>
     </VBox>

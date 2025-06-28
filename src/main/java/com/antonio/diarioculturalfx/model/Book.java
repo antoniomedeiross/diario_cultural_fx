@@ -14,13 +14,13 @@ public class Book extends Media {
     /**
      * Cria um novo livro com as informações básicas
      *
-     * @param title
-     * @param gender
-     * @param yearReleased
-     * @param author
-     * @param publisher
-     * @param isbn
-     * @param haveBook
+     * @param title titulo
+     * @param gender genro
+     * @param yearReleased ano de lancamento
+     * @param author autor
+     * @param publisher editora
+     * @param isbn isbn
+     * @param haveBook possui livro
      */
     public Book(String title, String gender, int yearReleased, String author, String publisher, String isbn, boolean haveBook) {
         super(title, gender, yearReleased);
@@ -29,6 +29,7 @@ public class Book extends Media {
         this.isbn = isbn;
         this.haveBook = haveBook;
     }
+
 
     public String getAuthor() {
         return author;

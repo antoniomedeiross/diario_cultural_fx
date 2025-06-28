@@ -11,6 +11,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
+import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
+
 import static com.antonio.diarioculturalfx.DiarioCultural.*;
 import static com.antonio.diarioculturalfx.controller.HelloController.showAlert;
 import static com.antonio.diarioculturalfx.util.Util.*;

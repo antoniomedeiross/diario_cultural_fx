@@ -1,66 +1,30 @@
 package com.antonio.diarioculturalfx.controller;
 
 
-import com.antonio.diarioculturalfx.model.Media;
-import com.antonio.diarioculturalfx.model.Season;
-import com.antonio.diarioculturalfx.model.Serie;
+import com.antonio.diarioculturalfx.model.*;
+import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import com.antonio.diarioculturalfx.services.EvaluationService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
+import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
-import static com.antonio.diarioculturalfx.util.Util.addImgOnButton;
-import static com.antonio.diarioculturalfx.util.Util.setupHoverEffect;
+import static com.antonio.diarioculturalfx.util.Util.*;
 
 /**
  * Controlador de avaliação
  */
 public class EvaluationController implements Initializable {
-    /**
-     * Avalia uma Media
-     * @param media
-     * @param note
-     * @param comment
-     * @param readWatch
-     * @param whenReadWatch
-     * @return
-     */
-    public String evaluate(Media media, int note, String comment, boolean readWatch, String whenReadWatch) {
-        try {
-            EvaluationService evaluationService = new EvaluationService();
-            evaluationService.evaluate(media, note, comment, readWatch, whenReadWatch);
-            return "Avaliação BEM SUCEDIDA";
-        } catch(IllegalArgumentException e) {
-            return "Avaliação MAL SUCEDIDA";
-        }
-    }
-
-    /**
-     * Avalia temporadas
-     * @param season
-     * @param note
-     * @param comment
-     * @param readWatch
-     * @param whenReadWatch
-     * @return
-     */
-    public String evaluate(Season season, int note, String comment, boolean readWatch, String whenReadWatch, Serie serie) {
-        try {
-            EvaluationService evaluationService = new EvaluationService();
-            evaluationService.evaluate(season, note, comment, readWatch, whenReadWatch, serie);
-
-            return "Avaliação de temporada BEM SUCEDIDA";
-        } catch(IllegalArgumentException e) {
-            return "Avaliação temporada MAL SUCEDIDA";
-        }
-    }
-
-
 
     // Controller dos elementos FX
 
@@ -72,7 +36,44 @@ public class EvaluationController implements Initializable {
     private Button bt_serie;
     @FXML
     private Button voltarButton;
+    @FXML
+    private ListView<Book> listaLivros;
+    @FXML
+    private ListView<Film> listaFilms;
+    @FXML
+    private ListView<Serie> listaSeries;
+    @FXML
+    private ListView<Season> listaTemporadas;
+    @FXML
+    private TextField notaField;
+    @FXML
+    private TextArea comentField;
+    @FXML
+    private TextField quandoLeuField;
 
+    private final ObservableList<Book> livros = FXCollections.observableArrayList();
+    private final ObservableList<Film> filmes = FXCollections.observableArrayList();
+    private final ObservableList<Serie> series = FXCollections.observableArrayList();
+    private final ObservableList<Season> temporadas = FXCollections.observableArrayList();
+
+    private Book livroAtual;
+    private Film filmeAtual;
+    private Serie serieAtual;
+    private Season temporadaAtual;
+
+    private final MemoryManagement memoryManagementAvaliacao = memoryManagement;
+
+    public VBox campoAvaliacao;
+
+
+    EvaluationService evaluationService = new EvaluationService();
+
+
+    /**
+     * Metodo de inicialização
+     * @param location local
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
@@ -81,8 +82,102 @@ public class EvaluationController implements Initializable {
             setupHoverEffect(bt_filme);
             setupHoverEffect(bt_serie);
         }
+
+
+        if (memoryManagementAvaliacao.getBooks().isEmpty()) {
+            encheMemoria(memoryManagementAvaliacao);
+        }
+        System.out.println(memoryManagementAvaliacao.getBooks().toString());
+
+
+        // listagem
+        if(listaLivros != null) {
+            configuraListView(listaLivros, livros, livroSelecionado->{
+                livroAtual = livroSelecionado;
+                notaField.setText(String.valueOf(livroSelecionado.getReview().getNote()));
+                comentField.setText(livroSelecionado.getReview().getComment());
+                quandoLeuField.setText(livroSelecionado.getReview().getWhenReadWatch());
+            });
+        }else if(listaFilms != null) {
+            configuraListView(listaFilms, filmes, filmsSelecionado->{
+                filmeAtual = filmsSelecionado;
+                notaField.setText(String.valueOf(filmsSelecionado.getReview().getNote()));
+                comentField.setText(filmsSelecionado.getReview().getComment());
+                quandoLeuField.setText(filmsSelecionado.getReview().getWhenReadWatch());
+            });
+        } else if(listaSeries != null) {
+            configuraListView(listaSeries, series, seriesSelecionado->{
+                serieAtual = seriesSelecionado;
+                temporadas.setAll(seriesSelecionado.getSeasons());
+                listaTemporadas.setItems(temporadas);
+
+                listaTemporadas.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+                    temporadaAtual = newVal;
+                    if (temporadaAtual != null) {
+                        notaField.setText(String.valueOf(temporadaAtual.getReview().getNote()));
+                        comentField.setText(temporadaAtual.getReview().getComment());
+                        quandoLeuField.setText(temporadaAtual.getReview().getWhenReadWatch());
+                    }
+                });
+            });
+        }
+        atualizarLista();
     }
 
+
+    private <T extends Media> void configuraListView(ListView<T> listView, ObservableList<T> listaObserv, Consumer<T> onSelect) {
+        if(listaObserv != null) {
+            listView.setItems(listaObserv);
+            listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+                if (newVal != null) {
+                    onSelect.accept(newVal);
+                }
+            });
+        }
+    }
+
+
+    /**
+     * Atualiza a lista de midias
+     */
+    public void atualizarLista() {
+        ArrayList<Book> listaBooks = memoryManagementAvaliacao.getBooks();
+        ArrayList<Film> listaFilms = memoryManagementAvaliacao.getFilms();
+        ArrayList<Serie> listaSeries = memoryManagementAvaliacao.getSeries();
+
+        livros.setAll(listaBooks); // recarrega os dados da "base"
+        filmes.setAll(listaFilms);
+        series.setAll(listaSeries);
+    }
+
+    @FXML
+    public void salvarProduto() {
+        if (livroAtual != null) {
+            try {
+                evaluationService.evaluate(livroAtual, Integer.parseInt(notaField.getText()), comentField.getText(),
+                        true, String.valueOf(quandoLeuField.getText()));
+                showAlert("Avaliação", "Livro: " + livroAtual.getTitle() + " avaliado com sucesso!", Alert.AlertType.CONFIRMATION);
+            }catch (IllegalArgumentException e) {
+                showAlert("Avaliação inválida", e.getMessage(), Alert.AlertType.ERROR );
+            }
+            limparCampos();
+            listaLivros.refresh();
+        } else if(temporadaAtual != null) {
+            try {
+                evaluationService.evaluate(temporadaAtual, Integer.parseInt(notaField.getText()),
+                        comentField.getText(),true, quandoLeuField.getText(), serieAtual);
+                showAlert("Avaliação", "Temporada: " + temporadaAtual.getTitle() +" -- "+ serieAtual.getTitle() + " avaliado com sucesso!", Alert.AlertType.CONFIRMATION);
+            }catch (IllegalArgumentException e) {
+                showAlert("Avaliação inválida", e.getMessage(), Alert.AlertType.ERROR );
+            }
+        }
+    }
+
+    public void limparCampos() {
+        notaField.clear();
+        comentField.clear();
+        quandoLeuField.clear();
+    }
 
     @FXML
     private void handleVoltarAvaliacao(){
@@ -105,8 +200,4 @@ public class EvaluationController implements Initializable {
             trocarScene("Avaliar-serie");
         }
     }
-
-
-
-
 }

@@ -239,4 +239,8 @@ public class MemoryManagement {
     public void deleteMedia(Serie serie){
         series.removeIf(serie1 -> serie1.equals(serie));
     }
+
+    public List<Book> getBooks(List<Book> books){
+        return this.books;
+    }
 }
