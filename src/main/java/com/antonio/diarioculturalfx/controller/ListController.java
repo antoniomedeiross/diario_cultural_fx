@@ -65,9 +65,6 @@ public class ListController implements Initializable {
 
 
     @FXML
-
-    private ListView<Book> listViewMidias;
-
     private ListView<Media> listViewMidias;
     @FXML
     private TabPane tabPanePrincipal;

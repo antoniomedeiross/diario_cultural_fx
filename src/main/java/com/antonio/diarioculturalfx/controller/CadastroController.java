@@ -11,17 +11,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.*;
-import static com.antonio.diarioculturalfx.controller.HelloController.showAlert;
 import static com.antonio.diarioculturalfx.util.Util.*;
 
 public class CadastroController implements Initializable {
     private static String tipoCadastro;
-
-    // Adiciona efeitos nos botoes
 
     @FXML
     private Button bt_livro;
@@ -35,7 +31,7 @@ public class CadastroController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // icone voltar
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png", voltarButton);
-
+        // add efeitos nos botões
         if(bt_livro!=null && bt_filme!=null && bt_serie!=null) {
             setupHoverEffect(bt_livro);
             setupHoverEffect(bt_filme);
@@ -72,38 +68,31 @@ public class CadastroController implements Initializable {
             ArrayList<String> ondeAssistirArrayList = new ArrayList<>(ondeAssistirList);
             // cadastro das mídias
 
-            switch (tipoCadastro){
-
+            validar = switch (tipoCadastro) {
                 // livro
-                case "Livro":
-                    validar = memoryManagementController.registerMedia(
+                case "Livro" -> memoryManagementController.registerMedia(
                         nomeField.getText(), generoField.getText(), publicacaoField.getValue().getYear(),
                         autorField.getText(), editoraField.getText(), isbnField.getText(),
                         possuiField.isSelected()
-                    );
-                    break;
-
+                );
                 // filme
-                case "Filme":
-                    validar = memoryManagementController.registerMedia(nomeField.getText(), generoField.getText(),
-                            publicacaoField.getValue().getYear(), Integer.parseInt(duracaoField.getText()),
-                            diretorField.getText(), escritorField.getText(), elencoArraylist,
-                            tituloOriginalField.getText(), ondeAssistirArrayList
-                    );
-                    break;
+                case "Filme" -> memoryManagementController.registerMedia(nomeField.getText(), generoField.getText(),
+                        publicacaoField.getValue().getYear(), Integer.parseInt(duracaoField.getText()),
+                        diretorField.getText(), escritorField.getText(), elencoArraylist,
+                        tituloOriginalField.getText(), ondeAssistirArrayList
+                );
 
                 // serie
-                case "Série":
-                    validar = memoryManagementController.registerMedia(nomeField.getText(), generoField.getText(),
-                            publicacaoField.getValue().getYear(), anoEncerramentoField.getValue().getYear(), elencoArraylist,
-                            tituloOriginalField.getText(), ondeAssistirArrayList
-                    );
-                    break;
-            }
+                case "Série" -> memoryManagementController.registerMedia(nomeField.getText(), generoField.getText(),
+                        publicacaoField.getValue().getYear(), anoEncerramentoField.getValue().getYear(), elencoArraylist,
+                        tituloOriginalField.getText(), ondeAssistirArrayList
+                );
+                default -> validar;
+            };
 
             // cadastro sucesso
             if(validar.equals("Registrado com SUCESSO!") || validar.equals("Registrada com SUCESSO!")){
-                showAlert("Cadastro feito com Sucesso",  tipoCadastro + " " +validar, Alert.AlertType.CONFIRMATION);
+                showAlert("Cadastro feito com Sucesso",  tipoCadastro + " " + validar, Alert.AlertType.CONFIRMATION);
                 memoryManagementController.salvarArquivos();
                 limparCampos();
             }

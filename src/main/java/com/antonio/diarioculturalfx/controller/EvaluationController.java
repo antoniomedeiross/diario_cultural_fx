@@ -83,13 +83,6 @@ public class EvaluationController implements Initializable {
             setupHoverEffect(bt_serie);
         }
 
-
-        if (memoryManagementAvaliacao.getBooks().isEmpty()) {
-            encheMemoria(memoryManagementAvaliacao);
-        }
-        System.out.println(memoryManagementAvaliacao.getBooks().toString());
-
-
         // listagem
         if(listaLivros != null) {
             configuraListView(listaLivros, livros, livroSelecionado->{
@@ -99,11 +92,11 @@ public class EvaluationController implements Initializable {
                 quandoLeuField.setText(livroSelecionado.getReview().getWhenReadWatch());
             });
         }else if(listaFilms != null) {
-            configuraListView(listaFilms, filmes, filmsSelecionado->{
-                filmeAtual = filmsSelecionado;
-                notaField.setText(String.valueOf(filmsSelecionado.getReview().getNote()));
-                comentField.setText(filmsSelecionado.getReview().getComment());
-                quandoLeuField.setText(filmsSelecionado.getReview().getWhenReadWatch());
+            configuraListView(listaFilms, filmes, filmeSelecionado->{
+                filmeAtual = filmeSelecionado;
+                notaField.setText(String.valueOf(filmeSelecionado.getReview().getNote()));
+                comentField.setText(filmeSelecionado.getReview().getComment());
+                quandoLeuField.setText(filmeSelecionado.getReview().getWhenReadWatch());
             });
         } else if(listaSeries != null) {
             configuraListView(listaSeries, series, seriesSelecionado->{
@@ -156,17 +149,27 @@ public class EvaluationController implements Initializable {
             try {
                 evaluationService.evaluate(livroAtual, Integer.parseInt(notaField.getText()), comentField.getText(),
                         true, String.valueOf(quandoLeuField.getText()));
-                showAlert("Avaliação", "Livro: " + livroAtual.getTitle() + " avaliado com sucesso!", Alert.AlertType.CONFIRMATION);
+                showAlert("Avaliação bem sucedida", "Livro: " + livroAtual.getTitle() + " avaliado com sucesso!", Alert.AlertType.CONFIRMATION);
             }catch (IllegalArgumentException e) {
                 showAlert("Avaliação inválida", e.getMessage(), Alert.AlertType.ERROR );
             }
             limparCampos();
             listaLivros.refresh();
+        } else if(filmeAtual != null) {
+            try {
+                evaluationService.evaluate(filmeAtual, Integer.parseInt(notaField.getText()), comentField.getText(),
+                        true, String.valueOf(quandoLeuField.getText()));
+                showAlert("Avaliação bem sucedida", "Filme: " + filmeAtual.getTitle() + " avaliado com sucesso!", Alert.AlertType.CONFIRMATION);
+            }catch (IllegalArgumentException e) {
+                showAlert("Avaliação inválida", e.getMessage(), Alert.AlertType.ERROR );
+            }
+            limparCampos();
+            listaFilms.refresh();
         } else if(temporadaAtual != null) {
             try {
                 evaluationService.evaluate(temporadaAtual, Integer.parseInt(notaField.getText()),
                         comentField.getText(),true, quandoLeuField.getText(), serieAtual);
-                showAlert("Avaliação", "Temporada: " + temporadaAtual.getTitle() +" -- "+ serieAtual.getTitle() + " avaliado com sucesso!", Alert.AlertType.CONFIRMATION);
+                showAlert("Avaliação", temporadaAtual.getTitle() +" -- "+ serieAtual.getTitle() + " avaliado com sucesso!", Alert.AlertType.CONFIRMATION);
             }catch (IllegalArgumentException e) {
                 showAlert("Avaliação inválida", e.getMessage(), Alert.AlertType.ERROR );
             }

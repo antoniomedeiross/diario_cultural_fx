@@ -2,16 +2,8 @@ package com.antonio.diarioculturalfx.controller;
 
 
 import com.antonio.diarioculturalfx.model.*;
-import javafx.fxml.FXML;
-//
-
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import com.antonio.diarioculturalfx.services.MemoryManagementService;
-import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +18,7 @@ public class MemoryManagementController {
 
     /**
      * Construtor
-     * @param memoryManagement
+     * @param memoryManagement ponteiro do memorymanagement
      */
     public MemoryManagementController(MemoryManagement memoryManagement) {
         this.memoryManagement = memoryManagement;
@@ -36,14 +28,14 @@ public class MemoryManagementController {
 
     /**
      * Resgistra um livros
-     * @param title
-     * @param gender
-     * @param yearReleased
-     * @param author
-     * @param publisher
-     * @param isbn
-     * @param haveBook
-     * @return
+     * @param title titulo
+     * @param gender genero
+     * @param yearReleased ano de lancamento
+     * @param author autor
+     * @param publisher editora
+     * @param isbn isbn
+     * @param haveBook possui
+     * @return resultado
      */
     public String registerMedia(String title, String gender, int yearReleased, String author,
         String publisher, String isbn, boolean haveBook){
@@ -64,16 +56,16 @@ public class MemoryManagementController {
 
     /**
      * Resgistra filmes
-     * @param title
-     * @param gender
-     * @param yearReleased
-     * @param duration
-     * @param director
-     * @param writer
-     * @param cast
-     * @param originalTitle
-     * @param whereWatch
-     * @return
+     * @param title titulo
+     * @param gender genero
+     * @param yearReleased ano de lancamento
+     * @param duration duração
+     * @param director diretor
+     * @param writer escritor
+     * @param cast elenco
+     * @param originalTitle titulo original
+     * @param whereWatch onde assistir
+     * @return resultado
      */
     public String registerMedia(String title, String gender, int yearReleased, int duration, String director,
         String writer, ArrayList<String> cast, String originalTitle, ArrayList<String> whereWatch) {
@@ -93,14 +85,14 @@ public class MemoryManagementController {
 
     /**
      * Registra séries
-     * @param title
-     * @param gender
-     * @param yearReleased
-     * @param yearEnding
-     * @param cast
-     * @param originalTitle
-     * @param whereWatch
-     * @return
+     * @param title titulo
+     * @param gender genero
+     * @param yearReleased ano de lançamento
+     * @param yearEnding ano de encerramento
+     * @param cast elenco
+     * @param originalTitle titulo original
+     * @param whereWatch onde assistir
+     * @return resultado
      */
     public String registerMedia(String title, String gender, int yearReleased, int yearEnding,
         ArrayList<String> cast, String originalTitle, ArrayList<String> whereWatch) {
@@ -117,11 +109,11 @@ public class MemoryManagementController {
 
     /**
      * Registra temporadas
-     * @param serie
-     * @param title
-     * @param year
-     * @param numberEpisodes
-     * @return
+     * @param serie serie
+     * @param title titulo
+     * @param year ano
+     * @param numberEpisodes numero de episodios
+     * @return resultado
      */
     public String registerSeason(Serie serie, String title, int year, int numberEpisodes) {
         MemoryManagementService memoryManagementService = new MemoryManagementService(memoryManagement);
@@ -148,7 +140,7 @@ public class MemoryManagementController {
 
     /**
      * Deleta Filme
-     * @param film
+     * @param film obj filme
      */
     public String deleteMedia(Film film){
         try{
@@ -162,7 +154,7 @@ public class MemoryManagementController {
 
     /**
      * Deleta Série
-     * @param serie
+     * @param serie obj serie
      */
     public String deleteMedia(Serie serie){
         try{
@@ -176,7 +168,7 @@ public class MemoryManagementController {
 
     /**
      * Deleta Livro
-     * @param book
+     * @param book obj livro
      */
     public String deleteMedia(Book book){
         try{
@@ -190,7 +182,7 @@ public class MemoryManagementController {
 
     /**
      * Deleta temporada
-     * @param season
+     * @param season obj temporada
      */
     public String deleteMedia(Season season, Serie serie) {
         try {
