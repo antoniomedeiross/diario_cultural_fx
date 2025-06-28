@@ -13,6 +13,8 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.antonio.diarioculturalfx.util.Util.validateRequiredFields;
+
 /**
  * Classe que representa os servições de memória
  */
@@ -23,7 +25,7 @@ public class MemoryManagementService {
 
     /**
      * Construtor
-     * @param memoryManagement
+     * @param memoryManagement instancia da memória
      */
     public MemoryManagementService(MemoryManagement memoryManagement) {
         this.memoryManagement = Objects.requireNonNull(memoryManagement, "memoryManagement cannot be null");
@@ -150,15 +152,5 @@ public class MemoryManagementService {
 
     // Metodo para validar os capos, se for nulo ele lança uma excessão
 
-    /**
-     * Avalia se os campos sao nulos
-     * @param fields
-     */
-    private void validateRequiredFields(String ... fields) {
-        for (String field : fields) {
-            if (field == null || field.trim().isEmpty()) {
-                throw new IllegalArgumentException("Campos obrigatórios não podem ser nulos ou vazios");
-            }
-        }
-    }
+
 }

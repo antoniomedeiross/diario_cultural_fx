@@ -98,23 +98,27 @@ public class DiarioCultural extends Application {
         String cssPath = "/com/antonio/diarioculturalfx/styles/global.css";
         URL cssUrl = DiarioCultural.class.getResource(cssPath);
         if (cssUrl != null) {
-            bemVindoScene.getStylesheets().add(cssUrl.toExternalForm());
-            menuPrincipalScene.getStylesheets().add(cssUrl.toExternalForm());
-            cadastroScene.getStylesheets().add(cssUrl.toExternalForm());
-            cadastroLivroScene.getStylesheets().add(cssUrl.toExternalForm());
-            cadastroFilmeScene.getStylesheets().add(cssUrl.toExternalForm());
-            cadastroSerieScene.getStylesheets().add(cssUrl.toExternalForm());
-            avaliacaoScene.getStylesheets().add(cssUrl.toExternalForm());
-            avaliacaoLivroScene.getStylesheets().add(cssUrl.toExternalForm());
-            avaliacaoFilmeScene.getStylesheets().add(cssUrl.toExternalForm());
-            avaliacaoSerieScene.getStylesheets().add(cssUrl.toExternalForm());
-            buscaScene.getStylesheets().add(cssUrl.toExternalForm());
-            listaScene.getStylesheets().add(cssUrl.toExternalForm());
+            addCssNaScene(bemVindoScene, cssUrl);
+            addCssNaScene(menuPrincipalScene, cssUrl);
+            addCssNaScene(cadastroScene, cssUrl);
+            addCssNaScene(cadastroLivroScene, cssUrl);
+            addCssNaScene(cadastroFilmeScene, cssUrl);
+            addCssNaScene(cadastroSerieScene, cssUrl);
+            addCssNaScene(avaliacaoScene, cssUrl);
+            addCssNaScene(avaliacaoLivroScene, cssUrl);
+            addCssNaScene(avaliacaoFilmeScene, cssUrl);
+            addCssNaScene(avaliacaoSerieScene, cssUrl);
+            addCssNaScene(buscaScene, cssUrl);
+            addCssNaScene(listaScene, cssUrl);
             System.out.println("CSS carregado com sucesso: " + cssUrl.toExternalForm());
         } else {
             System.err.println("ERRO: Não foi possível encontrar o arquivo CSS: " + cssPath);
             System.err.println("Verifique se o arquivo está em: src/main/resources" + cssPath);
         }
+    }
+    // carregar css
+    private void addCssNaScene(Scene cena, URL url) {
+        cena.getStylesheets().add(url.toExternalForm());
     }
 
 
@@ -151,7 +155,6 @@ public class DiarioCultural extends Application {
                 stageTroca.getIcons().clear();
                 stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/avaliacao.png"))));
                 stageTroca.setScene(avaliacaoScene);
-                stageTroca.setScene(avaliacaoScene);
                 break;
             case "Avaliar-livro":
                 stageTroca.setScene(avaliacaoLivroScene);
@@ -165,13 +168,11 @@ public class DiarioCultural extends Application {
             case "Buscar":
                 stageTroca.getIcons().clear();
                 stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/busca.png"))));
-                stageTroca.setScene(avaliacaoScene);
                 stageTroca.setScene(buscaScene);
                 break;
             case "Listar":
                 stageTroca.getIcons().clear();
                 stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/lista.png"))));
-                stageTroca.setScene(avaliacaoScene);
                 stageTroca.setScene(listaScene);
                 break;
             case "Sair":

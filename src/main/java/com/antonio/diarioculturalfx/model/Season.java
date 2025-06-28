@@ -22,6 +22,11 @@ public class Season {
         this.review = new Review(0, "Nehnhum comentário atribuído", false,"Nenhuma data atribuída");
     }
 
+    @Override
+    public String toString() {
+        return getTitle();
+    }
+
     // Getters e Setters
     public int getYear() {
         return year;

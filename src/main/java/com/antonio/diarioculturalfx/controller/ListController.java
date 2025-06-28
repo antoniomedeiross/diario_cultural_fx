@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -16,7 +15,6 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
@@ -55,16 +53,10 @@ public class ListController implements Initializable {
     private void handleVoltarMenu() {
         trocarScene("Entrar");
     }
-    @FXML
-    private void listar() {
-
-    }
 
 
     @FXML
     private ListView<Book> listViewMidias;
-    @FXML
-    private TabPane tabPanePrincipal;
 
     private final ObservableList<Book> livrosObservable = FXCollections.observableArrayList();
 

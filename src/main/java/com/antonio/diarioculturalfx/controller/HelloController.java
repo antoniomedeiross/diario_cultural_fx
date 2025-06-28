@@ -6,15 +6,19 @@ import java.io.IOException;
 import java.net.URL;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
+import static com.antonio.diarioculturalfx.util.Util.showAlert;
 
 import javafx.animation.ScaleTransition;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.util.Objects;
 import java.util.ResourceBundle;
 public class HelloController implements Initializable{
 
@@ -131,21 +135,5 @@ public class HelloController implements Initializable{
         scaleDown.play();
     }
 
-    static void showAlert(String title, String message, Alert.AlertType type) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        // Personalizar o estilo do Alert
-        alert.getDialogPane().setStyle(
-                "-fx-background-color: linear-gradient(to bottom right, #ffffff, #4a90e2, #ffffff); " +
-                        "-fx-border-color: #dee2e6; " +
-                        "-fx-border-radius: 10; " +
-                        "-fx-background-radius: 10;"+
-                        "-fx-text-alignment: center;" +
-                        "-fx-text-fill: #ffffff;"
-        );
 
-        alert.showAndWait();
-    }
 }

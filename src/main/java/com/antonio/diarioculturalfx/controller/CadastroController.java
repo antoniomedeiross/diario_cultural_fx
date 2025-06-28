@@ -12,9 +12,7 @@ import java.util.ResourceBundle;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
-import static com.antonio.diarioculturalfx.controller.HelloController.showAlert;
-import static com.antonio.diarioculturalfx.util.Util.addImgOnButton;
-import static com.antonio.diarioculturalfx.util.Util.setupHoverEffect;
+import static com.antonio.diarioculturalfx.util.Util.*;
 
 public class CadastroController implements Initializable {
     MemoryManagementController memoryManagementController = new MemoryManagementController(memoryManagement);
