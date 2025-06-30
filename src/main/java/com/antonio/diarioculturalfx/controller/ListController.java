@@ -12,13 +12,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +28,6 @@ import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
 import static com.antonio.diarioculturalfx.util.Util.*;
 import static com.antonio.diarioculturalfx.util.Util.mostrarDetalhes;
 import static com.antonio.diarioculturalfx.DiarioCultural.*;
-import static com.antonio.diarioculturalfx.util.Util.*;
 
 /**
  * Controlador de listagem
@@ -50,13 +47,12 @@ public class ListController implements Initializable {
     private Label filtroLabel;
     @FXML
     private TextField filtroField;
-
     public Button bt_busca;
     public Button voltarButton;
     public Label titulo;
 
     private final ListService listService = new ListService(memoryManagement);
-    private SearchService searchService = new SearchService(memoryManagement);
+    private final SearchService searchService = new SearchService(memoryManagement);
 
     private static String tipoLista;
     private static String tipoFiltro;
@@ -340,10 +336,10 @@ public class ListController implements Initializable {
     }
 
     @FXML
-    private ComboBox filtroCombo;
+    private ComboBox<String> filtroCombo;
 
     public void selecionarFiltro(ActionEvent actionEvent) {
-        tipoFiltro = (String) filtroCombo.getValue();
+        tipoFiltro = filtroCombo.getValue();
 
         if(tipoFiltro.equals("Menor --> Maior") || tipoFiltro.equals("Maior --> Menor")){
             setMedia(filtrarMedia(tipoFiltro, dado, determinarLista(tipoLista), tipoLista));
