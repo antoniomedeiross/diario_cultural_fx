@@ -7,7 +7,6 @@ import com.antonio.diarioculturalfx.model.Media;
 import com.antonio.diarioculturalfx.model.Serie;
 import com.antonio.diarioculturalfx.services.ListService;
 import com.antonio.diarioculturalfx.services.SearchService;
-import eu.hansolo.tilesfx.addons.Switch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,12 +16,12 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.*;
@@ -83,7 +82,6 @@ public class ListController implements Initializable {
             filtroField.setVisible(false);
             filtroField.setManaged(false);
 
-            setupHoverEffect(filtroButtom);
             filtroButtom.setManaged(false);
             filtroButtom.setVisible(false);
         }
@@ -178,6 +176,8 @@ public class ListController implements Initializable {
                 new Label("Ano que Leu: " + livro.getReview().getWhenReadWatch()),
                 new Label("Comentários: " + "\n\t" + livro.getReview().getComment())
         );
+
+        adicionarBotoes(livro);
     }
 
     private void abrirDetalhes(Film filme){
@@ -221,6 +221,8 @@ public class ListController implements Initializable {
                 new Label("Ano que Viu: " + filme.getReview().getWhenReadWatch()),
                 new Label("Comentários: " + "\n\t" + filme.getReview().getComment())
         );
+
+        adicionarBotoes(filme);
     }
 
     private void abrirDetalhes(Serie serie){
@@ -262,6 +264,8 @@ public class ListController implements Initializable {
                 new Label("Ano que Viu: " + serie.getReview().getWhenReadWatch()),
                 new Label("Comentários: " + "\n\t" + serie.getReview().getComment())
         );
+
+        adicionarBotoes(serie);
     }
 
     private ArrayList<? extends Media> determinarLista(String tipo){
@@ -340,6 +344,13 @@ public class ListController implements Initializable {
 
         if(tipoFiltro.equals("Menor --> Maior") || tipoFiltro.equals("Maior --> Menor")){
             setPessoas(filtrarMedia(tipoFiltro, dado, determinarLista(tipoLista), tipoLista));
+
+            filtroLabel.setVisible(false);
+            filtroField.setVisible(false);
+            filtroField.setManaged(false);
+
+            filtroButtom.setManaged(false);
+            filtroButtom.setVisible(false);
         } else{
             filtroLabel.setText(tipoFiltro + ": ");
             filtroLabel.setVisible(true);
@@ -351,9 +362,66 @@ public class ListController implements Initializable {
     }
 
     public void aplicarFiltro(ActionEvent actionEvent) {
-
-        // fazer validação do ano
         // tem algo de errado com a ordenação de série
-        setPessoas(filtrarMedia(tipoFiltro, filtroField.getText(), determinarLista(tipoLista), tipoLista));
+
+        if(tipoFiltro.equals("Ano")){
+            if(!isNumeric(filtroField.getText())){
+                showAlert("Erro na Validação", "Ano inválido", Alert.AlertType.ERROR);
+            } else if (!validarAno(Integer.parseInt(filtroField.getText()))) {
+                showAlert("Erro na Validação", "Ano inválido", Alert.AlertType.ERROR);
+            } else{
+                setPessoas(filtrarMedia(tipoFiltro, filtroField.getText(), determinarLista(tipoLista), tipoLista));
+                dado = filtroField.getText();
+            }
+        }else {
+            setPessoas(filtrarMedia(tipoFiltro, filtroField.getText(), determinarLista(tipoLista), tipoLista));
+            dado = filtroField.getText();
+        }
+    }
+
+    private <T extends Media> void adicionarBotoes(T media){
+        Pane espaco = new Pane();
+
+        Button editar = new Button("Editar");
+
+        Button excluir = new Button("Excluir");
+        excluir.setOnAction(e -> {deletarMidia(media);});
+
+        HBox botoesBox = new HBox(5);
+        botoesBox.getChildren().addAll(editar, excluir);
+
+        Pane botoesContainer = new Pane(botoesBox);
+
+        botoesBox.layoutXProperty().bind(
+                botoesContainer.widthProperty().subtract(botoesBox.widthProperty()).subtract(10)
+        );
+        botoesBox.layoutYProperty().bind(
+                botoesContainer.heightProperty().subtract(botoesBox.heightProperty()).subtract(10)
+        );
+
+        detalhesBox.getChildren().addAll(espaco, botoesContainer);
+
+    }
+
+    private <T extends Media> void deletarMidia(T media){
+        String sucesso = "";
+
+        if(media instanceof Book book){
+            sucesso = memoryManagementController.deleteMedia(book);
+        } else if(media instanceof Film film){
+            sucesso = memoryManagementController.deleteMedia(film);
+        } else if(media instanceof Serie serie){
+            sucesso = memoryManagementController.deleteMedia(serie);
+        }
+
+        System.out.println(sucesso);
+        if(sucesso.equals("Deletado com SUCESSO") || sucesso.equals("Deletada com SUCESSO")){
+            showAlert("Deleção feita com sucesso",  tipoLista + " " + sucesso, Alert.AlertType.CONFIRMATION);
+            memoryManagementController.salvarArquivos();
+            limparCampos();
+            listViewMidias.getItems().remove(media);
+        } else {
+            showAlert("Erro ao deletar", sucesso, Alert.AlertType.ERROR);
+        }
     }
 }

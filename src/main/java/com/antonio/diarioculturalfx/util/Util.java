@@ -12,6 +12,7 @@ import javafx.util.Duration;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Util {
@@ -112,5 +113,10 @@ public class Util {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public static boolean validarAno(int ano){
+        Matcher matcher = pattern.matcher(String.valueOf(ano));
+        return matcher.matches();
     }
 }
