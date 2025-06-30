@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.SearchController">
-    <VBox styleClass="container" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
+<VBox  alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.antonio.diarioculturalfx.controller.EditController" styleClass="div_main">
+    <VBox alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20" styleClass="container">
         <HBox prefHeight="0.0" prefWidth="1000.0">
             <!-- Botão voltar no canto esquerdo -->
             <Button fx:id="voltarButton" onAction="#handleVoltarMenu" styleClass="botao-voltar" />
@@ -19,12 +21,9 @@
             <Region prefHeight="30" prefWidth="62" />
         </HBox>
 
-        <Label styleClass="subtitulo" text="BUSCAR MÍDIAS" />
+        <Label styleClass="subtitulo" text="EDITAR MÍDIAS" />
 
-        <HBox alignment="CENTER">
-            <Button fx:id="bt_busca" styleClass="botao" onAction="#buscar" text="Série" />
 
-        </HBox>
 
         <Region VBox.vgrow="ALWAYS"/>
     </VBox>

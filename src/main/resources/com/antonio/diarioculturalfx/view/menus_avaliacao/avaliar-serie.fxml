@@ -25,7 +25,7 @@
 
         <BorderPane fx:id="root">
             <left>
-                <VBox>
+                <VBox prefWidth="300">
                     <Label text="Selecione a série" styleClass="subtitulo"/>
                     <ListView fx:id="listaSeries" prefWidth="200"/>
                 </VBox>
@@ -38,10 +38,10 @@
                     <TextField fx:id="quandoLeuField"/>
                     <Label text="Comentário:"/>
                     <TextArea fx:id="comentField"/>
-                    <Button text="Salvar" onAction="#salvarProduto" styleClass="botao"/>
+                    <Button text="Salvar" onAction="#salvarProduto" styleClass="botao-menor"/>
 
                     <BorderPane.margin>
-                        <Insets left="10"/>
+                        <Insets left="10" right="10"/>
                     </BorderPane.margin>
                 </VBox>
             </center>

@@ -1,10 +1,13 @@
 package com.antonio.diarioculturalfx;
 
+import com.antonio.diarioculturalfx.controller.EditController;
 import com.antonio.diarioculturalfx.controller.MemoryManagementController;
+import com.antonio.diarioculturalfx.controller.SearchController;
 import com.antonio.diarioculturalfx.model.Media;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -125,7 +128,7 @@ public class DiarioCultural extends Application {
         }
     }
     // carregar css
-    private void addCssNaScene(Scene cena, URL url) {
+    private static void addCssNaScene(Scene cena, URL url) {
         cena.getStylesheets().add(url.toExternalForm());
     }
 
@@ -173,6 +176,7 @@ public class DiarioCultural extends Application {
             case "Avaliar-serie":
                 stageTroca.setScene(avaliacaoSerieScene);
                 break;
+
             case "Buscar":
                 stageTroca.getIcons().clear();
                 stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/busca.png"))));
@@ -187,4 +191,27 @@ public class DiarioCultural extends Application {
                 stageTroca.close();
         }
     }
+
+    public static void carregarTelaDeEdicao(Media mediaSelecionada) {
+        try {
+            FXMLLoader loader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_edicao/edit.fxml"));
+            Parent root = loader.load();
+
+            EditController controller = loader.getController();
+            controller.setMediaParaEditar(mediaSelecionada);
+            stageTroca.getIcons().clear();
+            stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/edit.png"))));
+            Scene sceneEdit = new Scene(root);
+            String cssPath = "/com/antonio/diarioculturalfx/styles/global.css";
+            URL cssCaminho = DiarioCultural.class.getResource(cssPath);
+            assert cssCaminho != null;
+            addCssNaScene(sceneEdit, cssCaminho);
+            stageTroca.setScene(sceneEdit);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

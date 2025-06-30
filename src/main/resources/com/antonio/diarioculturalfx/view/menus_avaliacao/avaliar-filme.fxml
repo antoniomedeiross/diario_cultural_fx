@@ -23,20 +23,20 @@
 
         <BorderPane fx:id="root">
             <left>
-                <VBox>
+                <VBox prefWidth="300">
                     <Label text="Selecione o filme" styleClass="subtitulo"/>
                     <ListView fx:id="listaFilms" prefWidth="200"/>
                 </VBox>
             </left>
             <center>
-                <VBox fx:id="campoAvaliacao" spacing="10" >
+                <VBox fx:id="campoAvaliacao" spacing="10" styleClass="detalhes-box">
                     <Label text="Nota:" />
                     <TextField fx:id="notaField"/>
                     <Label text="Ano de leitura:"/>
                     <TextField fx:id="quandoLeuField"/>
                     <Label text="Comentário:"/>
                     <TextArea fx:id="comentField"/>
-                    <Button text="Salvar" onAction="#salvarProduto" styleClass="botao"/>
+                    <Button text="Salvar" onAction="#salvarProduto" styleClass="botao-menor"/>
 
                     <BorderPane.margin>
                         <Insets left="10"/>

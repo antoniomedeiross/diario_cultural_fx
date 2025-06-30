@@ -23,8 +23,8 @@ import java.util.ResourceBundle;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
-import static com.antonio.diarioculturalfx.util.Util.addImgOnButton;
-import static com.antonio.diarioculturalfx.util.Util.setupHoverEffect;
+import static com.antonio.diarioculturalfx.util.Util.*;
+import static com.antonio.diarioculturalfx.util.Util.mostrarDetalhes;
 
 /**
  * Controlador de listagem
@@ -34,21 +34,19 @@ public class ListController implements Initializable {
     public Button voltarButton;
     public Label titulo;
 
-    private ListService listService = new ListService(memoryManagement);
+    private final ListService listService = new ListService(memoryManagement);
 
-    private List<Book> listaBooks = new ArrayList<>();
-    private List<Film> listaFilms = new ArrayList<>();
-    private List<Serie> listaSeries = new ArrayList<>();
 
     public BorderPane root;
+    public VBox detalhesBoxContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listaBooks = listService.listBooks();
-        listaFilms = listService.listFilms();
-        listaSeries = listService.listSeries();
+        List<Book> listaBooks = listService.listBooks();
+        List<Film> listaFilms = listService.listFilms();
+        List<Serie> listaSeries = listService.listSeries();
 
-        setPessoas(listaFilms); // tenho que fazer o tratamento para determinar a lista que será jogada como parâmetro
+        setMedia(listaFilms); // tenho que fazer o tratamento para determinar a lista que será jogada como parâmetro
 
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
         if(bt_busca != null ) {
@@ -71,41 +69,38 @@ public class ListController implements Initializable {
 
     private final ObservableList<Media> mediaObservable = FXCollections.observableArrayList();
 
-    public void setPessoas(List<? extends Media> listaDePessoas) {
-        mediaObservable.setAll(listaDePessoas);
+    public void setMedia(List<? extends Media> listaDeMedia) {
+        mediaObservable.setAll(listaDeMedia);
         listViewMidias.setItems(mediaObservable);
 
         listViewMidias.setCellFactory(param -> new ListCell<>() {
             @Override
-            protected void updateItem(Media pessoa, boolean empty) {
-                super.updateItem(pessoa, empty);
+            protected void updateItem(Media media, boolean empty) {
+                super.updateItem(media, empty);
 
-                if (empty || pessoa == null) {
+                if (empty || media == null) {
                     setText(null);
                     setGraphic(null);
                 } else {
-                    Label nomeLabel = new Label(pessoa.getTitle());
-                    nomeLabel.setStyle("-fx-text-fill: white;");
-                    Button verMaisButton = new Button("Ver mais");
-                    verMaisButton.getStyleClass().add("botao-ver-mais");
-
-                    verMaisButton.setOnAction(e -> {
-                        if(pessoa instanceof Book book){
-                            abrirDetalhes(book);
-                        } else if (pessoa instanceof Film film) {
-                            abrirDetalhes(film);
-                        } else if (pessoa instanceof Serie serie) {
-                            abrirDetalhes(serie);
-                        } // instanceof para a sobrecarga
-                    });
-
-                    HBox hbox = new HBox(10, nomeLabel, verMaisButton);
-                    hbox.getStyleClass().add("list-cell-hbox");
-                    hbox.setAlignment(Pos.CENTER_LEFT);
-                    setGraphic(hbox);
+                    Label nomeLabel = new Label(media.getTitle());
+                    setGraphic(nomeLabel);
                 }
             }
         });
+
+        // Listener da lista
+        listViewMidias.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                detalhesBoxContainer.setVisible(true);
+                switch (newVal) {
+                    case Book book -> mostrarDetalhes(book, detalhesBox);
+                    case Film film -> mostrarDetalhes(film, detalhesBox);
+                    case Serie serie -> mostrarDetalhes(serie, detalhesBox);
+                    default -> {}
+                }
+            }
+        });
+
     }
 
     @FXML
@@ -113,7 +108,7 @@ public class ListController implements Initializable {
 
     private void abrirDetalhes(Book livro) {
         detalhesBox.getChildren().clear(); // limpa conteúdo anterior
-
+        detalhesBoxContainer.setVisible(true);
         detalhesBox.getChildren().addAll(
                 new Label("Título: " + livro.getTitle()),
                 new Label("Gênero: " + livro.getGender()),
@@ -127,25 +122,25 @@ public class ListController implements Initializable {
 
     private void abrirDetalhes(Film filme){
         detalhesBox.getChildren().clear(); // limpa conteúdo anterior
-
-        String atores;
-        String ondeAssistir;
+        detalhesBoxContainer.setVisible(true);
+        StringBuilder atores;
+        StringBuilder ondeAssistir;
 
         if (filme.getCast().isEmpty()){
-            atores = "Nenhum ator cadastrado";
+            atores = new StringBuilder("Nenhum ator cadastrado");
         } else{
-            atores = "\n";
+            atores = new StringBuilder("\n");
             for(String ator : filme.getCast()){
-                atores += "\t" + ator + "\n";
+                atores.append("\t").append(ator).append("\n");
             }
         }
 
         if (filme.getWhereWatch().isEmpty()){
-            ondeAssistir = "Nenhum lugar cadastrado";
+            ondeAssistir = new StringBuilder("Nenhum lugar cadastrado");
         } else{
-            ondeAssistir = "\n";
+            ondeAssistir = new StringBuilder("\n");
             for(String lugar : filme.getWhereWatch()){
-                ondeAssistir += "\t" + lugar + "\n";
+                ondeAssistir.append("\t").append(lugar).append("\n");
             }
         }
         detalhesBox.getChildren().addAll(
@@ -163,25 +158,25 @@ public class ListController implements Initializable {
 
     private void abrirDetalhes(Serie serie){
         detalhesBox.getChildren().clear(); // limpa conteúdo anterior
-
-        String atores;
-        String ondeAssistir;
+        detalhesBoxContainer.setVisible(true);
+        StringBuilder atores;
+        StringBuilder ondeAssistir;
 
         if (serie.getCast().isEmpty()){
-            atores = "Nenhum ator cadastrado";
+            atores = new StringBuilder("Nenhum ator cadastrado");
         } else{
-            atores = "\n";
+            atores = new StringBuilder("\n");
             for(String ator : serie.getCast()){
-                atores += "\t" + ator + "\n";
+                atores.append("\t").append(ator).append("\n");
             }
         }
 
         if (serie.getWhereWatch().isEmpty()){
-            ondeAssistir = "Nenhum lugar cadastrado";
+            ondeAssistir = new StringBuilder("Nenhum lugar cadastrado");
         } else{
-            ondeAssistir = "\n";
+            ondeAssistir = new StringBuilder("\n");
             for(String lugar : serie.getWhereWatch()){
-                ondeAssistir += "\t" + lugar + "\n";
+                ondeAssistir.append("\t").append(lugar).append("\n");
             }
         }
         detalhesBox.getChildren().addAll(

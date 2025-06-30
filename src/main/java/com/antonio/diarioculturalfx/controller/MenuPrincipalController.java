@@ -47,7 +47,6 @@ public class MenuPrincipalController implements  Initializable {
     protected void onListarButtonClick() { trocarScene("Listar"); }
     @FXML
     protected void onBuscarButtonClick() { trocarScene("Buscar"); }
-
     // Sai da aplicação
     @FXML
     protected void onSairButtonClick() {

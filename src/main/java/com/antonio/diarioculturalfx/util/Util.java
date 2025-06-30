@@ -1,11 +1,16 @@
 package com.antonio.diarioculturalfx.util;
 
 import com.antonio.diarioculturalfx.DiarioCultural;
+import com.antonio.diarioculturalfx.model.Book;
+import com.antonio.diarioculturalfx.model.Film;
+import com.antonio.diarioculturalfx.model.Serie;
 import javafx.animation.ScaleTransition;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -112,5 +117,76 @@ public class Util {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public static void mostrarDetalhes(Book livro, VBox detalhesBox) {
+        detalhesBox.getChildren().clear();
+        detalhesBox.getChildren().addAll(
+                new Label("Título: " + livro.getTitle()),
+                new Label("Gênero: " + livro.getGender()),
+                new Label("Ano de Lançamento: " + livro.getYearReleased()),
+                new Label("Autor: " + livro.getAuthor()),
+                new Label("Editora: " + livro.getPublisher()),
+                new Label("ISBN: " + livro.getIsbn()),
+                new Label("Disponível: " + (livro.isHaveBook() ? "Sim" : "Não"))
+        );
+    }
+
+    public static void mostrarDetalhes(Film filme, VBox detalhesBox) {
+        detalhesBox.getChildren().clear();
+
+        StringBuilder atores = new StringBuilder(
+                filme.getCast().isEmpty() ? "Nenhum ator cadastrado" : "\n"
+        );
+        for (String ator : filme.getCast()) {
+            atores.append("\t").append(ator).append("\n");
+        }
+
+        StringBuilder ondeAssistir = new StringBuilder(
+                filme.getWhereWatch().isEmpty() ? "Nenhum lugar cadastrado" : "\n"
+        );
+        for (String lugar : filme.getWhereWatch()) {
+            ondeAssistir.append("\t").append(lugar).append("\n");
+        }
+
+        detalhesBox.getChildren().addAll(
+                new Label("Título: " + filme.getTitle()),
+                new Label("Título Original: " + filme.getOriginalTitle()),
+                new Label("Gênero: " + filme.getGender()),
+                new Label("Ano de Lançamento: " + filme.getYearReleased()),
+                new Label("Diretor: " + filme.getDirector()),
+                new Label("Roteirista: " + filme.getWriter()),
+                new Label("Duração: " + filme.getDuration() + " Minutos"),
+                new Label("Elenco: " + atores),
+                new Label("Onde assistir: " + ondeAssistir)
+        );
+    }
+
+    public static void mostrarDetalhes(Serie serie, VBox detalhesBox) {
+        detalhesBox.getChildren().clear();
+
+        StringBuilder atores = new StringBuilder(
+                serie.getCast().isEmpty() ? "Nenhum ator cadastrado" : "\n"
+        );
+        for (String ator : serie.getCast()) {
+            atores.append("\t").append(ator).append("\n");
+        }
+
+        StringBuilder ondeAssistir = new StringBuilder(
+                serie.getWhereWatch().isEmpty() ? "Nenhum lugar cadastrado" : "\n"
+        );
+        for (String lugar : serie.getWhereWatch()) {
+            ondeAssistir.append("\t").append(lugar).append("\n");
+        }
+
+        detalhesBox.getChildren().addAll(
+                new Label("Título: " + serie.getTitle()),
+                new Label("Título Original: " + serie.getOriginalTitle()),
+                new Label("Gênero: " + serie.getGender()),
+                new Label("Ano de Lançamento: " + serie.getYearReleased()),
+                new Label("Ano de Encerramento: " + serie.getYearEnding()),
+                new Label("Elenco: " + atores),
+                new Label("Onde assistir: " + ondeAssistir)
+        );
     }
 }

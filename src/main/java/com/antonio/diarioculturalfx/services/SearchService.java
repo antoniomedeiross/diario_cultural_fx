@@ -4,6 +4,7 @@ import com.antonio.diarioculturalfx.model.Book;
 import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Serie;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
+import com.antonio.diarioculturalfx.util.Util;
 
 import java.util.ArrayList;
 import java.util.Objects;

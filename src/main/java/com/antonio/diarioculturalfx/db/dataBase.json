@@ -175,32 +175,25 @@
       "gender": "ee",
       "yearReleased": 2025.0,
       "type": "livro"
-    }
-  ],
-  "filmes": [
+    },
     {
-      "duration": 199.0,
-      "director": "eiosoih",
-      "writer": "sddisd",
-      "cast": [
-        "tesff"
-      ],
-      "originalTitle": "siohisd",
-      "whereWatch": [
-        "gfdf"
-      ],
-      "watched": false,
-      "title": "4kiei",
+      "author": "autor",
+      "publisher": "editora",
+      "isbn": "isbn",
+      "haveBook": false,
+      "title": "titulo",
       "review": {
         "note": 0.0,
         "comment": "Nehnhum comentário atribuído",
         "readWatch": false,
         "whenReadWatch": "Nenhuma data atribuída"
       },
-      "gender": "eioeie",
+      "gender": "genero",
       "yearReleased": 2025.0,
-      "type": "filme"
-    },
+      "type": "livro"
+    }
+  ],
+  "filmes": [
     {
       "duration": 148.0,
       "director": "Christopher Nolan",
@@ -416,6 +409,29 @@
       },
       "gender": "Ação",
       "yearReleased": 2015.0,
+      "type": "filme"
+    },
+    {
+      "duration": 199.0,
+      "director": "eiosoih",
+      "writer": "sddisd",
+      "cast": [
+        "tesff"
+      ],
+      "originalTitle": "siohisd",
+      "whereWatch": [
+        "gfdf"
+      ],
+      "watched": false,
+      "title": "4kiei",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "eioeie",
+      "yearReleased": 2025.0,
       "type": "filme"
     },
     {
