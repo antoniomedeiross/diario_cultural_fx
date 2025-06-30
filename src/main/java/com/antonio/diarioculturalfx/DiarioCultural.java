@@ -36,6 +36,7 @@ public class DiarioCultural extends Application {
     private static Scene avaliacaoSerieScene;
     private static Scene buscaScene;
     private static Scene listaScene;
+    private static Scene listaTipoScene;
 
 
     // metodo start do javaFx
@@ -96,7 +97,10 @@ public class DiarioCultural extends Application {
 
         FXMLLoader listarLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_listagem/listar.fxml"));
         listaScene = new Scene(listarLoader.load(), 1280, 720);
+        listaScene.setUserData(listarLoader.getController());
 
+        FXMLLoader listarTipoLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_listagem/listar-tipo.fxml"));
+        listaTipoScene = new Scene(listarTipoLoader.load(), 1280, 720);
 
     }
 
@@ -121,6 +125,7 @@ public class DiarioCultural extends Application {
             addCssNaScene(avaliacaoSerieScene, cssUrl);
             addCssNaScene(buscaScene, cssUrl);
             addCssNaScene(listaScene, cssUrl);
+            addCssNaScene(listaTipoScene, cssUrl);
             System.out.println("CSS carregado com sucesso: " + cssUrl.toExternalForm());
         } else {
             System.err.println("ERRO: Não foi possível encontrar o arquivo CSS: " + cssPath);
@@ -187,6 +192,11 @@ public class DiarioCultural extends Application {
                 stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/lista.png"))));
                 stageTroca.setScene(listaScene);
                 break;
+            case "Listar-tipo":
+                stageTroca.getIcons().clear();
+                stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/lista.png"))));
+                stageTroca.setScene(listaTipoScene);
+                break;
             case "Sair":
                 stageTroca.close();
         }
@@ -214,4 +224,5 @@ public class DiarioCultural extends Application {
         }
     }
 
+    public static Scene getListaScene(){return listaScene;}
 }

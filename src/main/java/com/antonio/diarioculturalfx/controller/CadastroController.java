@@ -213,11 +213,13 @@ public class CadastroController implements Initializable {
     // Volta a tela anterior
     @FXML
     private void handleVoltarCadastro(){
+        limparCampos();
         trocarScene("Cadastro");
     }
     // Voltar menu
     @FXML
     private void handleVoltarMenu() {
+        limparCampos();
         trocarScene("Entrar");
     }
 
