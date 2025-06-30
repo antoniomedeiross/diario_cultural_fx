@@ -149,7 +149,7 @@ public class MemoryManagementController {
             return "Tentativa de deletar filme Falho\n" + e.getMessage();
         }
 
-        return "Filme deletado com SUCESSO";
+        return "Deletado com SUCESSO";
     }
 
     /**
@@ -163,7 +163,7 @@ public class MemoryManagementController {
             return "Tentativa de deletar série Falho\n" + e.getMessage();
         }
 
-        return "Série deletada com SUCESSO";
+        return "Deletada com SUCESSO";
     }
 
     /**
@@ -177,7 +177,7 @@ public class MemoryManagementController {
             return "Tentativa de deletar livro Falho\n" + e.getMessage();
         }
 
-        return "Livro deletado com SUCESSO";
+        return "Deletado com SUCESSO";
     }
 
     /**
@@ -191,7 +191,7 @@ public class MemoryManagementController {
             return "Tentativa de deletar Temporada Falho\n" + e.getMessage();
         }
 
-        return "Temporada deletada com SUCESSO";
+        return "Deletada com SUCESSO";
     }
 
     public Map<String, List<Media>> loadDataBase(File arq) {
