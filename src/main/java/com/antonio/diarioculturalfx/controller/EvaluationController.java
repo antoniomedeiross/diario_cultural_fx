@@ -180,10 +180,22 @@ public class EvaluationController implements Initializable {
         notaField.clear();
         comentField.clear();
         quandoLeuField.clear();
+
+        if(listaLivros != null) {
+            listaLivros.getSelectionModel().clearSelection();
+        }else if(listaFilms != null) {
+            listaFilms.getSelectionModel().clearSelection();
+        } else if(listaSeries != null) {
+            listaSeries.getSelectionModel().clearSelection();
+
+            listaTemporadas.getSelectionModel().clearSelection();
+
+        }
     }
 
     @FXML
     private void handleVoltarAvaliacao(){
+        limparCampos();
         trocarScene("Avaliar");
     }
     // Voltar menu
