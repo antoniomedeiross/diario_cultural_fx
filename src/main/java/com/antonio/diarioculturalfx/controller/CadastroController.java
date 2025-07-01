@@ -219,7 +219,6 @@ public class CadastroController implements Initializable {
     // Voltar menu
     @FXML
     private void handleVoltarMenu() {
-        limparCampos();
         trocarScene("Entrar");
     }
 
@@ -247,7 +246,6 @@ public class CadastroController implements Initializable {
 
     // limpa os campos
     void limparCampos(){
-
         switch (tipoCadastro){
             case "Livro":
                 nomeField.clear();

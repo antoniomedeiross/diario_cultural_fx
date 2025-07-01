@@ -71,7 +71,7 @@
 /* Botão "Entrar" */
 .botao {
     -fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec);
-    -fx-background-radius: 25;
+    -fx-background-radius: 15;
     -fx-padding: 15 40;
     -fx-cursor: hand;
     -fx-font-weight: bold;
@@ -82,7 +82,7 @@
 
 .botao-menor {
     -fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec);
-    -fx-background-radius: 25;
+    -fx-background-radius: 15;
     -fx-padding: 15 40;
     -fx-cursor: hand;
     -fx-font-weight: bold;
@@ -90,6 +90,17 @@
     -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
     -fx-text-fill: white;
 }
+.botao-menor-delet {
+    -fx-background-color: linear-gradient(to right, #f84d63, #e0386a);
+    -fx-background-radius: 15;
+    -fx-padding: 15 40;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
+    -fx-text-fill: white;
+}
+
 
 .botao-voltar {
     -fx-background-color: transparent;
@@ -231,6 +242,8 @@ CheckBox:hover{
 
 
 .combo-box {
+    -fx-max-width: 200;
+    -fx-pref-width: 150;
     -fx-background-color: linear-gradient(to right, #4A90E2, #60B4EC);
     -fx-text-fill: white;
     -fx-font-weight: bold;
@@ -264,4 +277,7 @@ CheckBox:hover{
 
 .combo-box .arrow {
     -fx-background-color: white;
+}
+
+.vbox-resultado {
 }

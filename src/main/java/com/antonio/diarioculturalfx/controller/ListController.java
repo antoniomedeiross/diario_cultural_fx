@@ -26,8 +26,8 @@ import java.util.ResourceBundle;
 import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
 import static com.antonio.diarioculturalfx.util.Util.*;
-import static com.antonio.diarioculturalfx.util.Util.mostrarDetalhes;
 import static com.antonio.diarioculturalfx.DiarioCultural.*;
+
 
 /**
  * Controlador de listagem
@@ -50,6 +50,7 @@ public class ListController implements Initializable {
     public Button bt_busca;
     public Button voltarButton;
     public Label titulo;
+    private Media mediaSelecionada;
 
     private final ListService listService = new ListService(memoryManagement);
     private final SearchService searchService = new SearchService(memoryManagement);
@@ -61,6 +62,13 @@ public class ListController implements Initializable {
     private List<Book> listaBooks = new ArrayList<>();
     private List<Film> listaFilms = new ArrayList<>();
     private List<Serie> listaSeries = new ArrayList<>();
+
+    @FXML
+    private ListView<Media> listViewMidias ;
+    @FXML
+    private TabPane tabPanePrincipal;
+
+    private final ObservableList<Media> mediaObservable = FXCollections.observableArrayList();
 
     public BorderPane root;
 
@@ -109,13 +117,6 @@ public class ListController implements Initializable {
     }
 
 
-    @FXML
-    private ListView<Media> listViewMidias ;
-    @FXML
-    private TabPane tabPanePrincipal;
-
-    private final ObservableList<Media> mediaObservable = FXCollections.observableArrayList();
-
     public void setMedia(List<? extends Media> listaDeMedia) {
         mediaObservable.setAll(listaDeMedia);
         listViewMidias.setItems(mediaObservable);
@@ -138,11 +139,12 @@ public class ListController implements Initializable {
         // Listener da lista
         listViewMidias.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
+                mediaSelecionada = newVal;
                 detalhesBoxContainer.setVisible(true);
                 switch (newVal) {
-                    case Book book -> mostrarDetalhes(book, detalhesBox);
-                    case Film film -> mostrarDetalhes(film, detalhesBox);
-                    case Serie serie -> mostrarDetalhes(serie, detalhesBox);
+                    case Book book -> abrirDetalhes(book, detalhesBox, avaliacaoBox, detalhesBoxContainer);
+                    case Film film -> abrirDetalhes(film, detalhesBox, avaliacaoBox, detalhesBoxContainer);
+                    case Serie serie -> abrirDetalhes(serie, detalhesBox, avaliacaoBox, detalhesBoxContainer);
                     default -> {}
                 }
             }
@@ -156,116 +158,9 @@ public class ListController implements Initializable {
     @FXML
     private VBox avaliacaoBox;
 
-    private void abrirDetalhes(Book livro) {
-        avaliacaoBox.getChildren().clear();
-        detalhesBox.getChildren().clear(); // limpa conteúdo anterior
-        detalhesBoxContainer.setVisible(true);
-        detalhesBox.getChildren().addAll(
-                new Label("Título: " + livro.getTitle()),
-                new Label("Gênero: " + livro.getGender()),
-                new Label("Ano de Lançamento: " + livro.getYearReleased()),
-                new Label("Autor: " + livro.getAuthor()),
-                new Label("Editora: " + livro.getPublisher()),
-                new Label("ISBN: " + livro.getIsbn()),
-                new Label("Disponível: " + (livro.isHaveBook() ? "Sim" : "Não"))
-        );
 
-        avaliacaoBox.getChildren().addAll(
-                new Label("Nota: " + livro.getReview().getNote()),
-                new Label("Ano que Leu: " + livro.getReview().getWhenReadWatch()),
-                new Label("Comentários: " + "\n\t" + livro.getReview().getComment())
-        );
 
-        adicionarBotoes(livro);
-    }
 
-    private void abrirDetalhes(Film filme){
-        avaliacaoBox.getChildren().clear();
-        detalhesBox.getChildren().clear(); // limpa conteúdo anterior
-        detalhesBoxContainer.setVisible(true);
-        StringBuilder atores;
-        StringBuilder ondeAssistir;
-
-        if (filme.getCast().isEmpty()){
-            atores = new StringBuilder("Nenhum ator cadastrado");
-        } else{
-            atores = new StringBuilder("\n");
-            for(String ator : filme.getCast()){
-                atores.append("\t").append(ator).append("\n");
-            }
-        }
-
-        if (filme.getWhereWatch().isEmpty()){
-            ondeAssistir = new StringBuilder("Nenhum lugar cadastrado");
-        } else{
-            ondeAssistir = new StringBuilder("\n");
-            for(String lugar : filme.getWhereWatch()){
-                ondeAssistir.append("\t").append(lugar).append("\n");
-            }
-        }
-        detalhesBox.getChildren().addAll(
-                new Label("Título: " + filme.getTitle()),
-                new Label("Título Original: " + filme.getOriginalTitle()),
-                new Label("Gênero: " + filme.getGender()),
-                new Label("Ano de Lançamento: " + filme.getYearReleased()),
-                new Label("Diretor: " + filme.getDirector()),
-                new Label("Roteirista: " + filme.getWriter()),
-                new Label("Duração: " + filme.getDuration() + " Minutos"),
-                new Label("Elenco: " + atores),
-                new Label("Onde assitir: " + ondeAssistir)
-        );
-
-        avaliacaoBox.getChildren().addAll(
-                new Label("Nota: " + filme.getReview().getNote()),
-                new Label("Ano que Viu: " + filme.getReview().getWhenReadWatch()),
-                new Label("Comentários: " + "\n\t" + filme.getReview().getComment())
-        );
-
-        adicionarBotoes(filme);
-    }
-
-    private void abrirDetalhes(Serie serie){
-        avaliacaoBox.getChildren().clear();
-        detalhesBox.getChildren().clear(); // limpa conteúdo anterior
-        detalhesBoxContainer.setVisible(true);
-        StringBuilder atores;
-        StringBuilder ondeAssistir;
-
-        if (serie.getCast().isEmpty()){
-            atores = new StringBuilder("Nenhum ator cadastrado");
-        } else{
-            atores = new StringBuilder("\n");
-            for(String ator : serie.getCast()){
-                atores.append("\t").append(ator).append("\n");
-            }
-        }
-
-        if (serie.getWhereWatch().isEmpty()){
-            ondeAssistir = new StringBuilder("Nenhum lugar cadastrado");
-        } else{
-            ondeAssistir = new StringBuilder("\n");
-            for(String lugar : serie.getWhereWatch()){
-                ondeAssistir.append("\t").append(lugar).append("\n");
-            }
-        }
-        detalhesBox.getChildren().addAll(
-                new Label("Título: " + serie.getTitle()),
-                new Label("Título Original: " + serie.getOriginalTitle()),
-                new Label("Gênero: " + serie.getGender()),
-                new Label("Ano de Lançamento: " + serie.getYearReleased()),
-                new Label("Ano de Encerramento: " + serie.getYearEnding()),
-                new Label("Elenco: " + atores),
-                new Label("Onde assitir: " + ondeAssistir)
-        );
-
-        avaliacaoBox.getChildren().addAll(
-                new Label("Nota: " + serie.getReview().getNote()),
-                new Label("Ano que Viu: " + serie.getReview().getWhenReadWatch()),
-                new Label("Comentários: " + "\n\t" + serie.getReview().getComment())
-        );
-
-        adicionarBotoes(serie);
-    }
 
     private List<? extends Media> determinarLista(String tipo){
 
@@ -378,49 +273,33 @@ public class ListController implements Initializable {
         }
     }
 
-    private <T extends Media> void adicionarBotoes(T media){
-        Pane espaco = new Pane();
 
-        Button editar = new Button("Editar");
-
-        Button excluir = new Button("Excluir");
-        excluir.setOnAction(e -> {deletarMidia(media);});
-
-        HBox botoesBox = new HBox(5);
-        botoesBox.getChildren().addAll(editar, excluir);
-
-        Pane botoesContainer = new Pane(botoesBox);
-
-        botoesBox.layoutXProperty().bind(
-                botoesContainer.widthProperty().subtract(botoesBox.widthProperty()).subtract(10)
-        );
-        botoesBox.layoutYProperty().bind(
-                botoesContainer.heightProperty().subtract(botoesBox.heightProperty()).subtract(10)
-        );
-
-        detalhesBox.getChildren().addAll(espaco, botoesContainer);
-
+    public void editaMedia(ActionEvent actionEvent) {
     }
 
-    private <T extends Media> void deletarMidia(T media){
-        String sucesso = "";
-
-        if(media instanceof Book book){
-            sucesso = memoryManagementController.deleteMedia(book);
-        } else if(media instanceof Film film){
-            sucesso = memoryManagementController.deleteMedia(film);
-        } else if(media instanceof Serie serie){
-            sucesso = memoryManagementController.deleteMedia(serie);
-        }
-
-        System.out.println(sucesso);
-        if(sucesso.equals("Deletado com SUCESSO") || sucesso.equals("Deletada com SUCESSO")){
-            showAlert("Deleção feita com sucesso",  tipoLista + " " + sucesso, Alert.AlertType.CONFIRMATION);
-            memoryManagementController.salvarArquivos();
-            limparCampos();
-            listViewMidias.getItems().remove(media);
+    public void deletaMedia() {
+        if(mediaSelecionada != null) {
+            switch (mediaSelecionada) {
+                case Book book -> {
+                    memoryManagement.deleteMedia(book);
+                    setMedia(memoryManagement.getBooks());
+                }
+                case Film film -> {
+                    memoryManagement.deleteMedia(film);
+                    setMedia(memoryManagement.getFilms());
+                }
+                case Serie serie -> {
+                    memoryManagement.deleteMedia(serie);
+                    setMedia(memoryManagement.getSeries());
+                }
+                default -> {
+                }
+            }
+            detalhesBoxContainer.setVisible(false);
+            showAlert("Media excluida", mediaSelecionada.getTitle() + " excluido com sucesso", Alert.AlertType.CONFIRMATION);
+            mediaSelecionada=null;
         } else {
-            showAlert("Erro ao deletar", sucesso, Alert.AlertType.ERROR);
+            showAlert("Media inválida", "Selecione uma media primeiro", Alert.AlertType.ERROR);
         }
     }
 }

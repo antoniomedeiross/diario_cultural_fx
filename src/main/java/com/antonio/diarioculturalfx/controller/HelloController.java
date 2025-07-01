@@ -1,11 +1,13 @@
 package com.antonio.diarioculturalfx.controller;
 
+import com.antonio.diarioculturalfx.util.Util;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
 import java.net.URL;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
+import static com.antonio.diarioculturalfx.util.Util.setupHoverEffect;
 import static com.antonio.diarioculturalfx.util.Util.showAlert;
 
 import javafx.animation.ScaleTransition;
@@ -40,7 +42,7 @@ public class HelloController implements Initializable{
         setupCardHoverEffects();
 
         // Configurar efeito de hover para o botão
-        setupButtonHoverEffect();
+        setupHoverEffect(enterButton);
     }
 
     private void setupCardHoverEffects() {
@@ -68,25 +70,7 @@ public class HelloController implements Initializable{
     /**
      * Adicona efeitos ao passar mouse pelo botao
      */
-    private void setupButtonHoverEffect() { // Copiar para outros controllers
-        // efeito quando o mouse entra
-        enterButton.setOnMouseEntered(e -> {
-            ScaleTransition scaleIn = new ScaleTransition(Duration.millis(150), enterButton);
-            enterButton.setStyle("-fx-background-color: linear-gradient(to left, #1d8147, #2ECC71); -fx-background-radius: 25; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
-            scaleIn.setToX(1.03);
-            scaleIn.setToY(1.03);
-            scaleIn.play();
 
-        });
-        // quando mouse sai do botao retira efeito
-        enterButton.setOnMouseExited(e -> {
-            ScaleTransition scaleOut = new ScaleTransition(Duration.millis(150), enterButton);
-            enterButton.setStyle("-fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec); -fx-background-radius: 25;-fx-padding: 15 40; -fx-cursor: hand; -fx-font-size: 20");
-            scaleOut.setToX(1.0);
-            scaleOut.setToY(1.0);
-            scaleOut.play();
-        });
-    }
 
     @FXML
     private void handleMemoriesClick(MouseEvent event) {
@@ -107,7 +91,7 @@ public class HelloController implements Initializable{
     }
 
     @FXML
-    private void handleEnterButton() throws IOException {
+    private void handleEnterButton() {
         // Animação de clique no botão
         ScaleTransition scaleDown = new ScaleTransition(Duration.millis(100), enterButton);
         scaleDown.setToX(0.95);

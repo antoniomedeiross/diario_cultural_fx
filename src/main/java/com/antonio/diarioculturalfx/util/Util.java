@@ -5,11 +5,10 @@ import com.antonio.diarioculturalfx.model.Book;
 import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Serie;
 import javafx.animation.ScaleTransition;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -55,7 +54,7 @@ public class Util {
         // efeito quando o mouse entra
         botao.setOnMouseEntered(e -> {
             ScaleTransition scaleIn = new ScaleTransition(Duration.millis(150), botao);
-            botao.setStyle("-fx-background-color: linear-gradient(to left, #1d8147, #2ECC71); -fx-background-radius: 25; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
+            botao.setStyle("-fx-background-color: linear-gradient(to left, #1d8147, #2ECC71); -fx-background-radius: 15; -fx-padding: 15 40; -fx-cursor: hand; -fx-font-weight: bold; -fx-text-fill: white;");
             scaleIn.setToX(1.03);
             scaleIn.setToY(1.03);
             scaleIn.play();
@@ -64,7 +63,7 @@ public class Util {
         // quando mouse sai do botao retira efeito
         botao.setOnMouseExited(e -> {
             ScaleTransition scaleOut = new ScaleTransition(Duration.millis(150), botao);
-            botao.setStyle("-fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec); -fx-background-radius: 25;-fx-padding: 15 40; -fx-cursor: hand; -fx-font-size: 20");
+            botao.setStyle("-fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec); -fx-background-radius: 15;-fx-padding: 15 40; -fx-cursor: hand; -fx-font-size: 20");
             scaleOut.setToX(1.0);
             scaleOut.setToY(1.0);
             scaleOut.play();
@@ -195,4 +194,117 @@ public class Util {
         Matcher matcher = pattern.matcher(String.valueOf(ano));
         return matcher.matches();
     }
+
+    public static void deixaHboxtVisivel(boolean visivel, HBox... hBoxes){
+        for(HBox hb : hBoxes){
+            hb.setVisible(visivel);
+            hb.setManaged(visivel);
+        }
+    }
+
+    public static void abrirDetalhes(Film filme, VBox detalhesBox,VBox avaliacaoBox, VBox detalhesBoxContainer){
+        avaliacaoBox.getChildren().clear();
+        detalhesBox.getChildren().clear(); // limpa conteúdo anterior
+        detalhesBoxContainer.setVisible(true);
+        StringBuilder atores;
+        StringBuilder ondeAssistir;
+
+        if (filme.getCast().isEmpty()){
+            atores = new StringBuilder("Nenhum ator cadastrado");
+        } else{
+            atores = new StringBuilder("\n");
+            for(String ator : filme.getCast()){
+                atores.append("\t").append(ator).append("\n");
+            }
+        }
+
+        if (filme.getWhereWatch().isEmpty()){
+            ondeAssistir = new StringBuilder("Nenhum lugar cadastrado");
+        } else{
+            ondeAssistir = new StringBuilder("\n");
+            for(String lugar : filme.getWhereWatch()){
+                ondeAssistir.append("\t").append(lugar).append("\n");
+            }
+        }
+        detalhesBox.getChildren().addAll(
+                new Label("Título: " + filme.getTitle()),
+                new Label("Título Original: " + filme.getOriginalTitle()),
+                new Label("Gênero: " + filme.getGender()),
+                new Label("Ano de Lançamento: " + filme.getYearReleased()),
+                new Label("Diretor: " + filme.getDirector()),
+                new Label("Roteirista: " + filme.getWriter()),
+                new Label("Duração: " + filme.getDuration() + " Minutos"),
+                new Label("Elenco: " + atores),
+                new Label("Onde assitir: " + ondeAssistir)
+        );
+
+        avaliacaoBox.getChildren().addAll(
+                new Label("Nota: " + filme.getReview().getNote()),
+                new Label("Ano que Viu: " + filme.getReview().getWhenReadWatch()),
+                new Label("Comentários: " + "\n\t" + filme.getReview().getComment())
+        );
+    }
+
+    public static void abrirDetalhes(Serie serie, VBox detalhesBox,VBox avaliacaoBox, VBox detalhesBoxContainer){
+        avaliacaoBox.getChildren().clear();
+        detalhesBox.getChildren().clear(); // limpa conteúdo anterior
+        detalhesBoxContainer.setVisible(true);
+        StringBuilder atores;
+        StringBuilder ondeAssistir;
+
+        if (serie.getCast().isEmpty()){
+            atores = new StringBuilder("Nenhum ator cadastrado");
+        } else{
+            atores = new StringBuilder("\n");
+            for(String ator : serie.getCast()){
+                atores.append("\t").append(ator).append("\n");
+            }
+        }
+
+        if (serie.getWhereWatch().isEmpty()){
+            ondeAssistir = new StringBuilder("Nenhum lugar cadastrado");
+        } else{
+            ondeAssistir = new StringBuilder("\n");
+            for(String lugar : serie.getWhereWatch()){
+                ondeAssistir.append("\t").append(lugar).append("\n");
+            }
+        }
+        detalhesBox.getChildren().addAll(
+                new Label("Título: " + serie.getTitle()),
+                new Label("Título Original: " + serie.getOriginalTitle()),
+                new Label("Gênero: " + serie.getGender()),
+                new Label("Ano de Lançamento: " + serie.getYearReleased()),
+                new Label("Ano de Encerramento: " + serie.getYearEnding()),
+                new Label("Elenco: " + atores),
+                new Label("Onde assitir: " + ondeAssistir)
+        );
+
+        avaliacaoBox.getChildren().addAll(
+                new Label("Nota: " + serie.getReview().getNote()),
+                new Label("Ano que Viu: " + serie.getReview().getWhenReadWatch()),
+                new Label("Comentários: " + "\n\t" + serie.getReview().getComment())
+        );
+    }
+    public static void abrirDetalhes(Book livro, VBox detalhesBox,VBox avaliacaoBox, VBox detalhesBoxContainer) {
+        avaliacaoBox.getChildren().clear();
+        detalhesBox.getChildren().clear(); // limpa conteúdo anterior
+        detalhesBoxContainer.setVisible(true);
+        detalhesBox.getChildren().addAll(
+                new Label("Título: " + livro.getTitle()),
+                new Label("Gênero: " + livro.getGender()),
+                new Label("Ano de Lançamento: " + livro.getYearReleased()),
+                new Label("Autor: " + livro.getAuthor()),
+                new Label("Editora: " + livro.getPublisher()),
+                new Label("ISBN: " + livro.getIsbn()),
+                new Label("Disponível: " + (livro.isHaveBook() ? "Sim" : "Não"))
+        );
+
+        avaliacaoBox.getChildren().addAll(
+                new Label("Nota: " + livro.getReview().getNote()),
+                new Label("Ano que Leu: " + livro.getReview().getWhenReadWatch()),
+                new Label("Comentários: " + "\n\t" + livro.getReview().getComment())
+        );
+
+    }
+
 }
