@@ -26,7 +26,7 @@ public class EvaluationService {
         validateRequiredFields(String.valueOf(note), comment, whenReadWatch);
 
         if (note < 1 || note > 5 || media instanceof Serie) { // Se a nota não estiver no intervalo lança uma excessao
-            throw new IllegalArgumentException("Invalid Evaluation");
+            throw new IllegalArgumentException("Avaliação inválida.");
         }
         validaData(whenReadWatch);
         media.getReview().setNote(note);
@@ -49,7 +49,7 @@ public class EvaluationService {
      */
     public void evaluate(Season season, int note, String comment, boolean readWatch, String whenReadWatch, Serie serie) { // Avaliação de temporada das Series
         if (note < 1 || note > 5) { // Se a nota não estiver no intervalo lança uma excessao
-            throw new IllegalArgumentException("Invalid Evaluation");
+            throw new IllegalArgumentException("Avaliação inválida.");
         }
         validaData(whenReadWatch);
         serie.setNote(note);
@@ -63,11 +63,11 @@ public class EvaluationService {
         int actualYear = LocalDate.now().getYear();
         // Se ano de lancamento nao for no padrão 0000
         if(!matcher.matches()){
-            throw new IllegalArgumentException("Year invalid!");
+            throw new IllegalArgumentException("Ano inválido.");
         }
         // Se ano de lançamento > ano atual lança uma excessão
         if(Integer.parseInt(whenReadWatch) > actualYear){
-            throw new IllegalArgumentException("Year released cannot be greater than actual year");
+            throw new IllegalArgumentException("Ano de lançamento maior que o ano atual.");
         }
     }
 }

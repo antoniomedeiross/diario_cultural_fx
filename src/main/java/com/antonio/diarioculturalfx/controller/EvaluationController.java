@@ -17,8 +17,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
-import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
-import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
+import static com.antonio.diarioculturalfx.DiarioCultural.*;
 import static com.antonio.diarioculturalfx.util.Util.*;
 
 /**
@@ -51,6 +50,15 @@ public class EvaluationController implements Initializable {
     @FXML
     private TextField quandoLeuField;
 
+    @FXML
+    private Button addTemporadaButton;
+    @FXML
+    private TextField nomeField;
+    @FXML
+    private TextField episodiosField;
+    @FXML
+    private DatePicker anoField;
+
     private final ObservableList<Book> livros = FXCollections.observableArrayList();
     private final ObservableList<Film> filmes = FXCollections.observableArrayList();
     private final ObservableList<Serie> series = FXCollections.observableArrayList();
@@ -58,7 +66,7 @@ public class EvaluationController implements Initializable {
 
     private Book livroAtual;
     private Film filmeAtual;
-    private Serie serieAtual;
+    private static Serie serieAtual;
     private Season temporadaAtual;
 
     private final MemoryManagement memoryManagementAvaliacao = memoryManagement;
@@ -67,6 +75,7 @@ public class EvaluationController implements Initializable {
 
 
     EvaluationService evaluationService = new EvaluationService();
+
 
 
     /**
@@ -81,6 +90,11 @@ public class EvaluationController implements Initializable {
             setupHoverEffect(bt_livro);
             setupHoverEffect(bt_filme);
             setupHoverEffect(bt_serie);
+        }
+
+        if(addTemporadaButton != null){
+            addTemporadaButton.setVisible(false);
+            addTemporadaButton.setManaged(false);
         }
 
         // listagem
@@ -103,6 +117,7 @@ public class EvaluationController implements Initializable {
                 serieAtual = seriesSelecionado;
                 temporadas.setAll(seriesSelecionado.getSeasons());
                 listaTemporadas.setItems(temporadas);
+                mostrarTempButton();
 
                 listaTemporadas.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
                     temporadaAtual = newVal;
@@ -177,9 +192,12 @@ public class EvaluationController implements Initializable {
     }
 
     public void limparCampos() {
-        notaField.clear();
-        comentField.clear();
-        quandoLeuField.clear();
+
+        if(notaField != null || comentField != null || quandoLeuField != null) {
+            notaField.clear();
+            comentField.clear();
+            quandoLeuField.clear();
+        }
 
         if(listaLivros != null) {
             listaLivros.getSelectionModel().clearSelection();
@@ -189,7 +207,19 @@ public class EvaluationController implements Initializable {
             listaSeries.getSelectionModel().clearSelection();
 
             listaTemporadas.getSelectionModel().clearSelection();
+            listaTemporadas.getItems().clear();
 
+        }
+
+        if(addTemporadaButton != null){
+            addTemporadaButton.setManaged(false);
+            addTemporadaButton.setVisible(false);
+        }
+
+        if(nomeField != null || anoField != null || episodiosField != null){
+            nomeField.clear();
+            episodiosField.clear();
+            anoField.setValue(null);
         }
     }
 
@@ -204,6 +234,11 @@ public class EvaluationController implements Initializable {
         trocarScene("Entrar");
     }
 
+    @FXML
+    private void handleVoltarAvaliacaoSerie(){
+        trocarScene("Avaliar-serie");
+    }
+
 
     @FXML
     public void mudarSceneAvaliacao(ActionEvent actionEvent) {
@@ -213,6 +248,36 @@ public class EvaluationController implements Initializable {
             trocarScene("Avaliar-filme");
         } else if(actionEvent.getSource() == bt_serie) {
             trocarScene("Avaliar-serie");
+        } else if(actionEvent.getSource() == addTemporadaButton){
+            trocarScene("Add-temporada");
+            limparCampos();
+        }
+    }
+
+    @FXML
+    private void mostrarTempButton(){
+        addTemporadaButton.setVisible(true);
+        addTemporadaButton.setManaged(true);
+    }
+
+    @FXML
+    private void addTemporada(){
+        String sucesso;
+
+        if(isNumeric(episodiosField.getText())) {
+            sucesso = memoryManagementController.registerSeason(serieAtual, nomeField.getText(),
+                    anoField.getValue().getYear(), Integer.parseInt(episodiosField.getText()));
+        }else {
+            sucesso = "Tentativa de registro FALHO\nNúmero de episódios inválido.";
+        }
+
+        if(sucesso.equals("Temporada registrada com SUCESSO!")){
+            showAlert("Cadastro feito com Sucesso", sucesso, Alert.AlertType.CONFIRMATION);
+            trocarScene("Avaliar-serie");
+            limparCampos();
+            memoryManagementController.salvarArquivos();
+        }else {
+            showAlert("Erro na Validação", sucesso, Alert.AlertType.ERROR);
         }
     }
 }

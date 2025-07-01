@@ -19,7 +19,7 @@ public class Season {
         this.year = year;
         this.title = title;
         this.numberEpisodes = numberEpisodes;
-        this.review = new Review(0, "Nehnhum comentário atribuído", false,"Nenhuma data atribuída");
+        this.review = new Review(0, "Nenhum comentário atribuído", false,"Nenhuma data atribuída");
     }
 
     @Override
