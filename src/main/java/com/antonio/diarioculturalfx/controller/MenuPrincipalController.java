@@ -16,10 +16,19 @@ import java.util.ResourceBundle;
 import static com.antonio.diarioculturalfx.DiarioCultural.*;
 import static com.antonio.diarioculturalfx.util.Util.setupHoverEffect;
 
+/**
+ * Controlador do menu principal
+ */
 public class MenuPrincipalController implements  Initializable {
 
     @FXML
     private VBox div_titulo;
+
+    /**
+     * Método de inicialização
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Carrega efeitos dos botões
@@ -39,15 +48,33 @@ public class MenuPrincipalController implements  Initializable {
         }
     }
 
+    /**
+     * Leva para a tela principal de Cadastro
+     */
     @FXML
     protected void onCadastroButtonClick() { trocarScene("Cadastro"); }
+
+    /**
+     * Leva para a tela principal de Avaliação
+     */
     @FXML
     protected void onAvaliarButtonClick() { trocarScene("Avaliar"); }
+
+    /**
+     * Leva para a tela principal de Listagem
+     */
     @FXML
     protected void onListarButtonClick() { trocarScene("Listar-tipo"); }
+
+    /**
+     * Leva para a tela principal de Busca
+     */
     @FXML
     protected void onBuscarButtonClick() { trocarScene("Buscar"); }
-    // Sai da aplicação
+
+    /**
+     * Sai da aplicação
+     */
     @FXML
     protected void onSairButtonClick() {
         trocarScene("Sair");

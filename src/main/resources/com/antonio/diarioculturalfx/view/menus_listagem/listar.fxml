@@ -12,7 +12,7 @@
     <VBox fx:id="aplicarFiltro" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="10" styleClass="container">
         <HBox prefHeight="0.0" prefWidth="1000.0">
             <!-- Botão voltar no canto esquerdo -->
-            <Button fx:id="voltarButton" onAction="#handleVoltarMenu" styleClass="botao-voltar" />
+            <Button fx:id="voltarButton" onAction="#handleVoltarListar" styleClass="botao-voltar" />
             <!-- Um espaço "vazio" que cresce para empurrar o título para o centro -->
             <Region HBox.hgrow="ALWAYS" />
             <!-- Título centralizado -->

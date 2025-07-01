@@ -1,0 +1,7 @@
+module:com.antonio.diarioculturalfx
+com.antonio.diarioculturalfx
+com.antonio.diarioculturalfx.controller
+com.antonio.diarioculturalfx.model
+com.antonio.diarioculturalfx.repository
+com.antonio.diarioculturalfx.services
+com.antonio.diarioculturalfx.util

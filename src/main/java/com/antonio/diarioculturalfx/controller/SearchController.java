@@ -20,6 +20,9 @@ import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
 import static com.antonio.diarioculturalfx.util.Util.*;
 
+/**
+ * Controlador de Busca
+ */
 public class SearchController implements Initializable {
     @FXML
     public Button bt_busca;
@@ -54,7 +57,7 @@ public class SearchController implements Initializable {
     String chave;
 
     /**
-     * Metodo de inicialização
+     * Método de inicialização
      * @param location local
      * @param resources resource
      */
@@ -93,7 +96,7 @@ public class SearchController implements Initializable {
     }
 
     /**
-     * Busca as medias
+     * Busca as mídias
      */
     @FXML
     private void buscar() {
@@ -158,7 +161,7 @@ public class SearchController implements Initializable {
     }
 
     /**
-     * Adiciona as medias na lista
+     * Adiciona as mídias na lista
      */
     public void setMedia() {
         vboxSelecaoBusca.setVisible(false);
@@ -202,7 +205,7 @@ public class SearchController implements Initializable {
 
 
     /**
-     * Reseta os parametros da busca
+     * Reseta os parâmetros da busca
      */
     public void resetaBusca() {
         observableMedia.clear();
@@ -216,7 +219,7 @@ public class SearchController implements Initializable {
     }
 
     /**
-     * Edita a media seleciona
+     * Edita a mídia selecionada
      * @param actionEvent evento
      */
     public void editaMedia(ActionEvent actionEvent) {
@@ -230,7 +233,7 @@ public class SearchController implements Initializable {
     }
 
     /**
-     * Apaga a media selecionada
+     * Apaga a mídia selecionada
      */
     public void deletaMedia() {
         if(mediaSelecionada != null) {

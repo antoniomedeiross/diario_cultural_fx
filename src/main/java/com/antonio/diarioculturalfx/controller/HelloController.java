@@ -22,6 +22,10 @@ import javafx.util.Duration;
 
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+/**
+ * Controlador da tela de início
+ */
 public class HelloController implements Initializable{
 
     public ImageView imagemLivro;
@@ -39,6 +43,11 @@ public class HelloController implements Initializable{
     @FXML
     private Button enterButton;
 
+    /**
+     * Método de inicialização
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Image imgLivro = new Image(Objects.requireNonNull(getClass()
@@ -61,12 +70,19 @@ public class HelloController implements Initializable{
         setupHoverEffect(enterButton);
     }
 
+    /**
+     * Adiciona efeito de hover aos cards
+     */
     private void setupCardHoverEffects() {
         setupCardHover(card1);
         setupCardHover(card2);
         setupCardHover(card3);
     }
 
+    /**
+     * Condigura efeito de hover para uma vBox
+     * @param card
+     */
     private void setupCardHover(VBox card) {
         card.setOnMouseEntered(e -> {
             ScaleTransition scaleIn = new ScaleTransition(Duration.millis(200), card);
@@ -83,24 +99,39 @@ public class HelloController implements Initializable{
         });
     }
 
+    /**
+     * Exibe mensagem ao clicar no card
+     * @param event
+     */
     @FXML
     private void handleMemoriesClick(MouseEvent event) {
         animateCardClick(card1);
         showAlert("Preserve Memórias", "Preserve suas memórias mais especiais! 📚", Alert.AlertType.INFORMATION);
     }
 
+    /**
+     * Exibe mensagem ao clicar no card
+     * @param event
+     */
     @FXML
     private void handleExperiencesClick(MouseEvent event) {
         animateCardClick(card2);
         showAlert("Registre Experiências", "Registre experiências únicas! 📷", Alert.AlertType.INFORMATION);
     }
 
+    /**
+     * Exibe mensagem ao clicar no card
+     * @param event
+     */
     @FXML
     private void handleExploreClick(MouseEvent event) {
         animateCardClick(card3);
         showAlert("Explore Horizontes", "Explore novos horizontes! 🔍", Alert.AlertType.INFORMATION);
     }
 
+    /**
+     * Leva para o menu principal
+     */
     @FXML
     private void handleEnterButton() {
         // Animação de clique no botão
@@ -117,6 +148,11 @@ public class HelloController implements Initializable{
 
     }
 
+
+    /**
+     * Adiciona animação a uma vBox
+     * @param card
+     */
     private void animateCardClick(VBox card) {
         ScaleTransition scaleDown = new ScaleTransition(Duration.millis(100), card);
         scaleDown.setToX(0.95);

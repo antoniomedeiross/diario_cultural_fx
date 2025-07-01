@@ -62,7 +62,7 @@ public class DiarioCultural extends Application {
 
 
     /**
-     * Metodo que carrega as scenes do app
+     * Método que carrega as scenes do app
      */
     private void carregarScenes() throws IOException {
         FXMLLoader bemVindoLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/hello-view.fxml"));
@@ -138,14 +138,19 @@ public class DiarioCultural extends Application {
             System.err.println("Verifique se o arquivo está em: src/main/resources" + cssPath);
         }
     }
-    // carregar css
+
+    /**
+     * carraga css
+     * @param cena
+     * @param url
+     */
     private static void addCssNaScene(Scene cena, URL url) {
         cena.getStylesheets().add(url.toExternalForm());
     }
 
 
     /**
-     * Metodo que troca as Scenes do app
+     * Método que troca as Scenes do app
      * @param click scene destino
      */
     public static void trocarScene(String click) {
@@ -213,6 +218,10 @@ public class DiarioCultural extends Application {
 
     public static Scene getListaScene(){return listaScene;}
 
+    /**
+     * Carrega e Leva para a tela de edição
+     * @param mediaSelecionada
+     */
     public static void carregarTelaDeEdicao(Media mediaSelecionada) {
         try {
             FXMLLoader loader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_edicao/edit.fxml"));
