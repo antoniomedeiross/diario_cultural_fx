@@ -15,15 +15,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.Objects;
 import java.util.ResourceBundle;
 public class HelloController implements Initializable{
 
+    public ImageView imagemLivro;
+    public ImageView imagemBusca;
+    public ImageView imagemCamera;
     @FXML
     private VBox card1;
 
@@ -38,6 +41,19 @@ public class HelloController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image imgLivro = new Image(Objects.requireNonNull(getClass()
+                .getResourceAsStream("/com/antonio/diarioculturalfx/icons/livro.png")));
+
+        Image imgbusca = new Image(Objects.requireNonNull(getClass()
+                .getResourceAsStream("/com/antonio/diarioculturalfx/icons/busca-tela-inicial.png")));
+
+        Image imgCamera = new Image(Objects.requireNonNull(getClass()
+                .getResourceAsStream("/com/antonio/diarioculturalfx/icons/camera.png")));
+
+        imagemLivro.setImage(imgLivro);
+        imagemBusca.setImage(imgbusca);
+        imagemCamera.setImage(imgCamera);
+
         // Configurar efeitos de hover para os cards
         setupCardHoverEffects();
 
@@ -66,11 +82,6 @@ public class HelloController implements Initializable{
             scaleOut.play();
         });
     }
-
-    /**
-     * Adicona efeitos ao passar mouse pelo botao
-     */
-
 
     @FXML
     private void handleMemoriesClick(MouseEvent event) {

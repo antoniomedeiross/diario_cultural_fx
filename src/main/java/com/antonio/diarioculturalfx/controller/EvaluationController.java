@@ -24,6 +24,7 @@ import static com.antonio.diarioculturalfx.util.Util.*;
  * Controlador de avaliação
  */
 public class EvaluationController implements Initializable {
+    public Button bt_salvar;
 
     // Controller dos elementos FX
 
@@ -91,8 +92,11 @@ public class EvaluationController implements Initializable {
             setupHoverEffect(bt_filme);
             setupHoverEffect(bt_serie);
         }
-
+        if(bt_salvar!=null) {
+            setupHoverEffect(bt_salvar);
+        }
         if(addTemporadaButton != null){
+            setupHoverEffect(addTemporadaButton);
             addTemporadaButton.setVisible(false);
             addTemporadaButton.setManaged(false);
         }

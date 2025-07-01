@@ -45,14 +45,17 @@
     -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
 }
 
-.simbolos{
+.box-simbolos{
+    -fx-min-width: 120;
+    -fx-min-height: 100;
+    -fx-max-width: 120;
+    -fx-max-height: 100;
     -fx-background-color: rgba(255, 255, 255, 0.3);
     -fx-background-radius: 10;
     -fx-padding: 10;
     -fx-font-size: 24;
     -fx-end-margin: 15;
 }
-
 
 
 /* Seções com ícone e texto */
@@ -91,7 +94,7 @@
     -fx-text-fill: white;
 }
 .botao-menor-delet {
-    -fx-background-color: linear-gradient(to right, #f84d63, #e0386a);
+    -fx-background-color: linear-gradient(to right, #E74C3C, #C0392B);
     -fx-background-radius: 15;
     -fx-padding: 15 40;
     -fx-cursor: hand;
@@ -99,6 +102,11 @@
     -fx-font-size: 15;
     -fx-effect: dropshadow(one-pass-box, #00000033, 5, 0, 3, 3);
     -fx-text-fill: white;
+}.botao-menor-delet:hover {
+     -fx-background-color: linear-gradient(to left, #A93226, #922B21);
+     -fx-font-weight: bold;
+     -fx-scale-x: 1.03;
+     -fx-scale-y: 1.03;
 }
 
 

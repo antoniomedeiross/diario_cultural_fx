@@ -1,76 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
-
-
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.image.ImageView?>
-<VBox alignment="CENTER" prefHeight="600" prefWidth="800" spacing="20" xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.HelloController">
+<VBox alignment="CENTER" prefHeight="600" prefWidth="800" spacing="20" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.HelloController">
         <!-- Background com gradiente -->
-        <StackPane styleClass="div_main" VBox.vgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
+        <StackPane maxHeight="Infinity" maxWidth="Infinity" styleClass="div_main" VBox.vgrow="ALWAYS">
             <!-- Container principal -->
-            <VBox alignment="CENTER"  styleClass="container">
+            <VBox alignment="CENTER" styleClass="container">
 
                 <!-- Título -->
-                <Label styleClass="titulo" text="DIÁRIO CULTURAL"/>
+                <Label styleClass="titulo" text="DIÁRIO CULTURAL" />
 
                 <!-- Subtítulo -->
-                <Label styleClass="subtitulo" text="Bem-vindo(a)!"/>
+                <Label styleClass="subtitulo" text="Bem-vindo(a)!" />
 
                 <!-- Container dos cards de funcionalidades -->
-                <HBox styleClass="container-funcionalidades" alignment="CENTER" spacing="15.0">
+                <HBox alignment="CENTER" spacing="15.0" styleClass="container-funcionalidades">
                     <!-- Card 1: Preserve memórias -->
-                    <VBox fx:id="card1" styleClass="cards" alignment="CENTER" onMouseClicked="#handleMemoriesClick"
-                          prefHeight="100.0" prefWidth="120.0">
-
+                    <VBox fx:id="card1" alignment="CENTER" onMouseClicked="#handleMemoriesClick" prefHeight="180.0" prefWidth="200.0" styleClass="cards">
                         <!-- Ícone do livro -->
-                        <Label  styleClass="simbolos" text="📚"/>
+                        <VBox styleClass="box-simbolos" alignment="CENTER">
+                            <ImageView fx:id="imagemLivro" fitHeight="80.0" fitWidth="80.0"/>
+                        </VBox>
                         <!-- Texto -->
-                        <Label text="Preserve memórias especiais" textAlignment="CENTER"
-                               textFill="WHITE" wrapText="true">
+                        <Label text="Preserve memórias especiais" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                             <font>
-                                <Font name="System Bold" size="11.0"/>
+                                <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
                     </VBox>
 
                     <!-- Card 2: Registre experiências -->
-                    <VBox fx:id="card2" styleClass="cards" alignment="CENTER" onMouseClicked="#handleExperiencesClick"
-                          prefHeight="100.0" prefWidth="120.0">
+                    <VBox fx:id="card2" alignment="CENTER" onMouseClicked="#handleExperiencesClick" prefHeight="180.0" prefWidth="200.0" styleClass="cards">
                         <!-- Ícone da câmera -->
-                        <Label styleClass="simbolos" text="📷"/>
+                        <VBox styleClass="box-simbolos" alignment="CENTER">
+                            <ImageView fx:id="imagemCamera" fitHeight="80.0" fitWidth="80.0"/>
+                        </VBox>
                         <!-- Texto -->
-                        <Label text="Registre experiências únicas" textAlignment="CENTER"
-                               textFill="WHITE" wrapText="true">
+                        <Label text="Registre experiências únicas" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                             <font>
-                                <Font name="System Bold" size="11.0"/>
+                                <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
                     </VBox>
 
                     <!-- Card 3: Explore horizontes -->
-                    <VBox fx:id="card3" styleClass="cards" alignment="CENTER" onMouseClicked="#handleExploreClick" prefHeight="100.0" prefWidth="120.0">
+                    <VBox fx:id="card3" alignment="CENTER" onMouseClicked="#handleExploreClick" prefHeight="180.0" prefWidth="200.0" styleClass="cards">
                         <!-- Ícone de busca -->
-                        <Label styleClass="simbolos" text="🔍"/>
+                        <VBox styleClass="box-simbolos" alignment="CENTER">
+                            <ImageView fx:id="imagemBusca" fitHeight="80.0" fitWidth="80.0"/>
+                        </VBox>
                         <!-- Texto -->
-                        <Label text="Explore novos horizontes" textAlignment="CENTER" textFill="WHITE"
-                               wrapText="true">
+                        <Label text="Explore novos horizontes" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                             <font>
-                                <Font name="System Bold" size="11.0"/>
+                                <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
                     </VBox>
                 </HBox>
 
-
+                <Region prefHeight="10" />
                 <!-- Botão Entrar -->
-                <Button fx:id="enterButton" styleClass="botao" mnemonicParsing="false" onAction="#handleEnterButton"
-                        text="Entrar"/>
+                <Button fx:id="enterButton" mnemonicParsing="false" onAction="#handleEnterButton" styleClass="botao" text="Entrar" />
             </VBox>
         </StackPane>
 </VBox>

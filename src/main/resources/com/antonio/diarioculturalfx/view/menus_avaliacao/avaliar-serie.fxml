@@ -43,13 +43,12 @@
                     <TextField fx:id="quandoLeuField" />
                     <Label text="Comentário:" />
                     <TextArea fx:id="comentField" />
-               <HBox>
-                  <children>
-                          <Button onAction="#salvarProduto" styleClass="botao-menor" text="Salvar" />
-                     <Region prefHeight="26.0" prefWidth="6.0" />
-                     <Button fx:id="addTemporadaButton" onAction="#mudarSceneAvaliacao" styleClass="botao-menor" text="add Temp" />
-                  </children>
-               </HBox>
+                    <HBox>
+                        <Button fx:id="bt_salvar" onAction="#salvarProduto" styleClass="botao-menor" text="Salvar"/>
+                        <Region prefHeight="26.0" prefWidth="6.0"/>
+                        <Button fx:id="addTemporadaButton" onAction="#mudarSceneAvaliacao" styleClass="botao-menor"
+                                text="add Temp"/>
+                    </HBox>
 
                     <BorderPane.margin>
                         <Insets left="10" right="10" />

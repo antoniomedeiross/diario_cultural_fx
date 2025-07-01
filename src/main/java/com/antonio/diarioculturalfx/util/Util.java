@@ -64,7 +64,7 @@ public class Util {
         // quando mouse sai do botao retira efeito
         botao.setOnMouseExited(e -> {
             ScaleTransition scaleOut = new ScaleTransition(Duration.millis(150), botao);
-            botao.setStyle("-fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec); -fx-background-radius: 15;-fx-padding: 15 40; -fx-cursor: hand; -fx-font-size: 20");
+            botao.setStyle("-fx-background-color: linear-gradient(to right, #4A90E2, #60b4ec); -fx-background-radius: 15;-fx-padding: 15 40; -fx-cursor: hand");
             scaleOut.setToX(1.0);
             scaleOut.setToY(1.0);
             scaleOut.play();

@@ -36,6 +36,7 @@ import static com.antonio.diarioculturalfx.DiarioCultural.*;
 public class ListController implements Initializable {
 
     public VBox detalhesBoxContainer;
+    public Button bt_editar;
     @FXML
     private Button bt_livro;
     @FXML
@@ -66,8 +67,6 @@ public class ListController implements Initializable {
 
     @FXML
     private ListView<Media> listViewMidias ;
-    @FXML
-    private TabPane tabPanePrincipal;
 
     private final ObservableList<Media> mediaObservable = FXCollections.observableArrayList();
 
@@ -78,6 +77,16 @@ public class ListController implements Initializable {
         listaBooks = listService.listBooks();
         listaFilms = listService.listFilms();
         listaSeries = listService.listSeries();
+
+        if( bt_livro != null && bt_filme != null && bt_serie != null) {
+            setupHoverEffect(bt_livro);
+            setupHoverEffect(bt_filme);
+            setupHoverEffect(bt_serie);
+        }
+        if(bt_editar!=null) {
+            setupHoverEffect(bt_editar);
+            setupHoverEffect(filtroButtom);
+        }
 
         if(filtroCombo != null){
             filtroCombo.getItems().addAll(

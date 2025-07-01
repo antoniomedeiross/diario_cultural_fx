@@ -107,7 +107,7 @@
             </VBox>
         </HBox>
 
-        <Button text="Salvar alterações" styleClass="botao-menor" onAction="#editar"/>
+        <Button fx:id="salvar" text="Salvar alterações" styleClass="botao-menor" onAction="#editar"/>
 
         <Region VBox.vgrow="ALWAYS"/>
     </VBox>
