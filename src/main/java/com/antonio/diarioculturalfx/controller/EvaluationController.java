@@ -136,7 +136,13 @@ public class EvaluationController implements Initializable {
         atualizarLista();
     }
 
-
+    /**
+     * Configura a ListView para seleção
+     * @param listView, listView de subclasses de Media
+     * @param listaObserv, lista de mídia que serão exibidas
+     * @param onSelect, ação quando umm item é selecionado
+     * @param <T>, elemento que estende Media
+     */
     private <T extends Media> void configuraListView(ListView<T> listView, ObservableList<T> listaObserv, Consumer<T> onSelect) {
         if(listaObserv != null) {
             listView.setItems(listaObserv);
@@ -162,6 +168,9 @@ public class EvaluationController implements Initializable {
         series.setAll(listaSeries);
     }
 
+    /**
+     * Avalia a mídia
+     */
     @FXML
     public void salvarProduto() {
         if (livroAtual != null) {
@@ -195,6 +204,9 @@ public class EvaluationController implements Initializable {
         }
     }
 
+    /**
+     * Limpa os campos de digitação
+     */
     public void limparCampos() {
 
         if(notaField != null || comentField != null || quandoLeuField != null) {
@@ -227,23 +239,36 @@ public class EvaluationController implements Initializable {
         }
     }
 
+    /**
+     * Volta para a tela principal de avaliação
+     */
     @FXML
     private void handleVoltarAvaliacao(){
         limparCampos();
         trocarScene("Avaliar");
     }
-    // Voltar menu
+
+    /**
+     * Volta para o menu principal
+     */
     @FXML
     private void handleVoltarMenu() {
         trocarScene("Entrar");
     }
 
+    /**
+     * Volta para a tela de avaliação de série
+     */
     @FXML
     private void handleVoltarAvaliacaoSerie(){
         trocarScene("Avaliar-serie");
     }
 
 
+    /**
+     * Muda a cena da avaliação
+     * @param actionEvent
+     */
     @FXML
     public void mudarSceneAvaliacao(ActionEvent actionEvent) {
         if(actionEvent.getSource() == bt_livro) {
@@ -258,12 +283,18 @@ public class EvaluationController implements Initializable {
         }
     }
 
+    /**
+     * Torna visível o botão de adicionar temporada
+     */
     @FXML
     private void mostrarTempButton(){
         addTemporadaButton.setVisible(true);
         addTemporadaButton.setManaged(true);
     }
 
+    /**
+     * Adiciona temporada
+     */
     @FXML
     private void addTemporada(){
         String sucesso;

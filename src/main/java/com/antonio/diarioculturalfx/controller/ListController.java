@@ -72,6 +72,11 @@ public class ListController implements Initializable {
 
     public BorderPane root;
 
+    /**
+     * Método de inicialização
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listaBooks = listService.listBooks();
@@ -120,13 +125,20 @@ public class ListController implements Initializable {
     }
 
 
-    // Voltar menu
+    /**
+     * Volta para o menu principal
+     */
     @FXML
     private void handleVoltarMenu() {
         trocarScene("Entrar");
     }
 
 
+    /**
+     * Configura a lista de mídias que será exibida
+     * Configura a listView para seleção
+     * @param listaDeMedia, lista de tipos que estendem de Media
+     */
     public void setMedia(List<? extends Media> listaDeMedia) {
         mediaSelecionada = null;
         mediaObservable.setAll(listaDeMedia);
@@ -170,9 +182,11 @@ public class ListController implements Initializable {
     private VBox avaliacaoBox;
 
 
-
-
-
+    /**
+     * Retorna a lista do tipo de mídia a ser listado
+     * @param tipo, tipo da lista desejada
+     * @return Lista de livros para "Livro", Lista de filmes pra "Filme, Lista de séries para "Série"
+     */
     private List<? extends Media> determinarLista(String tipo){
 
         return switch (tipo) {
@@ -183,6 +197,14 @@ public class ListController implements Initializable {
         };
     }
 
+    /**
+     *
+     * @param filtro, tipo de filtro a ser aplicado
+     * @param dado, dado a ser filtrado, se necessário
+     * @param listaMedias, Lista a ser aplicada o filtro
+     * @param tipo, tipo da Lista
+     * @return Lista filtrada
+     */
     private List<? extends Media> filtrarMedia(String filtro, String dado,
                                                     List<? extends Media> listaMedias,
                                                     String tipo){
@@ -222,12 +244,19 @@ public class ListController implements Initializable {
         return null;
     }
 
+    /**
+     * Volta para a tela principal de listagem
+     */
     @FXML
     private void handleVoltarListar(){
         limparCampos();
         trocarScene("Listar-tipo");
     }
 
+    /**
+     * Muda a cena da listagem
+     * @param actionEvent
+     */
     public void mudarSceneListar(ActionEvent actionEvent){
         Button botao = (Button) actionEvent.getSource();
         tipoLista = botao.getText();
@@ -236,6 +265,9 @@ public class ListController implements Initializable {
         controller.setMedia(determinarLista(tipoLista));
     }
 
+    /**
+     * Limpa os campos de detalhes da mídia
+     */
     private void limparCampos(){
         detalhesBox.getChildren().clear();
         avaliacaoBox.getChildren().clear();
@@ -244,6 +276,10 @@ public class ListController implements Initializable {
     @FXML
     private ComboBox<String> filtroCombo;
 
+    /**
+     * Determina visibilidade dos elementos relacionados ao dado do filtro
+     * @param actionEvent
+     */
     public void selecionarFiltro(ActionEvent actionEvent) {
         tipoFiltro = filtroCombo.getValue();
 
@@ -266,6 +302,10 @@ public class ListController implements Initializable {
         }
     }
 
+    /**
+     * Aplica filtro a lista
+     * @param actionEvent
+     */
     public void aplicarFiltro(ActionEvent actionEvent) {
         // tem algo de errado com a ordenação de série
 
@@ -285,6 +325,10 @@ public class ListController implements Initializable {
     }
 
 
+    /**
+     * Verifica se mídia foi selecionada. Se sim chama a tela de Edição
+     * @param actionEvent
+     */
     public void editaMedia(ActionEvent actionEvent) {
         // deixa editar a média
         if(mediaSelecionada != null ) {
@@ -295,6 +339,9 @@ public class ListController implements Initializable {
         }
     }
 
+    /**
+     * Deleta mídia
+     */
     public void deletaMedia() {
         if(mediaSelecionada != null) {
             switch (mediaSelecionada) {

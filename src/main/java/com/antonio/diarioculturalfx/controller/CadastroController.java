@@ -16,6 +16,9 @@ import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
 import static com.antonio.diarioculturalfx.DiarioCultural.*;
 import static com.antonio.diarioculturalfx.util.Util.*;
 
+/**
+ * Controlador de cadastro
+ */
 public class CadastroController implements Initializable {
     private static String tipoCadastro;
 
@@ -27,6 +30,12 @@ public class CadastroController implements Initializable {
     private Button bt_serie;
     @FXML
     private Button voltarButton;
+
+    /**
+     * Método de inicialização
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // icone voltar
@@ -55,7 +64,9 @@ public class CadastroController implements Initializable {
     @FXML
     private TextField isbnField;
 
-
+    /**
+     * Cadastra mídias
+     */
     @FXML
     protected void onEnviarClick() {
         String validar = "";
@@ -146,7 +157,10 @@ public class CadastroController implements Initializable {
     }
 
 
-    // Muda a cena do cadastro
+    /**
+     * Muda a cena do cadastro
+     * @param actionEvent
+     */
     public void mudarSceneCadastro(ActionEvent actionEvent) {
         Button botao = (Button) actionEvent.getSource();
         String destino = botao.getText();
@@ -191,6 +205,10 @@ public class CadastroController implements Initializable {
     private final ObservableList<String> ondeAssistirList = FXCollections.observableArrayList();
 
 
+    /**
+     * Adiciona nas listas de elenco e onde assistir
+     * @param event
+     */
     @FXML
     private void adicionarNome(ActionEvent event) {
         if(event.getSource()==addElenco) {
@@ -210,29 +228,43 @@ public class CadastroController implements Initializable {
         }
     }
 
-    // Volta a tela anterior
+    /**
+     * Volta para a tela principal de Cadastro
+     */
     @FXML
     private void handleVoltarCadastro(){
         limparCampos();
         trocarScene("Cadastro");
     }
-    // Voltar menu
+
+    /**
+     * Volta para o menu principal
+     */
     @FXML
     private void handleVoltarMenu() {
         trocarScene("Entrar");
     }
 
+    /**
+     * Exibe o elenco que está sendo adicionado
+     */
     @FXML
     private void verListaElenco() {
         listar(elencoList);
     }
+
+    /**
+     * Exibe os lugares que estão sendo adicionados
+     */
     @FXML
     private void verListaOndeAssistir() {
         listar(ondeAssistirList);
     }
 
 
-    // limpa os campos
+    /**
+     * Limpa os campos de digitação
+     */
     void limparCampos(){
         switch (tipoCadastro){
             case "Livro":

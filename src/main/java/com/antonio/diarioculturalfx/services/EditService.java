@@ -15,6 +15,17 @@ public class EditService {
     int actualYear = LocalDate.now().getYear();
 
 
+    /**
+     * Edita Livro
+     * @param livro, obj Book
+     * @param title, Título
+     * @param gender, Gênero
+     * @param yearReleased, Ano de Lançamento
+     * @param author, Autor
+     * @param publisher, Editor
+     * @param isbn, ISBN
+     * @param haveBook, possui Livro
+     */
     public void editMedia(Book livro, String title, String gender, int yearReleased, String author,
                           String publisher, String isbn, boolean haveBook) {
         // Valida se os campos obrigatórios sao nulos
@@ -37,6 +48,19 @@ public class EditService {
         livro.setHaveBook(haveBook);
     }
 
+    /**
+     * Edita Filme
+     * @param filme, obj Film
+     * @param title, Título
+     * @param gender, Gênero
+     * @param yearReleased, Ano de Lançamento
+     * @param duration, Duração
+     * @param director, Diretor
+     * @param writer, Roterista
+     * @param cast, Elenco
+     * @param originalTitle, Título Original
+     * @param whereWatch, Onde assistir
+     */
     public void editMedia(Film filme, String title, String gender, int yearReleased, int duration, String director,
                           String writer, ArrayList<String> cast, String originalTitle, ArrayList<String> whereWatch) {
         // Valida se o campos de Strign são vazios
@@ -62,6 +86,17 @@ public class EditService {
         filme.setWhereWatch(whereWatch);
     }
 
+    /**
+     * Edita série
+     * @param serie, obj Serie
+     * @param title, Título
+     * @param gender, Gênero
+     * @param yearReleased, Ano de Lançamento
+     * @param yearEnding, Ano de encerramento
+     * @param cast, Elenco
+     * @param originalTitle, Título Original
+     * @param whereWatch, Onde assistir
+     */
     public void editMedia(Serie serie, String title, String gender, int yearReleased, int yearEnding,
                           ArrayList<String> cast, String originalTitle, ArrayList<String> whereWatch) {
 
@@ -91,6 +126,12 @@ public class EditService {
         serie.setWhereWatch(whereWatch);
     }
 
+    /**
+     * Edita temporada
+     * @param serie, obj Serie
+     * @param year, Ano
+     * @param title, Título
+     */
     public void editSeason(Serie serie, int year, String title) {
 
         if (year < serie.getYearReleased()) { // Se o ano da temporada for menor que o ano da série

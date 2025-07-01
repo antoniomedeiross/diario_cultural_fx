@@ -21,6 +21,9 @@ import java.util.ResourceBundle;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
 import static com.antonio.diarioculturalfx.util.Util.*;
 
+/**
+ * Controlador de Edição
+ */
 public class EditController implements Initializable {
 
     public Button addOndeAssistir;
@@ -66,7 +69,12 @@ public class EditController implements Initializable {
 
     @FXML
     private Button voltarButton;
-    
+
+    /**
+     * Método de inicialização
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
@@ -75,6 +83,10 @@ public class EditController implements Initializable {
         }
     }
 
+    /**
+     * Exibe dados da mídia selecionada para edição
+     * @param mediaSelecionada, mídia que foi selecionada para edição
+     */
     public void setMediaParaEditar(Media mediaSelecionada) {
         ondeAssistirObservavel.setAll(ondeAssistirList);
 
@@ -121,10 +133,18 @@ public class EditController implements Initializable {
         ondeAssistirObservavel.addAll(ondeAssistirList);
     }
 
+    /**
+     * Volta para o menu principal
+     * @param actionEvent
+     */
     public void handleVoltarMenu(ActionEvent actionEvent) {
         trocarScene("Entrar");
     }
 
+    /**
+     * Adiciona nas listas de elenco e onde assistir
+     * @param actionEvent
+     */
     public void adicionarNome(ActionEvent actionEvent) {
         if(actionEvent.getSource()==addElenco) {
             String atores = elencoField.getText().trim();
@@ -145,14 +165,24 @@ public class EditController implements Initializable {
         ondeAssistirObservavel.addAll(ondeAssistirList);
     }
 
+    /**
+     * Exibe o elenco que está sendo editado
+     */
     public void verListaElenco(ActionEvent actionEvent) {
         listar(elencoObservavel);
     }
 
+    /**
+     * Exibe os lugares que estão sendo editados
+     */
     public void verListaOndeAssistir(ActionEvent actionEvent) {
         listar(ondeAssistirObservavel);
     }
 
+    /**
+     * Edita a mídia
+     * @param actionEvent
+     */
     @FXML
     public void editar(ActionEvent actionEvent) {
         String  titulo = (tituloField.getText());
