@@ -1,9 +1,13 @@
 package com.antonio.diarioculturalfx.controller;
 
 import com.antonio.diarioculturalfx.model.*;
+import com.antonio.diarioculturalfx.services.EditService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
@@ -15,10 +19,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
-import static com.antonio.diarioculturalfx.util.Util.addImgOnButton;
-import static com.antonio.diarioculturalfx.util.Util.deixaHboxtVisivel;
+import static com.antonio.diarioculturalfx.util.Util.*;
 
 public class EditController implements Initializable {
+
+    public Button addOndeAssistir;
+    public Button addElenco;
+    EditService editService = new EditService();
 
     public TextField tituloField;
     public TextField generoField;
@@ -51,8 +58,10 @@ public class EditController implements Initializable {
     public HBox hboxEncerramentoField;
 
     Media media;
-    List<String> ondeAssistir = new ArrayList<>();
+    List<String> ondeAssistirList = new ArrayList<>();
     List<String> elenco = new ArrayList<>();
+    ObservableList<String> elencoObservavel =  FXCollections.observableArrayList();
+    ObservableList<String> ondeAssistirObservavel =  FXCollections.observableArrayList();
 
     @FXML
     private Button voltarButton;
@@ -63,6 +72,8 @@ public class EditController implements Initializable {
     }
 
     public void setMediaParaEditar(Media mediaSelecionada) {
+        ondeAssistirObservavel.setAll(ondeAssistirList);
+
         media = mediaSelecionada;
         tituloField.setText(mediaSelecionada.getTitle());
         generoField.setText(mediaSelecionada.getGender());
@@ -84,24 +95,26 @@ public class EditController implements Initializable {
                 tituloOriginalField.setText(filmeSelecionado.getOriginalTitle());
                 escritorField.setText(filmeSelecionado.getWriter());
                 elenco.addAll(filmeSelecionado.getCast());
-                ondeAssistir.addAll(filmeSelecionado.getWhereWatch());
+                ondeAssistirList.addAll(filmeSelecionado.getWhereWatch());
 
-                ondeAssistirField.setText("esta no List");
-                elencoField.setText("esta no List");
+                ondeAssistirField.setPromptText(ondeAssistirList.toString());
+                elencoField.setPromptText(elenco.toString());
             }
             case Serie serieSelecionada -> {
-                deixaHboxtVisivel(true, hboxTituloOriginalField, hboxElencoField, hboxOndeAssistirField);
+                deixaHboxtVisivel(true, hboxTituloOriginalField, hboxElencoField, hboxOndeAssistirField, hboxEncerramentoField);
 
                 tituloOriginalField.setText(serieSelecionada.getOriginalTitle());
                 elenco.addAll(serieSelecionada.getCast());
-                ondeAssistir.addAll(serieSelecionada.getWhereWatch());
-
-                ondeAssistirField.setText("esta no List");
-                elencoField.setText("esta no List");
+                ondeAssistirList.addAll(serieSelecionada.getWhereWatch());
+                encerramentoField.setText(String.valueOf(serieSelecionada.getYearEnding()));
+                ondeAssistirField.setPromptText(ondeAssistirList.toString());
+                elencoField.setPromptText(elenco.toString());
             }
             default -> {
             }
         }
+        elencoObservavel.addAll(elenco);
+        ondeAssistirObservavel.addAll(ondeAssistirList);
     }
 
     public void handleVoltarMenu(ActionEvent actionEvent) {
@@ -109,30 +122,61 @@ public class EditController implements Initializable {
     }
 
     public void adicionarNome(ActionEvent actionEvent) {
+        if(actionEvent.getSource()==addElenco) {
+            String atores = elencoField.getText().trim();
+            if (!atores.isEmpty()) {
+                elenco.add(atores);
+                elencoField.clear();
+            }
+            System.out.println("Adicionando novo nome");
+            elencoObservavel.addAll(elenco);
+        } else if (actionEvent.getSource()==addOndeAssistir) {
+            String ondeAssistir = ondeAssistirField.getText().trim();
+            if(!ondeAssistir.isEmpty()) {
+                ondeAssistirList.add(ondeAssistir);
+                ondeAssistirField.clear();
+            }
+            System.out.println("Adicionando novo nome");
+        }
+        ondeAssistirObservavel.addAll(ondeAssistirList);
     }
 
     public void verListaElenco(ActionEvent actionEvent) {
+        listar(elencoObservavel);
     }
 
     public void verListaOndeAssistir(ActionEvent actionEvent) {
+        listar(ondeAssistirObservavel);
     }
 
     @FXML
     public void editar(ActionEvent actionEvent) {
-        media.setTitle(tituloField.getText());
-        media.setGender(generoField.getText());
-        media.setYearReleased(Integer.parseInt(anoField.getText()));
-
-//          autorField.getText();
-//          editoraField.getText();
-//          isbnField.getText();
-//          PossuiField.getText();
-//          DuracaoField.getText();
-//          DiretorField.getText();
-//          TituloOriginalField.getText();
-//          escritorField.getText();
-//          OndeAssistirField.getText();
-//          elencoField.getText();
-//          encerramentoField.getText();
+        String  titulo = (tituloField.getText());
+        String  genero = (generoField.getText());
+        String  ano = (anoField.getText());
+        try {
+            if (media instanceof Book livro) {
+                String autor = (autorField.getText());
+                String editora = (editoraField.getText());
+                String isbn = (isbnField.getText());
+                boolean possui = (possuiField.isSelected());
+                editService.editMedia(livro, titulo, genero, Integer.parseInt(ano), autor, editora, isbn, possui);
+            } else if (media instanceof Film filme) {
+                String duracao = (duracaoField.getText());
+                String diretor = (diretorField.getText());
+                String tituloOriginal = (tituloOriginalField.getText());
+                String escritor = (escritorField.getText());
+                editService.editMedia(filme, titulo, genero, Integer.parseInt(ano), Integer.parseInt(duracao), diretor,
+                        escritor, (ArrayList<String>) elenco, tituloOriginal, (ArrayList<String>) ondeAssistirList);
+            } else if (media instanceof Serie serie) {
+                String tituloOriginal = (tituloOriginalField.getText());
+                String anoEncerramento = encerramentoField.getText();
+                editService.editMedia(serie, titulo, genero, Integer.parseInt(ano), Integer.parseInt(anoEncerramento),
+                        (ArrayList<String>) elenco, tituloOriginal, (ArrayList<String>) ondeAssistirList);
+            }
+            showAlert("Edição concluída", media.getTitle()+" Editada com sucesso", Alert.AlertType.CONFIRMATION);
+        } catch (IllegalArgumentException e) {
+            showAlert("Edição inválida", "Campos inválidos: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 }

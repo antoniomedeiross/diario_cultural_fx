@@ -1,6 +1,7 @@
 package com.antonio.diarioculturalfx.controller;
 
 
+import com.antonio.diarioculturalfx.DiarioCultural;
 import com.antonio.diarioculturalfx.model.Book;
 import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Media;
@@ -118,6 +119,7 @@ public class ListController implements Initializable {
 
 
     public void setMedia(List<? extends Media> listaDeMedia) {
+        mediaSelecionada = null;
         mediaObservable.setAll(listaDeMedia);
         listViewMidias.setItems(mediaObservable);
 
@@ -275,6 +277,13 @@ public class ListController implements Initializable {
 
 
     public void editaMedia(ActionEvent actionEvent) {
+        // deixa editar a média
+        if(mediaSelecionada != null ) {
+            // Chama uma nova janela para edição
+            DiarioCultural.carregarTelaDeEdicao(mediaSelecionada);
+        } else {
+            showAlert("Selecione uma media", "Voce precisa selecionar uma media para editar", Alert.AlertType.ERROR);
+        }
     }
 
     public void deletaMedia() {

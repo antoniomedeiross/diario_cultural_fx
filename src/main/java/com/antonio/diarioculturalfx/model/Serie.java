@@ -13,7 +13,7 @@ public class Serie extends Media {
     private ArrayList<String> cast;
     private String originalTitle;
     private ArrayList<String> whereWatch;
-    private ArrayList<Season> seasons;
+    private final ArrayList<Season> seasons;
 
     /**
      * Cria uma série com as informações básicas

@@ -85,24 +85,29 @@
                     <TextField fx:id="escritorField" layoutX="491.0" layoutY="17.0" styleClass="inputs"/>
                 </HBox>
 
+                <HBox visible="false" managed="false" fx:id="hboxEncerramentoField" alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Encerramento" />
+                    <TextField fx:id="encerramentoField" layoutX="491.0" layoutY="17.0" styleClass="inputs"/>
+                </HBox>
+
                 <HBox visible="false" managed="false" fx:id="hboxOndeAssistirField" alignment="CENTER" prefHeight="40.0" spacing="10.0">
                     <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Onde assistir" />
                     <TextField fx:id="ondeAssistirField" layoutX="491.0" layoutY="17.0" styleClass="inputs"/>
+                    <Button fx:id="addOndeAssistir" text="add" onAction="#adicionarNome" styleClass="botao-ver-lista"/>
+                    <Button text="ver" onAction="#verListaOndeAssistir" styleClass="botao-ver-lista" />
                 </HBox>
 
                 <HBox visible="false" managed="false" fx:id="hboxElencoField" alignment="CENTER" prefHeight="40.0" spacing="10.0">
                     <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Elenco" />
                     <TextField fx:id="elencoField" layoutX="491.0" layoutY="17.0" styleClass="inputs"/>
+                    <Button fx:id="addElenco" text="add" onAction="#adicionarNome" styleClass="botao-ver-lista" />
+                    <Button text="ver" onAction="#verListaElenco" styleClass="botao-ver-lista" />
                 </HBox>
 
-                <HBox visible="false" managed="false" fx:id="hboxEncerramentoField" alignment="CENTER" prefHeight="40.0" spacing="10.0">
-                    <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="21.0" prefHeight="20.0" prefWidth="110.0" styleClass="texto" text="Encerramento" />
-                    <TextField fx:id="encerramentoField" layoutX="491.0" layoutY="17.0" styleClass="inputs"/>
-                </HBox>
             </VBox>
-            <Button text="Salvar alterações" styleClass="botao-menor" onAction="#editar"/>
         </HBox>
 
+        <Button text="Salvar alterações" styleClass="botao-menor" onAction="#editar"/>
 
         <Region VBox.vgrow="ALWAYS"/>
     </VBox>

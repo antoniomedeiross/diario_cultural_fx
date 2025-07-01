@@ -5,6 +5,7 @@ import com.antonio.diarioculturalfx.model.Book;
 import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Serie;
 import javafx.animation.ScaleTransition;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -305,6 +306,20 @@ public class Util {
                 new Label("Comentários: " + "\n\t" + livro.getReview().getComment())
         );
 
+    }
+
+    public static void listar(ObservableList<String> lista) {
+        if (lista.isEmpty()) {
+            showAlert("Lista vazia", "Nenhum nome foi adicionado ainda.", Alert.AlertType.INFORMATION);
+            return;
+        }
+
+        StringBuilder conteudo = new StringBuilder();
+        for (int i = 0; i < lista.size(); i++) {
+            conteudo.append(i + 1).append(". ").append(lista.get(i)).append("\n");
+        }
+
+        showAlert("Lista", conteudo.toString(), Alert.AlertType.INFORMATION);
     }
 
 }

@@ -230,19 +230,7 @@ public class CadastroController implements Initializable {
     private void verListaOndeAssistir() {
         listar(ondeAssistirList);
     }
-    private void listar(ObservableList<String> lista) {
-        if (lista.isEmpty()) {
-            showAlert("Lista vazia", "Nenhum nome foi adicionado ainda.", Alert.AlertType.INFORMATION);
-            return;
-        }
 
-        StringBuilder conteudo = new StringBuilder();
-        for (int i = 0; i < lista.size(); i++) {
-            conteudo.append(i + 1).append(". ").append(lista.get(i)).append("\n");
-        }
-
-        showAlert("Lista", conteudo.toString(), Alert.AlertType.INFORMATION);
-    }
 
     // limpa os campos
     void limparCampos(){
