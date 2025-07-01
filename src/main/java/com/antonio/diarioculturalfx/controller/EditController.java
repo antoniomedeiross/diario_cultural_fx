@@ -25,6 +25,7 @@ public class EditController implements Initializable {
 
     public Button addOndeAssistir;
     public Button addElenco;
+    public Button salvar;
     EditService editService = new EditService();
 
     public TextField tituloField;
@@ -69,6 +70,9 @@ public class EditController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
+        if(salvar != null) {
+            setupHoverEffect(salvar);
+        }
     }
 
     public void setMediaParaEditar(Media mediaSelecionada) {
@@ -175,6 +179,8 @@ public class EditController implements Initializable {
                         (ArrayList<String>) elenco, tituloOriginal, (ArrayList<String>) ondeAssistirList);
             }
             showAlert("Edição concluída", media.getTitle()+" Editada com sucesso", Alert.AlertType.CONFIRMATION);
+            media = null;
+            trocarScene("Entrar");
         } catch (IllegalArgumentException e) {
             showAlert("Edição inválida", "Campos inválidos: " + e.getMessage(), Alert.AlertType.ERROR);
         }

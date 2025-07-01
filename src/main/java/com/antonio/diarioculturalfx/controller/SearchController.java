@@ -39,6 +39,9 @@ public class SearchController implements Initializable {
     @FXML
     public VBox vboxSelecaoBusca;
     public VBox containerDetalhesBusca;
+    public Button bt_novaBusca;
+    public Button bt_editarMedia;
+    public Button bt_excluirMedia;
     @FXML
     private VBox vboxResultado;
 
@@ -60,6 +63,8 @@ public class SearchController implements Initializable {
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
         if(bt_busca != null ) {
             setupHoverEffect(bt_busca);
+            setupHoverEffect(bt_editarMedia);
+            setupHoverEffect(bt_novaBusca);
         }
         buscaPorMedia.put("LIVROS", List.of("TÍTULO", "GÊNERO", "AUTOR", "ANO", "ISBN"));
         buscaPorMedia.put("FILMES", List.of("TÍTULO", "GÊNERO", "DIRETOR", "ATOR", "ANO"));

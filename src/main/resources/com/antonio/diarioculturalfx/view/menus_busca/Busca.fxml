@@ -77,11 +77,11 @@
 
             <HBox>
                 <Region HBox.hgrow="ALWAYS"/>
-                <Button text="Nova busca" onAction="#resetaBusca" styleClass="botao-menor"/>
+                <Button fx:id="bt_novaBusca" text="Nova busca" onAction="#resetaBusca" styleClass="botao-menor"/>
                 <Region HBox.hgrow="ALWAYS"/>
-                <Button text="Editar media" onAction="#editaMedia" styleClass="botao-menor"/>
+                <Button fx:id="bt_editarMedia" text="Editar media" onAction="#editaMedia" styleClass="botao-menor"/>
                 <Region HBox.hgrow="ALWAYS"/>
-                <Button text="Excluir media" onAction="#deletaMedia" styleClass="botao-menor-delet" />
+                <Button fx:id="bt_excluirMedia" text="Excluir media" onAction="#deletaMedia" styleClass="botao-menor-delet" />
                 <Region HBox.hgrow="ALWAYS"/>
             </HBox>
         </VBox>
