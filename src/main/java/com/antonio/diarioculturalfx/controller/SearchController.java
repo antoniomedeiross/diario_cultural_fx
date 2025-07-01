@@ -6,7 +6,6 @@ import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Media;
 import com.antonio.diarioculturalfx.model.Serie;
 import com.antonio.diarioculturalfx.services.SearchService;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -47,6 +46,15 @@ public class SearchController implements Initializable {
 
     private Media mediaSelecionada;
 
+    String media;
+    String busca;
+    String chave;
+
+    /**
+     * Metodo de inicialização
+     * @param location local
+     * @param resources resource
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
@@ -67,22 +75,26 @@ public class SearchController implements Initializable {
                 selecaoBusca.setDisable(false); // Habilita se estiver desativado
             });
         }
-
+ 
     }
 
 
-    
-    // Voltar menu
+    /**
+     * Volta ao menu
+     */
     @FXML
     private void handleVoltarMenu() {
         trocarScene("Entrar");
     }
-    
+
+    /**
+     * Busca as medias
+     */
     @FXML
     private void buscar() {
-        String media = selecaoMedia.getValue();
-        String busca = selecaoBusca.getValue();
-        String chave = chaveBusca.getText();
+        media = selecaoMedia.getValue();
+        busca = selecaoBusca.getValue();
+        chave = chaveBusca.getText();
 
         if (media==null || busca==null|| chave==null || media.isEmpty() || busca.isEmpty() || chave.isEmpty()) {
             showAlert("Busca inválida", "Selecione os parâmentros de busca", Alert.AlertType.ERROR);
@@ -92,6 +104,12 @@ public class SearchController implements Initializable {
         }
     }
 
+    /**
+     * Seleciona os tipos de busca baseado no inpute do user
+     * @param media media
+     * @param busca tipo de busca
+     * @param chave chave da busca
+     */
     public void selecionaTipoBusca(String media, String busca, String chave) {
         if ("LIVROS".equals(media)) {
             if ("TÍTULO".equals(busca)) {
@@ -134,7 +152,9 @@ public class SearchController implements Initializable {
         setMedia();
     }
 
-
+    /**
+     * Adiciona as medias na lista
+     */
     public void setMedia() {
         vboxSelecaoBusca.setVisible(false);
         vboxSelecaoBusca.setManaged(false);
@@ -176,8 +196,11 @@ public class SearchController implements Initializable {
     }
 
 
-
+    /**
+     * Reseta os parametros da busca
+     */
     public void resetaBusca() {
+        observableMedia.clear();
         vboxSelecaoBusca.setVisible(true);
         vboxSelecaoBusca.setManaged(true);
         vboxResultado.setVisible(false);
@@ -187,12 +210,37 @@ public class SearchController implements Initializable {
         containerDetalhesBusca.setVisible(false);
     }
 
-
+    /**
+     * Edita a media seleciona
+     * @param actionEvent evento
+     */
     public void editaMedia(ActionEvent actionEvent) {
         // deixa editar a média
         if(mediaSelecionada != null ) {
             // Chama uma nova janela para edição
             DiarioCultural.carregarTelaDeEdicao(mediaSelecionada);
+        } else {
+            showAlert("Selecione uma media", "Voce precisa selecionar uma media para editar", Alert.AlertType.ERROR);
+        }
+    }
+
+    /**
+     * Apaga a media selecionada
+     */
+    public void deletaMedia() {
+        if(mediaSelecionada != null) {
+            switch (mediaSelecionada) {
+                case Book book -> memoryManagement.deleteMedia(book);
+                case Film film -> memoryManagement.deleteMedia(film);
+                case Serie serie -> memoryManagement.deleteMedia(serie);
+                default -> {
+                }
+            }
+            selecionaTipoBusca(media,busca,chave);
+            showAlert("Media excluida", mediaSelecionada.getTitle() + " excluido com sucesso", Alert.AlertType.CONFIRMATION);
+            mediaSelecionada=null;
+        } else {
+            showAlert("Media inválida", "Selecione uma media primeiro", Alert.AlertType.ERROR);
         }
     }
 }

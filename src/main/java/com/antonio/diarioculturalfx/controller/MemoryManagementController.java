@@ -129,12 +129,11 @@ public class MemoryManagementController {
     /**
      * Salva mídias em arquivo .json
      */
-    public String salvarArquivos() {
+    public void salvarArquivos() {
         try {
             memoryManagement.salvaArquivosBd();
-            return "Arquivos salvo com SUCESSO!";
         } catch (IllegalArgumentException e) {
-            return "Tentativa de salvar arquivos FALHO\n" + e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 

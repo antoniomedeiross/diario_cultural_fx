@@ -4,6 +4,8 @@ import com.antonio.diarioculturalfx.controller.EditController;
 import com.antonio.diarioculturalfx.controller.MemoryManagementController;
 import com.antonio.diarioculturalfx.controller.SearchController;
 import com.antonio.diarioculturalfx.model.Media;
+import com.antonio.diarioculturalfx.model.Season;
+import com.antonio.diarioculturalfx.model.Serie;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -215,9 +217,9 @@ public class DiarioCultural extends Application {
         try {
             FXMLLoader loader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_edicao/edit.fxml"));
             Parent root = loader.load();
-
             EditController controller = loader.getController();
             controller.setMediaParaEditar(mediaSelecionada);
+
             stageTroca.getIcons().clear();
             stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/edit.png"))));
             Scene sceneEdit = new Scene(root);
@@ -229,7 +231,7 @@ public class DiarioCultural extends Application {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

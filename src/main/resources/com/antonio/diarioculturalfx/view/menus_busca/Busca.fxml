@@ -49,14 +49,15 @@
         </VBox>
         <!-- Aqui vai carregar os elementos da busca -->
 
-        <VBox fx:id="vboxResultado" visible="false" alignment="CENTER" spacing="20">
+        <VBox fx:id="vboxResultado" visible="false" alignment="CENTER" spacing="20" >
             <BorderPane>
                 <left>
                     <VBox prefWidth="300">
                         <Label text="Resultado da busca" styleClass="subtitulo"/>
-                        <ListView fx:id="listaResultadoBusca" />
+                        <ListView fx:id="listaResultadoBusca" prefWidth="200"/>
                     </VBox>
                 </left>
+
                 <center>
                     <VBox fx:id="containerDetalhesBusca" styleClass="detalhes-box" managed="false" visible="false">
                         <ScrollPane maxWidth="500">
@@ -68,11 +69,20 @@
                         </ScrollPane>
                     </VBox>
                 </center>
+
+                <BorderPane.margin>
+                    <Insets left="10"/>
+                </BorderPane.margin>
             </BorderPane>
 
             <HBox>
+                <Region HBox.hgrow="ALWAYS"/>
                 <Button text="Nova busca" onAction="#resetaBusca" styleClass="botao-menor"/>
+                <Region HBox.hgrow="ALWAYS"/>
                 <Button text="Editar media" onAction="#editaMedia" styleClass="botao-menor"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Excluir media" onAction="#deletaMedia" styleClass="botao-menor-delet" />
+                <Region HBox.hgrow="ALWAYS"/>
             </HBox>
         </VBox>
 

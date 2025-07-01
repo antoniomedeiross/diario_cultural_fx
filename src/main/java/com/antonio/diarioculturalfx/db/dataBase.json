@@ -17,22 +17,6 @@
       "type": "livro"
     },
     {
-      "author": "J.R.R. Tolkien",
-      "publisher": "HarperCollins Brasil",
-      "isbn": "9788595084759",
-      "haveBook": true,
-      "title": "O Senhor dos Anéis: A Sociedade do Anel",
-      "review": {
-        "note": 5.0,
-        "comment": "O início épico de uma jornada inesquecível pela Terra-média.",
-        "readWatch": true,
-        "whenReadWatch": "2002"
-      },
-      "gender": "Alta Fantasia",
-      "yearReleased": 1954.0,
-      "type": "livro"
-    },
-    {
       "author": "Machado de Assis",
       "publisher": "Diversas editoras (originalmente B. L. Garnier)",
       "isbn": "9788535914840",
