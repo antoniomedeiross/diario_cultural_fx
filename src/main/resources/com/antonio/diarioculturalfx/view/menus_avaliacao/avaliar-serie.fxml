@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import org.kordamp.bootstrapfx.scene.layout.Panel?>
 <?import javafx.geometry.Insets?>
-<VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.EvaluationController">
-    <VBox styleClass="container" alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="800" prefWidth="1000" spacing="20" styleClass="div_main" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antonio.diarioculturalfx.controller.EvaluationController">
+    <VBox alignment="CENTER" maxWidth="1080" minHeight="500" minWidth="300" spacing="20" styleClass="container">
         <HBox prefHeight="0.0" prefWidth="1000.0">
             <!-- Botão voltar no canto esquerdo -->
             <Button fx:id="voltarButton" onAction="#handleVoltarAvaliacao" styleClass="botao-voltar" />
@@ -26,35 +31,41 @@
         <BorderPane fx:id="root">
             <left>
                 <VBox prefWidth="300">
-                    <Label text="Selecione a série" styleClass="subtitulo"/>
-                    <ListView fx:id="listaSeries" prefWidth="200"/>
+                    <Label styleClass="subtitulo" text="Selecione a série" />
+                    <ListView fx:id="listaSeries" prefWidth="200" />
                 </VBox>
             </left>
             <center>
-                <VBox fx:id="campoAvaliacao" spacing="10" >
+                <VBox fx:id="campoAvaliacao" spacing="10">
                     <Label text="Nota:" />
-                    <TextField fx:id="notaField"/>
-                    <Label text="Ano de leitura:"/>
-                    <TextField fx:id="quandoLeuField"/>
-                    <Label text="Comentário:"/>
-                    <TextArea fx:id="comentField"/>
-                    <Button text="Salvar" onAction="#salvarProduto" styleClass="botao-menor"/>
+                    <TextField fx:id="notaField" />
+                    <Label text="Ano de leitura:" />
+                    <TextField fx:id="quandoLeuField" />
+                    <Label text="Comentário:" />
+                    <TextArea fx:id="comentField" />
+               <HBox>
+                  <children>
+                          <Button onAction="#salvarProduto" styleClass="botao-menor" text="Salvar" />
+                     <Region prefHeight="26.0" prefWidth="6.0" />
+                     <Button fx:id="addTemporadaButton" onAction="#mudarSceneAvaliacao" styleClass="botao-menor" text="add Temp" />
+                  </children>
+               </HBox>
 
                     <BorderPane.margin>
-                        <Insets left="10" right="10"/>
+                        <Insets left="10" right="10" />
                     </BorderPane.margin>
                 </VBox>
             </center>
 
             <right>
                 <VBox>
-                    <Label text="Selecione a temporada" styleClass="subtitulo"/>
-                    <ListView fx:id="listaTemporadas" prefWidth="200"/>
+                    <Label styleClass="subtitulo" text="Selecione a temporada" />
+                    <ListView fx:id="listaTemporadas" prefWidth="200" />
                 </VBox>
             </right>
         </BorderPane>
 
 
-        <Region VBox.vgrow="ALWAYS"/>
+        <Region VBox.vgrow="ALWAYS" />
     </VBox>
 </VBox>

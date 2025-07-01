@@ -39,6 +39,7 @@ public class DiarioCultural extends Application {
     private static Scene buscaScene;
     private static Scene listaScene;
     private static Scene listaTipoScene;
+    private static Scene addTempScene;
 
 
     // metodo start do javaFx
@@ -104,6 +105,8 @@ public class DiarioCultural extends Application {
         FXMLLoader listarTipoLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_listagem/listar-tipo.fxml"));
         listaTipoScene = new Scene(listarTipoLoader.load(), 1280, 720);
 
+        FXMLLoader addTempLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_avaliacao/add-temporada.fxml"));
+        addTempScene = new Scene(addTempLoader.load(), 1280, 720);
     }
 
 
@@ -128,6 +131,7 @@ public class DiarioCultural extends Application {
             addCssNaScene(buscaScene, cssUrl);
             addCssNaScene(listaScene, cssUrl);
             addCssNaScene(listaTipoScene, cssUrl);
+            addCssNaScene(addTempScene, cssUrl);
             System.out.println("CSS carregado com sucesso: " + cssUrl.toExternalForm());
         } else {
             System.err.println("ERRO: Não foi possível encontrar o arquivo CSS: " + cssPath);
@@ -198,6 +202,9 @@ public class DiarioCultural extends Application {
                 stageTroca.getIcons().clear();
                 stageTroca.getIcons().add(new Image(Objects.requireNonNull(DiarioCultural.class.getResourceAsStream("/com/antonio/diarioculturalfx/icons/lista.png"))));
                 stageTroca.setScene(listaTipoScene);
+                break;
+            case "Add-temporada":
+                stageTroca.setScene(addTempScene);
                 break;
             case "Sair":
                 stageTroca.close();

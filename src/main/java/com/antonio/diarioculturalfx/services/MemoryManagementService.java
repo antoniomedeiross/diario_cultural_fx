@@ -144,7 +144,7 @@ public class MemoryManagementService {
      */
     public void registerMedia(Serie serie, int year, String title, int numberEpisodes) {
         if(year < serie.getYearReleased()) { // Se o ano da temporada for menor que o ano da série
-            throw new IllegalArgumentException("Ano da temporada menor que o ano de lançamento da série");
+            throw new IllegalArgumentException("Ano da temporada menor que o ano de lançamento da série.");
         }
         Season season = new Season(year, title, numberEpisodes);
         serie.setSeason(season); // Adiciona a temporada na série
