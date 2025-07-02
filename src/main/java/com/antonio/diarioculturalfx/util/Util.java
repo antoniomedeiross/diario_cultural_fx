@@ -6,6 +6,7 @@ import com.antonio.diarioculturalfx.model.Film;
 import com.antonio.diarioculturalfx.model.Serie;
 import javafx.animation.ScaleTransition;
 import javafx.collections.ObservableList;
+import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -240,7 +241,11 @@ public class Util {
                 new Label("Roteirista: " + filme.getWriter()),
                 new Label("Duração: " + filme.getDuration() + " Minutos"),
                 new Label("Elenco: " + atores),
-                new Label("Onde assitir: " + ondeAssistir)
+                new Label("Onde assitir: " + ondeAssistir),
+                new Separator(Orientation.valueOf("HORIZONTAL")),
+                new Label("Nota: " + filme.getReview().getNote()),
+                new Label("Quando Leu: " + filme.getReview().getWhenReadWatch()),
+                new Label("Comentário: " + filme.getReview().getComment())
         );
 
         estrelas(filme.getReview().getNote(), avaliacaoBox);
@@ -251,6 +256,7 @@ public class Util {
         detalhesBox.getChildren().clear(); // limpa conteúdo anterior
         detalhesBoxContainer.setVisible(true);
         StringBuilder atores;
+        StringBuilder temporadas;
         StringBuilder ondeAssistir;
 
         if (serie.getCast().isEmpty()){
@@ -259,6 +265,14 @@ public class Util {
             atores = new StringBuilder("\n");
             for(String ator : serie.getCast()){
                 atores.append("\t").append(ator).append("\n");
+            }
+        }
+        if (serie.getSeasons().isEmpty()){
+            temporadas = new StringBuilder("Nenhuma temporada cadastrada");
+        } else{
+            temporadas = new StringBuilder("\n");
+            for(String ator : serie.getCast()){
+                temporadas.append("\t").append(ator).append("\n");
             }
         }
 
@@ -270,6 +284,20 @@ public class Util {
                 ondeAssistir.append("\t").append(lugar).append("\n");
             }
         }
+
+        detalhesBox.getChildren().addAll(
+                new Label("Título: " + serie.getTitle()),
+                new Label("Título Original: " + serie.getOriginalTitle()),
+                new Label("Gênero: " + serie.getGender()),
+                new Label("Ano de Lançamento: " + serie.getYearReleased()),
+                new Label("Ano de Encerramento: " + serie.getYearEnding()),
+                new Label("Elenco: " + atores),
+                new Label("Onde assitir: " + ondeAssistir),
+                new Separator(Orientation.valueOf("HORIZONTAL")),
+                new Label("Nota: " + serie.getNote()),
+                new Label("Quando Leu: " + serie.getReview().getWhenReadWatch()),
+                new Label("Temporadas: " + temporadas)
+        );
 
         estrelas(serie.getNote(), avaliacaoBox);
     }
@@ -284,10 +312,15 @@ public class Util {
                 new Label("Autor: " + livro.getAuthor()),
                 new Label("Editora: " + livro.getPublisher()),
                 new Label("ISBN: " + livro.getIsbn()),
-                new Label("Disponível: " + (livro.isHaveBook() ? "Sim" : "Não"))
+                new Label("Disponível: " + (livro.isHaveBook() ? "Sim" : "Não")),
+                new Separator(Orientation.valueOf("HORIZONTAL")),
+                new Label("Nota: " + livro.getReview().getNote()),
+                new Label("Quando Leu: " + livro.getReview().getWhenReadWatch()),
+                new Label("Comentário: " + livro.getReview().getComment())
         );
 
-       estrelas(livro.getReview().getNote(), avaliacaoBox);
+
+        estrelas(livro.getReview().getNote(), avaliacaoBox);
 
     }
 

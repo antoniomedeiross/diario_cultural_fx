@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.*;
@@ -27,8 +28,7 @@ public class SearchController implements Initializable {
     public Button voltarButton;
     @FXML
     public ListView<Media> listaResultadoBusca;
-    @FXML
-    public VBox detalhesBusca;
+    public VBox detalhesBox;
     public ComboBox<String> selecaoMedia;
     public ComboBox<String> selecaoBusca;
 
@@ -42,6 +42,7 @@ public class SearchController implements Initializable {
     public Button bt_novaBusca;
     public Button bt_editarMedia;
     public Button bt_excluirMedia;
+    public HBox avaliacaoBox;
     @FXML
     private VBox vboxResultado;
 
@@ -190,9 +191,9 @@ public class SearchController implements Initializable {
                     containerDetalhesBusca.setManaged(true);
                     mediaSelecionada = newVal;
                     switch (newVal) {
-                        case Book book -> mostrarDetalhes(book, detalhesBusca);
-                        case Film film -> mostrarDetalhes(film, detalhesBusca);
-                        case Serie serie -> mostrarDetalhes(serie, detalhesBusca);
+                        case Book book -> abrirDetalhes(book, detalhesBox, avaliacaoBox, containerDetalhesBusca);
+                        case Film film -> abrirDetalhes(film, detalhesBox, avaliacaoBox, containerDetalhesBusca);
+                        case Serie serie -> abrirDetalhes(serie,  detalhesBox, avaliacaoBox, containerDetalhesBusca);
                         default -> {}
                     }
                 }

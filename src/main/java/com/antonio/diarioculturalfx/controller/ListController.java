@@ -124,6 +124,9 @@ public class ListController implements Initializable {
     @FXML
     private void handleVoltarMenu() {
         trocarScene("Entrar");
+        if(detalhesBoxContainer != null) {
+            detalhesBoxContainer.setVisible(false);
+        }
     }
 
 
@@ -239,6 +242,7 @@ public class ListController implements Initializable {
     private void limparCampos(){
         detalhesBox.getChildren().clear();
         avaliacaoBox.getChildren().clear();
+        detalhesBoxContainer.setVisible(false);
     }
 
     @FXML

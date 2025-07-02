@@ -49,12 +49,12 @@
                     <HBox>
                         <ScrollPane>
                             <VBox>
-                                <HBox fx:id="avaliacaoBox" spacing="10.0" styleClass="detalhes-box">
+                                <HBox fx:id="avaliacaoBox" spacing="10.0" styleClass="box-detalhes">
                                     <padding>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                     </padding>
                                 </HBox>
-                                <VBox fx:id="detalhesBox" spacing="10.0" styleClass="detalhes-box">
+                                <VBox fx:id="detalhesBox" spacing="10.0" styleClass="box-detalhes">
                                     <padding>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                     </padding>

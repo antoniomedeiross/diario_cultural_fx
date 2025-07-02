@@ -1,9 +1,41 @@
 {
   "livros": [
     {
+      "author": "Machado de Assis",
+      "publisher": "Diversas editoras (originalmente B. L. Garnier)",
+      "isbn": 9788535914840,
+      "haveBook": true,
+      "title": "Dom Casmurro",
+      "review": {
+        "note": 4.8,
+        "comment": "Um clássico da literatura brasileira, com uma narrativa envolvente e personagens complexos.",
+        "readWatch": true,
+        "whenReadWatch": "2010"
+      },
+      "gender": "Realismo",
+      "yearReleased": 1899,
+      "type": "livro"
+    },
+    {
+      "author": "George Orwell",
+      "publisher": "Companhia das Letras (Brasil, edições recentes)",
+      "isbn": 9780451524935,
+      "haveBook": false,
+      "title": "1984",
+      "review": {
+        "note": 4.9,
+        "comment": "Distopia atemporal e assustadoramente relevante.",
+        "readWatch": true,
+        "whenReadWatch": "2015"
+      },
+      "gender": "Distopia",
+      "yearReleased": 1949,
+      "type": "livro"
+    },
+    {
       "author": "J.K. Rowling",
       "publisher": "Rocco (Brasil)",
-      "isbn": "9788532511010",
+      "isbn": 9788532511010,
       "haveBook": true,
       "title": "Harry Potter e a Pedra Filosofal",
       "review": {
@@ -13,188 +45,168 @@
         "whenReadWatch": "2001"
       },
       "gender": "Fantasia",
-      "yearReleased": 1997.0,
-      "type": "livro"
-    },
-    {
-      "author": "Machado de Assis",
-      "publisher": "Diversas editoras (originalmente B. L. Garnier)",
-      "isbn": "9788535914840",
-      "haveBook": true,
-      "title": "Dom Casmurro",
-      "review": {
-        "note": 4.0,
-        "comment": "Um clássico da literatura brasileira, com uma narrativa envolvente e personagens complexos.",
-        "readWatch": true,
-        "whenReadWatch": "2010"
-      },
-      "gender": "Realismo",
-      "yearReleased": 1899.0,
-      "type": "livro"
-    },
-    {
-      "author": "George Orwell",
-      "publisher": "Companhia das Letras (Brasil, edições recentes)",
-      "isbn": "9780451524935",
-      "haveBook": false,
-      "title": "1984",
-      "review": {
-        "note": 4.0,
-        "comment": "Distopia atemporal e assustadoramente relevante.",
-        "readWatch": true,
-        "whenReadWatch": "2015"
-      },
-      "gender": "Distopia",
-      "yearReleased": 1949.0,
+      "yearReleased": 1997,
       "type": "livro"
     },
     {
       "author": "Antoine de Saint-Exupéry",
       "publisher": "Agir (Brasil)",
-      "isbn": "9788522005233",
+      "isbn": 9788522005233,
       "haveBook": true,
       "title": "O Pequeno Príncipe",
       "review": {
-        "note": 4.0,
+        "note": 4.9,
         "comment": "Uma história tocante sobre amor, perda e a essência da vida.",
         "readWatch": true,
         "whenReadWatch": "2005"
       },
       "gender": "Fábula Filosófica",
-      "yearReleased": 1943.0,
+      "yearReleased": 1943,
       "type": "livro"
     },
     {
       "author": "Gabriel García Márquez",
       "publisher": "Record (Brasil)",
-      "isbn": "9788501004738",
+      "isbn": 9788501004738,
       "haveBook": false,
       "title": "Cem Anos de Solidão",
       "review": {
-        "note": 4.0,
+        "note": 4.8,
         "comment": "Obra-prima do realismo mágico, complexa e fascinante.",
         "readWatch": false,
         "whenReadWatch": "Nenhuma data atribuída"
       },
       "gender": "Realismo Mágico",
-      "yearReleased": 1967.0,
+      "yearReleased": 1967,
       "type": "livro"
     },
     {
       "author": "Jane Austen",
       "publisher": "Martin Claret (Brasil)",
-      "isbn": "9788572327860",
+      "isbn": 9788572327860,
       "haveBook": true,
       "title": "Orgulho e Preconceito",
       "review": {
-        "note": 4.0,
+        "note": 4.7,
         "comment": "Um romance espirituoso e atemporal sobre amor e sociedade.",
         "readWatch": true,
         "whenReadWatch": "2018"
       },
       "gender": "Romance de Época",
-      "yearReleased": 1813.0,
+      "yearReleased": 1813,
+      "type": "livro"
+    },
+    {
+      "author": "J.R.R. Tolkien",
+      "publisher": "HarperCollins Brasil",
+      "isbn": 9788595084759,
+      "haveBook": true,
+      "title": "O Senhor dos Anéis: A Sociedade do Anel",
+      "review": {
+        "note": 5.0,
+        "comment": "O início épico de uma jornada inesquecível pela Terra-média.",
+        "readWatch": true,
+        "whenReadWatch": "2002"
+      },
+      "gender": "Alta Fantasia",
+      "yearReleased": 1954,
       "type": "livro"
     },
     {
       "author": "John Green",
       "publisher": "Intrínseca (Brasil)",
-      "isbn": "9788580572261",
+      "isbn": 9788580572261,
       "haveBook": false,
       "title": "A Culpa é das Estrelas",
       "review": {
-        "note": 4.0,
+        "note": 4.6,
         "comment": "Emocionante e sensível, aborda temas difíceis com delicadeza.",
         "readWatch": true,
         "whenReadWatch": "2014"
       },
       "gender": "Jovem Adulto",
-      "yearReleased": 2012.0,
+      "yearReleased": 2012,
       "type": "livro"
     },
     {
       "author": "Paulo Coelho",
       "publisher": "Sextante (Brasil)",
-      "isbn": "9788575427583",
+      "isbn": 9788575427583,
       "haveBook": true,
       "title": "O Alquimista",
       "review": {
-        "note": 4.0,
+        "note": 4.5,
         "comment": "Uma jornada inspiradora sobre seguir seus sonhos.",
         "readWatch": true,
         "whenReadWatch": "2000"
       },
       "gender": "Ficção Alegórica",
-      "yearReleased": 1988.0,
+      "yearReleased": 1988,
       "type": "livro"
     },
     {
       "author": "Yuval Noah Harari",
-      "publisher": "L\u0026PM (Brasil)",
-      "isbn": "9788525431212",
+      "publisher": "L&PM (Brasil)",
+      "isbn": 9788525431212,
       "haveBook": false,
       "title": "Sapiens: Uma Breve História da Humanidade",
       "review": {
-        "note": 4.0,
+        "note": 4.8,
         "comment": "Uma análise fascinante da história da nossa espécie.",
         "readWatch": false,
         "whenReadWatch": "Nenhuma data atribuída"
       },
       "gender": "Não Ficção",
-      "yearReleased": 2011.0,
-      "type": "livro"
-    },
-    {
-      "author": "e",
-      "publisher": "e",
-      "isbn": "e",
-      "haveBook": false,
-      "title": "ppw",
-      "review": {
-        "note": 0.0,
-        "comment": "Nehnhum comentário atribuído",
-        "readWatch": false,
-        "whenReadWatch": "Nenhuma data atribuída"
-      },
-      "gender": "ee",
-      "yearReleased": 2025.0,
-      "type": "livro"
-    },
-    {
-      "author": "autor",
-      "publisher": "editora",
-      "isbn": "isbn",
-      "haveBook": false,
-      "title": "titulo",
-      "review": {
-        "note": 0.0,
-        "comment": "Nehnhum comentário atribuído",
-        "readWatch": false,
-        "whenReadWatch": "Nenhuma data atribuída"
-      },
-      "gender": "genero",
-      "yearReleased": 2025.0,
+      "yearReleased": 2011,
       "type": "livro"
     }
   ],
   "filmes": [
     {
+      "duration": 130.0,
+      "director": "Fernando Meirelles, Kátia Lund",
+      "writer": "Bráulio Mantovani (roteiro), Paulo Lins (livro)",
+      "cast": ["Alexandre Rodrigues", "Leandro Firmino", "Phellipe Haagensen", "Douglas Silva", "Alice Braga", "Seu Jorge"],
+      "originalTitle": "Cidade de Deus",
+      "whereWatch": ["Netflix", "Globoplay"],
+      "watched": true,
+      "title": "Cidade de Deus",
+      "review": {
+        "note": 4.9,
+        "comment": "Retrato visceral e impactante da violência no Rio de Janeiro.",
+        "readWatch": true,
+        "whenReadWatch": "2003"
+      },
+      "gender": "Drama",
+      "yearReleased": 2002.0,
+      "type": "filme"
+    },
+    {
+      "duration": 136.0,
+      "director": "Lana Wachowski, Lilly Wachowski",
+      "writer": "Lana Wachowski, Lilly Wachowski",
+      "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss", "Hugo Weaving"],
+      "originalTitle": "The Matrix",
+      "whereWatch": ["Max", "Amazon Prime Video"],
+      "watched": true,
+      "title": "Matrix",
+      "review": {
+        "note": 4.7,
+        "comment": "Revolucionário em seus efeitos visuais e questionamentos filosóficos.",
+        "readWatch": true,
+        "whenReadWatch": "1999"
+      },
+      "gender": "Ficção Científica",
+      "yearReleased": 1999.0,
+      "type": "filme"
+    },
+    {
       "duration": 148.0,
       "director": "Christopher Nolan",
       "writer": "Christopher Nolan, Jonathan Nolan",
-      "cast": [
-        "Christian Bale",
-        "Heath Ledger",
-        "Aaron Eckhart",
-        "Michael Caine",
-        "Maggie Gyllenhaal",
-        "Gary Oldman",
-        "Morgan Freeman"
-      ],
+      "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart", "Michael Caine", "Maggie Gyllenhaal", "Gary Oldman", "Morgan Freeman"],
       "originalTitle": "The Dark Knight",
-      "whereWatch": [
-        "Max"
-      ],
+      "whereWatch": ["Max"],
       "watched": true,
       "title": "Batman: O Cavaleiro das Trevas",
       "review": {
@@ -208,80 +220,16 @@
       "type": "filme"
     },
     {
-      "duration": 130.0,
-      "director": "Fernando Meirelles, Kátia Lund",
-      "writer": "Bráulio Mantovani (roteiro), Paulo Lins (livro)",
-      "cast": [
-        "Alexandre Rodrigues",
-        "Leandro Firmino",
-        "Phellipe Haagensen",
-        "Douglas Silva",
-        "Alice Braga",
-        "Seu Jorge"
-      ],
-      "originalTitle": "Cidade de Deus",
-      "whereWatch": [
-        "Netflix",
-        "Globoplay"
-      ],
-      "watched": true,
-      "title": "Cidade de Deus",
-      "review": {
-        "note": 4.0,
-        "comment": "Retrato visceral e impactante da violência no Rio de Janeiro.",
-        "readWatch": true,
-        "whenReadWatch": "2003"
-      },
-      "gender": "Drama",
-      "yearReleased": 2002.0,
-      "type": "filme"
-    },
-    {
-      "duration": 136.0,
-      "director": "Lana Wachowski, Lilly Wachowski",
-      "writer": "Lana Wachowski, Lilly Wachowski",
-      "cast": [
-        "Keanu Reeves",
-        "Laurence Fishburne",
-        "Carrie-Anne Moss",
-        "Hugo Weaving"
-      ],
-      "originalTitle": "The Matrix",
-      "whereWatch": [
-        "Max",
-        "Amazon Prime Video"
-      ],
-      "watched": true,
-      "title": "Matrix",
-      "review": {
-        "note": 4.0,
-        "comment": "Revolucionário em seus efeitos visuais e questionamentos filosóficos.",
-        "readWatch": true,
-        "whenReadWatch": "1999"
-      },
-      "gender": "Ficção Científica",
-      "yearReleased": 1999.0,
-      "type": "filme"
-    },
-    {
       "duration": 175.0,
       "director": "Francis Ford Coppola",
       "writer": "Mario Puzo, Francis Ford Coppola",
-      "cast": [
-        "Marlon Brando",
-        "Al Pacino",
-        "James Caan",
-        "Robert Duvall"
-      ],
+      "cast": ["Marlon Brando", "Al Pacino", "James Caan", "Robert Duvall"],
       "originalTitle": "The Godfather",
-      "whereWatch": [
-        "Netflix",
-        "Star+"
-      ],
+      "whereWatch": ["Netflix", "Star+"],
       "watched": true,
       "title": "O Poderoso Chefão",
       "review": {
-        "note": 4.0,
+        "note": 4.9,
         "comment": "Um épico do cinema sobre máfia, família e poder.",
         "readWatch": true,
         "whenReadWatch": "2005"
@@ -291,148 +239,12 @@
       "type": "filme"
     },
     {
-      "duration": 125.0,
-      "director": "Hayao Miyazaki",
-      "writer": "Hayao Miyazaki",
-      "cast": [
-        "Rumi Hiiragi",
-        "Miyu Irino",
-        "Mari Natsuki (vozes originais)"
-      ],
-      "originalTitle": "千と千尋の神隠し (Sen to Chihiro no Kamikakushi)",
-      "whereWatch": [
-        "Netflix"
-      ],
-      "watched": true,
-      "title": "A Viagem de Chihiro",
-      "review": {
-        "note": 4.0,
-        "comment": "Uma animação deslumbrante e imaginativa do Studio Ghibli.",
-        "readWatch": true,
-        "whenReadWatch": "2004"
-      },
-      "gender": "Animação",
-      "yearReleased": 2001.0,
-      "type": "filme"
-    },
-    {
-      "duration": 142.0,
-      "director": "Robert Zemeckis",
-      "writer": "Eric Roth (roteiro), Winston Groom (romance)",
-      "cast": [
-        "Tom Hanks",
-        "Robin Wright",
-        "Gary Sinise",
-        "Sally Field"
-      ],
-      "originalTitle": "Forrest Gump",
-      "whereWatch": [
-        "Netflix",
-        "Star+"
-      ],
-      "watched": true,
-      "title": "Forrest Gump: O Contador de Histórias",
-      "review": {
-        "note": 4.0,
-        "comment": "Uma jornada emocionante pela história americana através dos olhos de um homem singular.",
-        "readWatch": true,
-        "whenReadWatch": "1998"
-      },
-      "gender": "Drama",
-      "yearReleased": 1994.0,
-      "type": "filme"
-    },
-    {
-      "duration": 104.0,
-      "director": "Guel Arraes",
-      "writer": "Adriana Falcão, Guel Arraes, João Falcão",
-      "cast": [
-        "Matheus Nachtergaele",
-        "Selton Mello",
-        "Fernanda Montenegro",
-        "Marco Nanini"
-      ],
-      "originalTitle": "O Auto da Compadecida",
-      "whereWatch": [
-        "Globoplay"
-      ],
-      "watched": true,
-      "title": "O Auto da Compadecida",
-      "review": {
-        "note": 4.0,
-        "comment": "Clássico do cinema brasileiro, divertido e comovente.",
-        "readWatch": true,
-        "whenReadWatch": "2001"
-      },
-      "gender": "Comédia",
-      "yearReleased": 2000.0,
-      "type": "filme"
-    },
-    {
-      "duration": 120.0,
-      "director": "George Miller",
-      "writer": "George Miller, Brendan McCarthy, Nico Lathouris",
-      "cast": [
-        "Tom Hardy",
-        "Charlize Theron",
-        "Nicholas Hoult",
-        "Hugh Keays-Byrne"
-      ],
-      "originalTitle": "Mad Max: Fury Road",
-      "whereWatch": [
-        "Max",
-        "Amazon Prime Video"
-      ],
-      "watched": true,
-      "title": "Mad Max: Estrada da Fúria",
-      "review": {
-        "note": 4.0,
-        "comment": "Ação frenética e visualmente espetacular.",
-        "readWatch": true,
-        "whenReadWatch": "2016"
-      },
-      "gender": "Ação",
-      "yearReleased": 2015.0,
-      "type": "filme"
-    },
-    {
-      "duration": 199.0,
-      "director": "eiosoih",
-      "writer": "sddisd",
-      "cast": [
-        "tesff"
-      ],
-      "originalTitle": "siohisd",
-      "whereWatch": [
-        "gfdf"
-      ],
-      "watched": false,
-      "title": "4kiei",
-      "review": {
-        "note": 0.0,
-        "comment": "Nehnhum comentário atribuído",
-        "readWatch": false,
-        "whenReadWatch": "Nenhuma data atribuída"
-      },
-      "gender": "eioeie",
-      "yearReleased": 2025.0,
-      "type": "filme"
-    },
-    {
       "duration": 154.0,
       "director": "Quentin Tarantino",
       "writer": "Quentin Tarantino, Roger Avary",
-      "cast": [
-        "John Travolta",
-        "Samuel L. Jackson",
-        "Uma Thurman",
-        "Bruce Willis"
-      ],
+      "cast": ["John Travolta", "Samuel L. Jackson", "Uma Thurman", "Bruce Willis"],
       "originalTitle": "Pulp Fiction",
-      "whereWatch": [
-        "Netflix",
-        "Max"
-      ],
+      "whereWatch": ["Netflix", "Max"],
       "watched": false,
       "title": "Pulp Fiction: Tempo de Violência",
       "review": {
@@ -446,21 +258,69 @@
       "type": "filme"
     },
     {
+      "duration": 125.0,
+      "director": "Hayao Miyazaki",
+      "writer": "Hayao Miyazaki",
+      "cast": ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki (vozes originais)"],
+      "originalTitle": "千と千尋の神隠し (Sen to Chihiro no Kamikakushi)",
+      "whereWatch": ["Netflix"],
+      "watched": true,
+      "title": "A Viagem de Chihiro",
+      "review": {
+        "note": 4.8,
+        "comment": "Uma animação deslumbrante e imaginativa do Studio Ghibli.",
+        "readWatch": true,
+        "whenReadWatch": "2004"
+      },
+      "gender": "Animação",
+      "yearReleased": 2001.0,
+      "type": "filme"
+    },
+    {
+      "duration": 142.0,
+      "director": "Robert Zemeckis",
+      "writer": "Eric Roth (roteiro), Winston Groom (romance)",
+      "cast": ["Tom Hanks", "Robin Wright", "Gary Sinise", "Sally Field"],
+      "originalTitle": "Forrest Gump",
+      "whereWatch": ["Netflix", "Star+"],
+      "watched": true,
+      "title": "Forrest Gump: O Contador de Histórias",
+      "review": {
+        "note": 4.7,
+        "comment": "Uma jornada emocionante pela história americana através dos olhos de um homem singular.",
+        "readWatch": true,
+        "whenReadWatch": "1998"
+      },
+      "gender": "Drama",
+      "yearReleased": 1994.0,
+      "type": "filme"
+    },
+    {
+      "duration": 104.0,
+      "director": "Guel Arraes",
+      "writer": "Adriana Falcão, Guel Arraes, João Falcão",
+      "cast": ["Matheus Nachtergaele", "Selton Mello", "Fernanda Montenegro", "Marco Nanini"],
+      "originalTitle": "O Auto da Compadecida",
+      "whereWatch": ["Globoplay"],
+      "watched": true,
+      "title": "O Auto da Compadecida",
+      "review": {
+        "note": 4.9,
+        "comment": "Clássico do cinema brasileiro, divertido e comovente.",
+        "readWatch": true,
+        "whenReadWatch": "2001"
+      },
+      "gender": "Comédia",
+      "yearReleased": 2000.0,
+      "type": "filme"
+    },
+    {
       "duration": 181.0,
       "director": "Anthony Russo, Joe Russo",
       "writer": "Christopher Markus, Stephen McFeely",
-      "cast": [
-        "Robert Downey Jr.",
-        "Chris Evans",
-        "Mark Ruffalo",
-        "Chris Hemsworth",
-        "Scarlett Johansson",
-        "Jeremy Renner"
-      ],
+      "cast": ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo", "Chris Hemsworth", "Scarlett Johansson", "Jeremy Renner"],
       "originalTitle": "Avengers: Endgame",
-      "whereWatch": [
-        "Disney+"
-      ],
+      "whereWatch": ["Disney+"],
       "watched": false,
       "title": "Vingadores: Ultimato",
       "review": {
@@ -472,90 +332,64 @@
       "gender": "Ação",
       "yearReleased": 2019.0,
       "type": "filme"
+    },
+    {
+      "duration": 120.0,
+      "director": "George Miller",
+      "writer": "George Miller, Brendan McCarthy, Nico Lathouris",
+      "cast": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult", "Hugh Keays-Byrne"],
+      "originalTitle": "Mad Max: Fury Road",
+      "whereWatch": ["Max", "Amazon Prime Video"],
+      "watched": true,
+      "title": "Mad Max: Estrada da Fúria",
+      "review": {
+        "note": 4.8,
+        "comment": "Ação frenética e visualmente espetacular.",
+        "readWatch": true,
+        "whenReadWatch": "2016"
+      },
+      "gender": "Ação",
+      "yearReleased": 2015.0,
+      "type": "filme"
     }
   ],
   "series": [
     {
       "yearEnding": 2013.0,
-      "note": 4.0,
-      "cast": [
-        "Bryan Cranston",
-        "Aaron Paul",
-        "Anna Gunn",
-        "Dean Norris",
-        "Bob Odenkirk",
-        "Giancarlo Esposito"
-      ],
+      "note": 4.9,
+      "cast": ["Bryan Cranston", "Aaron Paul", "Anna Gunn", "Dean Norris", "Bob Odenkirk", "Giancarlo Esposito"],
       "originalTitle": "Breaking Bad",
-      "whereWatch": [
-        "Netflix"
-      ],
+      "whereWatch": ["Netflix"],
       "seasons": [
         {
           "year": 2008.0,
           "title": "Temporada 1",
           "numberEpisodes": 7.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         },
         {
           "year": 2009.0,
           "title": "Temporada 2",
           "numberEpisodes": 13.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         },
         {
           "year": 2010.0,
           "title": "Temporada 3",
           "numberEpisodes": 13.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         },
         {
           "year": 2011.0,
           "title": "Temporada 4",
           "numberEpisodes": 13.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         },
         {
           "year": 2012.0,
           "title": "Temporada 5",
           "numberEpisodes": 16.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2025.0,
-          "title": "Temporada 6",
-          "numberEpisodes": 78.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         }
       ],
       "title": "Breaking Bad: A Química do Mal",
@@ -570,68 +404,40 @@
       "type": "serie"
     },
     {
-      "yearEnding": 0.0,
-      "note": 4.0,
-      "cast": [
-        "Millie Bobby Brown",
-        "Finn Wolfhard",
-        "Winona Ryder",
-        "David Harbour",
-        "Gaten Matarazzo"
-      ],
+      "yearEnding": null,
+      "note": 4.7,
+      "cast": ["Millie Bobby Brown", "Finn Wolfhard", "Winona Ryder", "David Harbour", "Gaten Matarazzo"],
       "originalTitle": "Stranger Things",
-      "whereWatch": [
-        "Netflix"
-      ],
+      "whereWatch": ["Netflix"],
       "seasons": [
         {
           "year": 2016.0,
           "title": "Temporada 1",
           "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         },
         {
           "year": 2017.0,
           "title": "Temporada 2",
           "numberEpisodes": 9.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         },
         {
           "year": 2019.0,
           "title": "Temporada 3",
           "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         },
         {
           "year": 2022.0,
           "title": "Temporada 4",
           "numberEpisodes": 9.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         }
       ],
       "title": "Stranger Things",
       "review": {
-        "note": 4.0,
+        "note": 4.8,
         "comment": "Nostalgia dos anos 80 com uma trama de suspense e ficção científica envolvente.",
         "readWatch": true,
         "whenReadWatch": "2022"
@@ -642,112 +448,23 @@
     },
     {
       "yearEnding": 2019.0,
-      "note": 4.0,
-      "cast": [
-        "Emilia Clarke",
-        "Kit Harington",
-        "Peter Dinklage",
-        "Lena Headey",
-        "Maisie Williams",
-        "Sophie Turner"
-      ],
+      "note": 4.8,
+      "cast": ["Emilia Clarke", "Kit Harington", "Peter Dinklage", "Lena Headey", "Maisie Williams", "Sophie Turner"],
       "originalTitle": "Game of Thrones",
-      "whereWatch": [
-        "Max"
-      ],
+      "whereWatch": ["Max"],
       "seasons": [
-        {
-          "year": 2011.0,
-          "title": "Temporada 1",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2012.0,
-          "title": "Temporada 2",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2013.0,
-          "title": "Temporada 3",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2014.0,
-          "title": "Temporada 4",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2015.0,
-          "title": "Temporada 5",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2016.0,
-          "title": "Temporada 6",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2017.0,
-          "title": "Temporada 7",
-          "numberEpisodes": 7.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2019.0,
-          "title": "Temporada 8",
-          "numberEpisodes": 6.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        }
+        {"year": 2011.0, "title": "Temporada 1", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2012.0, "title": "Temporada 2", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2013.0, "title": "Temporada 3", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2014.0, "title": "Temporada 4", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2015.0, "title": "Temporada 5", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2016.0, "title": "Temporada 6", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2017.0, "title": "Temporada 7", "numberEpisodes": 7.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2019.0, "title": "Temporada 8", "numberEpisodes": 6.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}}
       ],
       "title": "A Guerra dos Tronos",
       "review": {
-        "note": 4.0,
+        "note": 4.5,
         "comment": "Épica e grandiosa, apesar de um final controverso.",
         "readWatch": true,
         "whenReadWatch": "2019"
@@ -758,134 +475,25 @@
     },
     {
       "yearEnding": 2004.0,
-      "note": 4.0,
-      "cast": [
-        "Jennifer Aniston",
-        "Courteney Cox",
-        "Lisa Kudrow",
-        "Matt LeBlanc",
-        "Matthew Perry",
-        "David Schwimmer"
-      ],
+      "note": 4.8,
+      "cast": ["Jennifer Aniston", "Courteney Cox", "Lisa Kudrow", "Matt LeBlanc", "Matthew Perry", "David Schwimmer"],
       "originalTitle": "Friends",
-      "whereWatch": [
-        "Max"
-      ],
+      "whereWatch": ["Max"],
       "seasons": [
-        {
-          "year": 1994.0,
-          "title": "Temporada 1",
-          "numberEpisodes": 24.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 1995.0,
-          "title": "Temporada 2",
-          "numberEpisodes": 24.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 1996.0,
-          "title": "Temporada 3",
-          "numberEpisodes": 25.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 1997.0,
-          "title": "Temporada 4",
-          "numberEpisodes": 24.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 1998.0,
-          "title": "Temporada 5",
-          "numberEpisodes": 24.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 1999.0,
-          "title": "Temporada 6",
-          "numberEpisodes": 25.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2000.0,
-          "title": "Temporada 7",
-          "numberEpisodes": 24.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2001.0,
-          "title": "Temporada 8",
-          "numberEpisodes": 24.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2002.0,
-          "title": "Temporada 9",
-          "numberEpisodes": 24.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2003.0,
-          "title": "Temporada 10",
-          "numberEpisodes": 18.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        }
+        {"year": 1994.0, "title": "Temporada 1", "numberEpisodes": 24.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 1995.0, "title": "Temporada 2", "numberEpisodes": 24.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 1996.0, "title": "Temporada 3", "numberEpisodes": 25.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 1997.0, "title": "Temporada 4", "numberEpisodes": 24.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 1998.0, "title": "Temporada 5", "numberEpisodes": 24.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 1999.0, "title": "Temporada 6", "numberEpisodes": 25.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2000.0, "title": "Temporada 7", "numberEpisodes": 24.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2001.0, "title": "Temporada 8", "numberEpisodes": 24.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2002.0, "title": "Temporada 9", "numberEpisodes": 24.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2003.0, "title": "Temporada 10", "numberEpisodes": 18.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}}
       ],
       "title": "Friends",
       "review": {
-        "note": 4.0,
+        "note": 4.9,
         "comment": "Sitcom icônica que marcou uma geração. Divertida e reconfortante.",
         "readWatch": true,
         "whenReadWatch": "2005"
@@ -896,85 +504,17 @@
     },
     {
       "yearEnding": 2023.0,
-      "note": 4.0,
-      "cast": [
-        "Claire Foy",
-        "Olivia Colman",
-        "Imelda Staunton",
-        "Matt Smith",
-        "Tobias Menzies"
-      ],
+      "note": 4.7,
+      "cast": ["Claire Foy", "Olivia Colman", "Imelda Staunton", "Matt Smith", "Tobias Menzies"],
       "originalTitle": "The Crown",
-      "whereWatch": [
-        "Netflix"
-      ],
+      "whereWatch": ["Netflix"],
       "seasons": [
-        {
-          "year": 2016.0,
-          "title": "Temporada 1",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2017.0,
-          "title": "Temporada 2",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2019.0,
-          "title": "Temporada 3",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2020.0,
-          "title": "Temporada 4",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2022.0,
-          "title": "Temporada 5",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2023.0,
-          "title": "Temporada 6",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        }
+        {"year": 2016.0, "title": "Temporada 1", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2017.0, "title": "Temporada 2", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2019.0, "title": "Temporada 3", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2020.0, "title": "Temporada 4", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2022.0, "title": "Temporada 5", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2023.0, "title": "Temporada 6", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}}
       ],
       "title": "The Crown",
       "review": {
@@ -989,77 +529,20 @@
     },
     {
       "yearEnding": 2021.0,
-      "note": 4.0,
-      "cast": [
-        "Úrsula Corberó",
-        "Álvaro Morte",
-        "Itziar Ituño",
-        "Pedro Alonso"
-      ],
+      "note": 4.6,
+      "cast": ["Úrsula Corberó", "Álvaro Morte", "Itziar Ituño", "Pedro Alonso"],
       "originalTitle": "La Casa de Papel",
-      "whereWatch": [
-        "Netflix"
-      ],
+      "whereWatch": ["Netflix"],
       "seasons": [
-        {
-          "year": 2017.0,
-          "title": "Parte 1",
-          "numberEpisodes": 13.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2017.0,
-          "title": "Parte 2",
-          "numberEpisodes": 9.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2019.0,
-          "title": "Parte 3",
-          "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2020.0,
-          "title": "Parte 4",
-          "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2021.0,
-          "title": "Parte 5",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        }
+        {"year": 2017.0, "title": "Parte 1", "numberEpisodes": 13.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2017.0, "title": "Parte 2", "numberEpisodes": 9.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2019.0, "title": "Parte 3", "numberEpisodes": 8.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2020.0, "title": "Parte 4", "numberEpisodes": 8.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2021.0, "title": "Parte 5", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}}
       ],
       "title": "La Casa de Papel",
       "review": {
-        "note": 4.0,
+        "note": 4.5,
         "comment": "Trama eletrizante e personagens carismáticos. Um fenômeno mundial.",
         "readWatch": true,
         "whenReadWatch": "2020"
@@ -1069,55 +552,19 @@
       "type": "serie"
     },
     {
-      "yearEnding": 0.0,
-      "note": 4.0,
-      "cast": [
-        "Pedro Pascal",
-        "Katee Sackhoff",
-        "Giancarlo Esposito"
-      ],
+      "yearEnding": null,
+      "note": 4.7,
+      "cast": ["Pedro Pascal", "Katee Sackhoff", "Giancarlo Esposito"],
       "originalTitle": "The Mandalorian",
-      "whereWatch": [
-        "Disney+"
-      ],
+      "whereWatch": ["Disney+"],
       "seasons": [
-        {
-          "year": 2019.0,
-          "title": "Temporada 1",
-          "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2020.0,
-          "title": "Temporada 2",
-          "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2023.0,
-          "title": "Temporada 3",
-          "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        }
+        {"year": 2019.0, "title": "Temporada 1", "numberEpisodes": 8.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2020.0, "title": "Temporada 2", "numberEpisodes": 8.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2023.0, "title": "Temporada 3", "numberEpisodes": 8.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}}
       ],
       "title": "The Mandalorian",
       "review": {
-        "note": 4.0,
+        "note": 4.8,
         "comment": "Expansão do universo Star Wars com uma pegada de western espacial.",
         "readWatch": true,
         "whenReadWatch": "2023"
@@ -1128,55 +575,18 @@
     },
     {
       "yearEnding": 2020.0,
-      "note": 4.0,
-      "cast": [
-        "Louis Hofmann",
-        "Lisa Vicari",
-        "Andreas Pietschmann",
-        "Maja Schöne"
-      ],
+      "note": 4.9,
+      "cast": ["Louis Hofmann", "Lisa Vicari", "Andreas Pietschmann", "Maja Schöne"],
       "originalTitle": "Dark",
-      "whereWatch": [
-        "Netflix"
-      ],
+      "whereWatch": ["Netflix"],
       "seasons": [
-        {
-          "year": 2017.0,
-          "title": "Ciclo 1",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2019.0,
-          "title": "Ciclo 2",
-          "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2020.0,
-          "title": "Ciclo 3",
-          "numberEpisodes": 8.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        }
+        {"year": 2017.0, "title": "Ciclo 1", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2019.0, "title": "Ciclo 2", "numberEpisodes": 8.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2020.0, "title": "Ciclo 3", "numberEpisodes": 8.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}}
       ],
       "title": "Dark",
       "review": {
-        "note": 4.0,
+        "note": 4.9,
         "comment": "Complexa, intrigante e com uma trama de viagem no tempo muito bem amarrada.",
         "readWatch": true,
         "whenReadWatch": "2021"
@@ -1187,63 +597,15 @@
     },
     {
       "yearEnding": 2023.0,
-      "note": 4.0,
-      "cast": [
-        "Brian Cox",
-        "Jeremy Strong",
-        "Sarah Snook",
-        "Kieran Culkin",
-        "Matthew Macfadyen"
-      ],
+      "note": 4.8,
+      "cast": ["Brian Cox", "Jeremy Strong", "Sarah Snook", "Kieran Culkin", "Matthew Macfadyen"],
       "originalTitle": "Succession",
-      "whereWatch": [
-        "Max"
-      ],
+      "whereWatch": ["Max"],
       "seasons": [
-        {
-          "year": 2018.0,
-          "title": "Temporada 1",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2019.0,
-          "title": "Temporada 2",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2021.0,
-          "title": "Temporada 3",
-          "numberEpisodes": 9.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        },
-        {
-          "year": 2023.0,
-          "title": "Temporada 4",
-          "numberEpisodes": 10.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
-        }
+        {"year": 2018.0, "title": "Temporada 1", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2019.0, "title": "Temporada 2", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2021.0, "title": "Temporada 3", "numberEpisodes": 9.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}},
+        {"year": 2023.0, "title": "Temporada 4", "numberEpisodes": 10.0, "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}}
       ],
       "title": "Succession",
       "review": {
@@ -1257,35 +619,22 @@
       "type": "serie"
     },
     {
-      "yearEnding": 0.0,
-      "note": 4.0,
-      "cast": [
-        "Lee Jung-jae",
-        "Park Hae-soo",
-        "Wi Ha-joon",
-        "HoYeon Jung",
-        "Oh Yeong-su"
-      ],
+      "yearEnding": null,
+      "note": 4.7,
+      "cast": ["Lee Jung-jae", "Park Hae-soo", "Wi Ha-joon", "HoYeon Jung", "Oh Yeong-su"],
       "originalTitle": "오징어 게임 (Ojing-eo Geim)",
-      "whereWatch": [
-        "Netflix"
-      ],
+      "whereWatch": ["Netflix"],
       "seasons": [
         {
           "year": 2021.0,
           "title": "Temporada 1",
           "numberEpisodes": 9.0,
-          "review": {
-            "note": 0.0,
-            "comment": "Nenhum comentário atribuído",
-            "readWatch": false,
-            "whenReadWatch": "Nenhuma data atribuída"
-          }
+          "review": {"note": 0.0, "comment": "Nenhum comentário atribuído", "readWatch": false, "whenReadWatch": "Nenhuma data atribuída"}
         }
       ],
       "title": "Round 6 (Squid Game)",
       "review": {
-        "note": 4.0,
+        "note": 4.6,
         "comment": "Sucesso global com uma crítica social contundente e jogos mortais.",
         "readWatch": true,
         "whenReadWatch": "2021"
