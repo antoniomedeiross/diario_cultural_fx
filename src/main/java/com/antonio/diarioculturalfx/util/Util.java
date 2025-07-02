@@ -25,6 +25,10 @@ public class Util {
     public static final Pattern pattern = Pattern.compile("^[1-9]\\d{3}$");
     public static final LocalDate now = LocalDate.now();
     static String cor;
+    public static Image starImage = new Image(Objects.requireNonNull(Util.class
+            .getResourceAsStream("/com/antonio/diarioculturalfx/icons/star.png")));
+    public static Image starVaziaImage = new Image(Objects.requireNonNull(Util.class
+            .getResourceAsStream("/com/antonio/diarioculturalfx/icons/starvazia.png")));
 
     public static void addImgOnButton(String caminho, Button button) {
         InputStream imgStream = Util.class.getResourceAsStream(caminho);
@@ -203,7 +207,7 @@ public class Util {
         }
     }
 
-    public static void abrirDetalhes(Film filme, VBox detalhesBox,VBox avaliacaoBox, VBox detalhesBoxContainer){
+    public static void abrirDetalhes(Film filme, VBox detalhesBox,HBox avaliacaoBox, VBox detalhesBoxContainer){
         avaliacaoBox.getChildren().clear();
         detalhesBox.getChildren().clear(); // limpa conteúdo anterior
         detalhesBoxContainer.setVisible(true);
@@ -239,14 +243,10 @@ public class Util {
                 new Label("Onde assitir: " + ondeAssistir)
         );
 
-        avaliacaoBox.getChildren().addAll(
-                new Label("Nota: " + filme.getReview().getNote()),
-                new Label("Ano que Viu: " + filme.getReview().getWhenReadWatch()),
-                new Label("Comentários: " + "\n\t" + filme.getReview().getComment())
-        );
+        estrelas(filme.getReview().getNote(), avaliacaoBox);
     }
 
-    public static void abrirDetalhes(Serie serie, VBox detalhesBox,VBox avaliacaoBox, VBox detalhesBoxContainer){
+    public static void abrirDetalhes(Serie serie, VBox detalhesBox,HBox avaliacaoBox, VBox detalhesBoxContainer){
         avaliacaoBox.getChildren().clear();
         detalhesBox.getChildren().clear(); // limpa conteúdo anterior
         detalhesBoxContainer.setVisible(true);
@@ -270,23 +270,10 @@ public class Util {
                 ondeAssistir.append("\t").append(lugar).append("\n");
             }
         }
-        detalhesBox.getChildren().addAll(
-                new Label("Título: " + serie.getTitle()),
-                new Label("Título Original: " + serie.getOriginalTitle()),
-                new Label("Gênero: " + serie.getGender()),
-                new Label("Ano de Lançamento: " + serie.getYearReleased()),
-                new Label("Ano de Encerramento: " + serie.getYearEnding()),
-                new Label("Elenco: " + atores),
-                new Label("Onde assitir: " + ondeAssistir)
-        );
 
-        avaliacaoBox.getChildren().addAll(
-                new Label("Nota: " + serie.getReview().getNote()),
-                new Label("Ano que Viu: " + serie.getReview().getWhenReadWatch()),
-                new Label("Comentários: " + "\n\t" + serie.getReview().getComment())
-        );
+        estrelas(serie.getNote(), avaliacaoBox);
     }
-    public static void abrirDetalhes(Book livro, VBox detalhesBox,VBox avaliacaoBox, VBox detalhesBoxContainer) {
+    public static void abrirDetalhes(Book livro, VBox detalhesBox,HBox avaliacaoBox, VBox detalhesBoxContainer) {
         avaliacaoBox.getChildren().clear();
         detalhesBox.getChildren().clear(); // limpa conteúdo anterior
         detalhesBoxContainer.setVisible(true);
@@ -300,13 +287,27 @@ public class Util {
                 new Label("Disponível: " + (livro.isHaveBook() ? "Sim" : "Não"))
         );
 
-        avaliacaoBox.getChildren().addAll(
-                new Label("Nota: " + livro.getReview().getNote()),
-                new Label("Ano que Leu: " + livro.getReview().getWhenReadWatch()),
-                new Label("Comentários: " + "\n\t" + livro.getReview().getComment())
-        );
+       estrelas(livro.getReview().getNote(), avaliacaoBox);
 
     }
+
+    private static void estrelas(int stars, HBox starBox) {
+        for (int i = 0; i < stars; i++) {
+            ImageView star = new ImageView();
+            star.setImage(starImage);
+            star.setFitWidth(24);
+            star.setFitHeight(24);
+            starBox.getChildren().add(star);
+        }
+        for (int i = 0; i < 5-stars; i++) {
+            ImageView star = new ImageView();
+            star.setImage(starVaziaImage);
+            star.setFitWidth(24);
+            star.setFitHeight(24);
+            starBox.getChildren().add(star);
+        }
+    }
+
 
     public static void listar(ObservableList<String> lista) {
         if (lista.isEmpty()) {
@@ -321,5 +322,6 @@ public class Util {
 
         showAlert("Lista", conteudo.toString(), Alert.AlertType.INFORMATION);
     }
+
 
 }

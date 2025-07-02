@@ -167,7 +167,7 @@ public class ListController implements Initializable {
     private VBox detalhesBox;
 
     @FXML
-    private VBox avaliacaoBox;
+    private HBox avaliacaoBox;
 
 
 

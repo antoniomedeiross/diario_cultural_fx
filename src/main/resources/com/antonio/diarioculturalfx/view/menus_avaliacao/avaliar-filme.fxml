@@ -32,7 +32,7 @@
                 <VBox fx:id="campoAvaliacao" spacing="10" styleClass="detalhes-box">
                     <Label text="Nota:" />
                     <TextField fx:id="notaField"/>
-                    <Label text="Ano de leitura:"/>
+                    <Label text="Ano que assistiu:"/>
                     <TextField fx:id="quandoLeuField"/>
                     <Label text="Comentário:"/>
                     <TextArea fx:id="comentField"/>
