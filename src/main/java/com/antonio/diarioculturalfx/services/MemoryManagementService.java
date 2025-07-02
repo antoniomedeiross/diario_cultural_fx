@@ -150,6 +150,7 @@ public class MemoryManagementService {
         serie.setSeason(season); // Adiciona a temporada na série
     }
 
+
     // Metodo para validar os capos, se for nulo ele lança uma excessão
 
 

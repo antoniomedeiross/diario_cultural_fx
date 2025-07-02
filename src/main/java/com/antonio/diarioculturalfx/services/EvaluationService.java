@@ -1,6 +1,5 @@
 package com.antonio.diarioculturalfx.services;
 
-import com.antonio.diarioculturalfx.controller.MemoryManagementController;
 import com.antonio.diarioculturalfx.model.*;
 
 import java.time.LocalDate;
@@ -33,9 +32,6 @@ public class EvaluationService {
         media.getReview().setComment(comment);
         media.getReview().setReadWatch(readWatch);
         media.getReview().setWhenReadWatch(whenReadWatch);
-
-
-
     }
 
 

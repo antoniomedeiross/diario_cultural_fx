@@ -61,9 +61,9 @@ public class ListController implements Initializable {
     private static String tipoFiltro;
     private static String dado;
 
-    private List<Book> listaBooks = new ArrayList<>();
-    private List<Film> listaFilms = new ArrayList<>();
-    private List<Serie> listaSeries = new ArrayList<>();
+    private List<Book> listaBooks;
+    private List<Film> listaFilms;
+    private List<Serie> listaSeries;
 
     @FXML
     private ListView<Media> listViewMidias ;
@@ -112,6 +112,13 @@ public class ListController implements Initializable {
         }
 
         if(listViewMidias != null && tipoLista != null){
+            listService.ordenarPorNota(memoryManagement.getBooks());
+            listService.ordenarPorNota(memoryManagement.getFilms());
+            listService.ordenarPorNota(memoryManagement.getSeries());
+
+            listaFilms = listService.listFilms();
+            listaSeries = listService.listSeries();
+            listaBooks = listService.listBooks();
             setMedia(determinarLista("Livro"));
         }
 
@@ -143,7 +150,6 @@ public class ListController implements Initializable {
      * @param listaDeMedia, lista de tipos que estendem de Media
      */
     public void setMedia(List<? extends Media> listaDeMedia) {
-        mediaSelecionada = null;
         mediaObservable.setAll(listaDeMedia);
         listViewMidias.setItems(mediaObservable);
 
@@ -191,11 +197,10 @@ public class ListController implements Initializable {
      * @return Lista de livros para "Livro", Lista de filmes pra "Filme, Lista de séries para "Série"
      */
     private List<? extends Media> determinarLista(String tipo){
-
         return switch (tipo) {
-            case "Livro" -> listaBooks;
-            case "Filme" -> listaFilms;
-            case "Série" -> listaSeries;
+            case "Livro" -> listService.listBooks();
+            case "Filme" -> listService.listFilms();
+            case "Série" -> listService.listSeries();
             default -> null;
         };
     }

@@ -86,6 +86,7 @@ public class EvaluationController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        atualizarLista();
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
         if(bt_filme != null && bt_livro != null && bt_serie != null) {
             setupHoverEffect(bt_livro);
@@ -202,6 +203,7 @@ public class EvaluationController implements Initializable {
                 showAlert("Avaliação inválida", e.getMessage(), Alert.AlertType.ERROR );
             }
         }
+        memoryManagementController.salvarArquivos();
     }
 
     /**

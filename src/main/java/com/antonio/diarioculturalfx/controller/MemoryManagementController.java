@@ -132,6 +132,7 @@ public class MemoryManagementController {
     public void salvarArquivos() {
         try {
             memoryManagement.salvaArquivosBd();
+
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
