@@ -178,6 +178,12 @@ CheckBox:hover{
     -fx-spacing: 12;
     -fx-effect: dropshadow(one-pass-box, #00000044, 8, 0, 4, 4);
 }
+.box-detalhes{
+    -fx-min-width: 498;
+    -fx-max-width: 499;
+    -fx-padding: 20;
+    -fx-spacing: 12;
+}
 
 .list-view .scroll-bar:vertical,
 .list-view .scroll-bar:horizontal {
