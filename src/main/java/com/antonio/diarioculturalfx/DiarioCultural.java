@@ -2,8 +2,6 @@ package com.antonio.diarioculturalfx;
 
 import com.antonio.diarioculturalfx.controller.*;
 import com.antonio.diarioculturalfx.model.Media;
-import com.antonio.diarioculturalfx.model.Season;
-import com.antonio.diarioculturalfx.model.Serie;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -138,8 +136,8 @@ public class DiarioCultural extends Application {
 
     /**
      * carraga css
-     * @param cena
-     * @param url
+     * @param cena cena
+     * @param url url
      */
     private static void addCssNaScene(Scene cena, URL url) {
         cena.getStylesheets().add(url.toExternalForm());
@@ -224,7 +222,7 @@ public class DiarioCultural extends Application {
 
     /**
      * Carrega e Leva para a tela de edição
-     * @param mediaSelecionada
+     * @param mediaSelecionada media seleconada
      */
     public static void carregarTelaDeEdicao(Media mediaSelecionada) {
         try {

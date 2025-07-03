@@ -127,7 +127,6 @@ public class EvaluationController implements Initializable {
         filmes.setAll(listService.listFilms());
         series.setAll(listService.listSeries());
 
-        // os dados atualizados vem ate aqui, provavel problema no configuralista
 
         if(listaLivros != null) {
             configuraListView(listaLivros, livros, livroSelecionado->{
@@ -160,8 +159,6 @@ public class EvaluationController implements Initializable {
                     }
                 });
             });
-        } else {
-            System.out.println("AQUIIII");
         }
     }
 

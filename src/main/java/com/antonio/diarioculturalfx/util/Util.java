@@ -3,6 +3,7 @@ package com.antonio.diarioculturalfx.util;
 import com.antonio.diarioculturalfx.DiarioCultural;
 import com.antonio.diarioculturalfx.model.Book;
 import com.antonio.diarioculturalfx.model.Film;
+import com.antonio.diarioculturalfx.model.Season;
 import com.antonio.diarioculturalfx.model.Serie;
 import javafx.animation.ScaleTransition;
 import javafx.collections.ObservableList;
@@ -271,8 +272,8 @@ public class Util {
             temporadas = new StringBuilder("Nenhuma temporada cadastrada");
         } else{
             temporadas = new StringBuilder("\n");
-            for(String ator : serie.getCast()){
-                temporadas.append("\t").append(ator).append("\n");
+            for(Season tp : serie.getSeasons()){
+                temporadas.append("\t").append(tp.getTitle()).append("\n");
             }
         }
 
