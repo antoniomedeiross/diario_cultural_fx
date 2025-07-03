@@ -33,22 +33,6 @@
       "type": "livro"
     },
     {
-      "author": "grgr",
-      "publisher": "fgdg",
-      "isbn": "fdgfdg",
-      "haveBook": false,
-      "title": "rgrgg",
-      "review": {
-        "note": 5.0,
-        "comment": "Nehnhum comentário atribuído",
-        "readWatch": true,
-        "whenReadWatch": "2005"
-      },
-      "gender": "grgr",
-      "yearReleased": 2025.0,
-      "type": "livro"
-    },
-    {
       "author": "Yuval Noah Harari",
       "publisher": "L\u0026PM (Brasil)",
       "isbn": "9788525431212",
@@ -177,23 +161,62 @@
       "type": "livro"
     },
     {
-      "author": "autro",
-      "publisher": "fkfd",
-      "isbn": "jdfjkfjk",
+      "author": "b",
+      "publisher": "b",
+      "isbn": "b",
       "haveBook": false,
-      "title": "teste",
+      "title": "b",
       "review": {
         "note": 0.0,
         "comment": "Nehnhum comentário atribuído",
         "readWatch": false,
         "whenReadWatch": "Nenhuma data atribuída"
       },
-      "gender": "dds",
+      "gender": "b",
+      "yearReleased": 2025.0,
+      "type": "livro"
+    },
+    {
+      "author": "a",
+      "publisher": "a",
+      "isbn": "a",
+      "haveBook": false,
+      "title": "aA",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "a",
       "yearReleased": 2025.0,
       "type": "livro"
     }
   ],
   "filmes": [
+    {
+      "duration": 60.0,
+      "director": "a",
+      "writer": "a",
+      "cast": [
+        "a"
+      ],
+      "originalTitle": "a",
+      "whereWatch": [
+        "a"
+      ],
+      "watched": false,
+      "title": "aa",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "a",
+      "yearReleased": 2025.0,
+      "type": "filme"
+    },
     {
       "duration": 148.0,
       "director": "Christopher Nolan",
@@ -221,36 +244,6 @@
       },
       "gender": "Ação",
       "yearReleased": 2008.0,
-      "type": "filme"
-    },
-    {
-      "duration": 120.0,
-      "director": "sdgdsfj",
-      "writer": "dsjjhfsdj",
-      "cast": [
-        "adidhfds",
-        "Amali",
-        "gal cadilak",
-        "rita cadlak",
-        "leonardo",
-        "antony",
-        "joelma"
-      ],
-      "originalTitle": "dsjbgdfd",
-      "whereWatch": [
-        "dce-uefs",
-        "acervo devalaya"
-      ],
-      "watched": false,
-      "title": "a volta dos que nafdd",
-      "review": {
-        "note": 5.0,
-        "comment": "Nehnhum comentário atribuído",
-        "readWatch": true,
-        "whenReadWatch": "2004"
-      },
-      "gender": "nao binario",
-      "yearReleased": 2025.0,
       "type": "filme"
     },
     {
@@ -416,31 +409,6 @@
       },
       "gender": "Drama",
       "yearReleased": 1972.0,
-      "type": "filme"
-    },
-    {
-      "duration": 125.0,
-      "director": "Hayao Miyazaki",
-      "writer": "Hayao Miyazaki",
-      "cast": [
-        "Rumi Hiiragi",
-        "Miyu Irino",
-        "Mari Natsuki (vozes originais)"
-      ],
-      "originalTitle": "千と千尋の神隠し (Sen to Chihiro no Kamikakushi)",
-      "whereWatch": [
-        "Netflix"
-      ],
-      "watched": true,
-      "title": "A Viagem de Chihiro",
-      "review": {
-        "note": 4.0,
-        "comment": "Uma animação deslumbrante e imaginativa do Studio Ghibli.",
-        "readWatch": true,
-        "whenReadWatch": "2004"
-      },
-      "gender": "Animação",
-      "yearReleased": 2001.0,
       "type": "filme"
     },
     {
@@ -1304,6 +1272,28 @@
       },
       "gender": "Drama",
       "yearReleased": 2021.0,
+      "type": "serie"
+    },
+    {
+      "yearEnding": 2025.0,
+      "note": 0.0,
+      "cast": [
+        "a"
+      ],
+      "originalTitle": "a",
+      "whereWatch": [
+        "a"
+      ],
+      "seasons": [],
+      "title": "a",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "a",
+      "yearReleased": 2024.0,
       "type": "serie"
     }
   ]

@@ -17,8 +17,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.*;
 
-import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagement;
-import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
+import static com.antonio.diarioculturalfx.DiarioCultural.*;
 import static com.antonio.diarioculturalfx.util.Util.*;
 
 /**
@@ -155,9 +154,6 @@ public class SearchController implements Initializable {
                 observableMedia.setAll(searchService.searchSerieYearReleased(Integer.parseInt(chave)));
             }
         }
-        System.out.println(observableMedia);
-
-        // chama o metodo que carrega a lista
         setMedia();
     }
 
@@ -251,5 +247,6 @@ public class SearchController implements Initializable {
         } else {
             showAlert("Media inválida", "Selecione uma media primeiro", Alert.AlertType.ERROR);
         }
+        memoryManagementController.salvarArquivos();
     }
 }

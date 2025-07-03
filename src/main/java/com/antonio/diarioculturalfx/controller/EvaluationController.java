@@ -4,6 +4,7 @@ package com.antonio.diarioculturalfx.controller;
 import com.antonio.diarioculturalfx.model.*;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import com.antonio.diarioculturalfx.services.EvaluationService;
+import com.antonio.diarioculturalfx.services.ListService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,14 +71,10 @@ public class EvaluationController implements Initializable {
     private static Serie serieAtual;
     private Season temporadaAtual;
 
-    private final MemoryManagement memoryManagementAvaliacao = memoryManagement;
-
+    private final ListService listService = new ListService(memoryManagement);
     public VBox campoAvaliacao;
 
-
     EvaluationService evaluationService = new EvaluationService();
-
-
 
     /**
      * Metodo de inicialização
@@ -86,7 +83,6 @@ public class EvaluationController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        atualizarLista();
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
         if(bt_filme != null && bt_livro != null && bt_serie != null) {
             setupHoverEffect(bt_livro);
@@ -100,39 +96,6 @@ public class EvaluationController implements Initializable {
             setupHoverEffect(addTemporadaButton);
             addTemporadaButton.setVisible(false);
             addTemporadaButton.setManaged(false);
-        }
-
-        // listagem
-        if(listaLivros != null) {
-            configuraListView(listaLivros, livros, livroSelecionado->{
-                livroAtual = livroSelecionado;
-                notaField.setText(String.valueOf(livroSelecionado.getReview().getNote()));
-                comentField.setText(livroSelecionado.getReview().getComment());
-                quandoLeuField.setText(livroSelecionado.getReview().getWhenReadWatch());
-            });
-        }else if(listaFilms != null) {
-            configuraListView(listaFilms, filmes, filmeSelecionado->{
-                filmeAtual = filmeSelecionado;
-                notaField.setText(String.valueOf(filmeSelecionado.getReview().getNote()));
-                comentField.setText(filmeSelecionado.getReview().getComment());
-                quandoLeuField.setText(filmeSelecionado.getReview().getWhenReadWatch());
-            });
-        } else if(listaSeries != null) {
-            configuraListView(listaSeries, series, seriesSelecionado->{
-                serieAtual = seriesSelecionado;
-                temporadas.setAll(seriesSelecionado.getSeasons());
-                listaTemporadas.setItems(temporadas);
-                mostrarTempButton();
-
-                listaTemporadas.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-                    temporadaAtual = newVal;
-                    if (temporadaAtual != null) {
-                        notaField.setText(String.valueOf(temporadaAtual.getReview().getNote()));
-                        comentField.setText(temporadaAtual.getReview().getComment());
-                        quandoLeuField.setText(temporadaAtual.getReview().getWhenReadWatch());
-                    }
-                });
-            });
         }
         atualizarLista();
     }
@@ -160,13 +123,46 @@ public class EvaluationController implements Initializable {
      * Atualiza a lista de midias
      */
     public void atualizarLista() {
-        ArrayList<Book> listaBooks = memoryManagementAvaliacao.getBooks();
-        ArrayList<Film> listaFilms = memoryManagementAvaliacao.getFilms();
-        ArrayList<Serie> listaSeries = memoryManagementAvaliacao.getSeries();
+        livros.setAll(listService.listBooks()); // recarrega os dados da "base"
+        filmes.setAll(listService.listFilms());
+        series.setAll(listService.listSeries());
 
-        livros.setAll(listaBooks); // recarrega os dados da "base"
-        filmes.setAll(listaFilms);
-        series.setAll(listaSeries);
+        // os dados atualizados vem ate aqui, provavel problema no configuralista
+
+        if(listaLivros != null) {
+            configuraListView(listaLivros, livros, livroSelecionado->{
+                livroAtual = livroSelecionado;
+                notaField.setText(String.valueOf(livroSelecionado.getReview().getNote()));
+                comentField.setText(livroSelecionado.getReview().getComment());
+                quandoLeuField.setText(livroSelecionado.getReview().getWhenReadWatch());
+            });
+
+        }else if(listaFilms != null) {
+            configuraListView(listaFilms, filmes, filmeSelecionado->{
+                filmeAtual = filmeSelecionado;
+                notaField.setText(String.valueOf(filmeSelecionado.getReview().getNote()));
+                comentField.setText(filmeSelecionado.getReview().getComment());
+                quandoLeuField.setText(filmeSelecionado.getReview().getWhenReadWatch());
+            });
+        } else if(listaSeries != null) {
+            configuraListView(listaSeries, series, seriesSelecionado->{
+                serieAtual = seriesSelecionado;
+                temporadas.setAll(seriesSelecionado.getSeasons());
+                listaTemporadas.setItems(temporadas);
+                mostrarTempButton();
+
+                listaTemporadas.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+                    temporadaAtual = newVal;
+                    if (temporadaAtual != null) {
+                        notaField.setText(String.valueOf(temporadaAtual.getReview().getNote()));
+                        comentField.setText(temporadaAtual.getReview().getComment());
+                        quandoLeuField.setText(temporadaAtual.getReview().getWhenReadWatch());
+                    }
+                });
+            });
+        } else {
+            System.out.println("AQUIIII");
+        }
     }
 
     /**
@@ -283,6 +279,8 @@ public class EvaluationController implements Initializable {
             trocarScene("Add-temporada");
             limparCampos();
         }
+
+        atualizarLista();
     }
 
     /**
