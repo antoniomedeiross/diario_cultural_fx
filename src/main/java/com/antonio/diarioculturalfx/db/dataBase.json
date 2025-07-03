@@ -159,9 +159,64 @@
       "gender": "Jovem Adulto",
       "yearReleased": 2012.0,
       "type": "livro"
+    },
+    {
+      "author": "b",
+      "publisher": "b",
+      "isbn": "b",
+      "haveBook": false,
+      "title": "b",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "b",
+      "yearReleased": 2025.0,
+      "type": "livro"
+    },
+    {
+      "author": "a",
+      "publisher": "a",
+      "isbn": "a",
+      "haveBook": false,
+      "title": "aA",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "a",
+      "yearReleased": 2025.0,
+      "type": "livro"
     }
   ],
   "filmes": [
+    {
+      "duration": 60.0,
+      "director": "a",
+      "writer": "a",
+      "cast": [
+        "a"
+      ],
+      "originalTitle": "a",
+      "whereWatch": [
+        "a"
+      ],
+      "watched": false,
+      "title": "aa",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "a",
+      "yearReleased": 2025.0,
+      "type": "filme"
+    },
     {
       "duration": 148.0,
       "director": "Christopher Nolan",
@@ -1217,6 +1272,28 @@
       },
       "gender": "Drama",
       "yearReleased": 2021.0,
+      "type": "serie"
+    },
+    {
+      "yearEnding": 2025.0,
+      "note": 0.0,
+      "cast": [
+        "a"
+      ],
+      "originalTitle": "a",
+      "whereWatch": [
+        "a"
+      ],
+      "seasons": [],
+      "title": "a",
+      "review": {
+        "note": 0.0,
+        "comment": "Nehnhum comentário atribuído",
+        "readWatch": false,
+        "whenReadWatch": "Nenhuma data atribuída"
+      },
+      "gender": "a",
+      "yearReleased": 2024.0,
       "type": "serie"
     }
   ]

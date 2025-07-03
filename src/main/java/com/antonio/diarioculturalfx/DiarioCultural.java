@@ -1,9 +1,6 @@
 package com.antonio.diarioculturalfx;
 
-import com.antonio.diarioculturalfx.controller.EditController;
-import com.antonio.diarioculturalfx.controller.EvaluationController;
-import com.antonio.diarioculturalfx.controller.MemoryManagementController;
-import com.antonio.diarioculturalfx.controller.SearchController;
+import com.antonio.diarioculturalfx.controller.*;
 import com.antonio.diarioculturalfx.model.Media;
 import com.antonio.diarioculturalfx.model.Season;
 import com.antonio.diarioculturalfx.model.Serie;
@@ -85,12 +82,15 @@ public class DiarioCultural extends Application {
 
         FXMLLoader avaliacaoLivroLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_avaliacao/avaliar-livro.fxml"));
         avaliacaoLivroScene = new Scene(avaliacaoLivroLoader.load(), 1280, 720);
+        avaliacaoLivroScene.setUserData(avaliacaoLivroLoader.getController());
 
         FXMLLoader avaliacaoFilmeLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_avaliacao/avaliar-filme.fxml"));
         avaliacaoFilmeScene = new Scene(avaliacaoFilmeLoader.load(), 1280, 720);
+        avaliacaoFilmeScene.setUserData(avaliacaoFilmeLoader.getController());
 
         FXMLLoader avaliacaoSerieLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_avaliacao/avaliar-serie.fxml"));
         avaliacaoSerieScene = new Scene(avaliacaoSerieLoader.load(), 1280, 720);
+        avaliacaoSerieScene.setUserData(avaliacaoSerieLoader.getController());
 
         FXMLLoader buscaLoader = new FXMLLoader(DiarioCultural.class.getResource("/com/antonio/diarioculturalfx/view/menus_busca/busca.fxml"));
         buscaScene = new Scene(buscaLoader.load(), 1280, 720);
@@ -151,6 +151,7 @@ public class DiarioCultural extends Application {
      * @param click scene destino
      */
     public static void trocarScene(String click) {
+        EvaluationController controller;
         deixaTamanhoDaSceneIgual(stageTroca);
         // swich menu principal
         switch (click){
@@ -182,12 +183,18 @@ public class DiarioCultural extends Application {
                 break;
             case "Avaliar-livro":
                 stageTroca.setScene(avaliacaoLivroScene);
+                controller = (EvaluationController) avaliacaoLivroScene.getUserData();
+                controller.atualizarLista();
                 break;
             case "Avaliar-filme":
                 stageTroca.setScene(avaliacaoFilmeScene);
+                controller = (EvaluationController) avaliacaoFilmeScene.getUserData();
+                controller.atualizarLista();
                 break;
             case "Avaliar-serie":
                 stageTroca.setScene(avaliacaoSerieScene);
+                controller = (EvaluationController) avaliacaoSerieScene.getUserData();
+                controller.atualizarLista();
                 break;
 
             case "Buscar":

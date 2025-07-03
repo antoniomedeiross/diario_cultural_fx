@@ -110,14 +110,12 @@ public class EvaluationController implements Initializable {
     private <T extends Media> void configuraListView(ListView<T> listView, ObservableList<T> listaObserv, Consumer<T> onSelect) {
         if(listaObserv != null) {
             listView.setItems(listaObserv);
-            System.out.println( "Lista dentro configura "+listView.getItems().toString());
             listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
                 if (newVal != null) {
                     onSelect.accept(newVal);
                 }
             });
         }
-        System.out.println( "Lista dentro configura "+listaObserv);
     }
 
 
@@ -129,7 +127,6 @@ public class EvaluationController implements Initializable {
         filmes.setAll(listService.listFilms());
         series.setAll(listService.listSeries());
 
-        System.out.println("livros obvervavel == " + livros);
         // os dados atualizados vem ate aqui, provavel problema no configuralista
 
         if(listaLivros != null) {
