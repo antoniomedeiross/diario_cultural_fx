@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.antonio.diarioculturalfx.DiarioCultural.memoryManagementController;
 import static com.antonio.diarioculturalfx.DiarioCultural.trocarScene;
 import static com.antonio.diarioculturalfx.util.Util.*;
 
@@ -209,6 +210,7 @@ public class EditController implements Initializable {
                         (ArrayList<String>) elenco, tituloOriginal, (ArrayList<String>) ondeAssistirList);
             }
             showAlert("Edição concluída", media.getTitle()+" Editada com sucesso", Alert.AlertType.CONFIRMATION);
+            memoryManagementController.salvarArquivos();
             media = null;
             trocarScene("Entrar");
         } catch (IllegalArgumentException e) {

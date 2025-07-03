@@ -375,5 +375,6 @@ public class ListController implements Initializable {
         } else {
             showAlert("Media inválida", "Selecione uma media primeiro", Alert.AlertType.ERROR);
         }
+        memoryManagementController.salvarArquivos();
     }
 }

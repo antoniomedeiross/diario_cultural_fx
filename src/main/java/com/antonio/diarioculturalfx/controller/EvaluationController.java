@@ -4,6 +4,7 @@ package com.antonio.diarioculturalfx.controller;
 import com.antonio.diarioculturalfx.model.*;
 import com.antonio.diarioculturalfx.repository.MemoryManagement;
 import com.antonio.diarioculturalfx.services.EvaluationService;
+import com.antonio.diarioculturalfx.services.ListService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,14 +71,10 @@ public class EvaluationController implements Initializable {
     private static Serie serieAtual;
     private Season temporadaAtual;
 
-    private final MemoryManagement memoryManagementAvaliacao = memoryManagement;
-
+    private final ListService listService = new ListService(memoryManagement);
     public VBox campoAvaliacao;
 
-
     EvaluationService evaluationService = new EvaluationService();
-
-
 
     /**
      * Metodo de inicialização
@@ -86,7 +83,6 @@ public class EvaluationController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        atualizarLista();
         addImgOnButton("/com/antonio/diarioculturalfx/icons/voltar.png" ,voltarButton);
         if(bt_filme != null && bt_livro != null && bt_serie != null) {
             setupHoverEffect(bt_livro);
@@ -101,8 +97,41 @@ public class EvaluationController implements Initializable {
             addTemporadaButton.setVisible(false);
             addTemporadaButton.setManaged(false);
         }
+        atualizarLista();
+    }
 
-        // listagem
+    /**
+     * Configura a ListView para seleção
+     * @param listView, listView de subclasses de Media
+     * @param listaObserv, lista de mídia que serão exibidas
+     * @param onSelect, ação quando umm item é selecionado
+     * @param <T>, elemento que estende Media
+     */
+    private <T extends Media> void configuraListView(ListView<T> listView, ObservableList<T> listaObserv, Consumer<T> onSelect) {
+        if(listaObserv != null) {
+            listView.setItems(listaObserv);
+            System.out.println( "Lista dentro configura "+listView.getItems().toString());
+            listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+                if (newVal != null) {
+                    onSelect.accept(newVal);
+                }
+            });
+        }
+        System.out.println( "Lista dentro configura "+listaObserv);
+    }
+
+
+    /**
+     * Atualiza a lista de midias
+     */
+    public void atualizarLista() {
+        livros.setAll(listService.listBooks()); // recarrega os dados da "base"
+        filmes.setAll(listService.listFilms());
+        series.setAll(listService.listSeries());
+
+        System.out.println("livros obvervavel == " + livros);
+        // os dados atualizados vem ate aqui, provavel problema no configuralista
+
         if(listaLivros != null) {
             configuraListView(listaLivros, livros, livroSelecionado->{
                 livroAtual = livroSelecionado;
@@ -110,6 +139,7 @@ public class EvaluationController implements Initializable {
                 comentField.setText(livroSelecionado.getReview().getComment());
                 quandoLeuField.setText(livroSelecionado.getReview().getWhenReadWatch());
             });
+
         }else if(listaFilms != null) {
             configuraListView(listaFilms, filmes, filmeSelecionado->{
                 filmeAtual = filmeSelecionado;
@@ -133,40 +163,9 @@ public class EvaluationController implements Initializable {
                     }
                 });
             });
+        } else {
+            System.out.println("AQUIIII");
         }
-        atualizarLista();
-    }
-
-    /**
-     * Configura a ListView para seleção
-     * @param listView, listView de subclasses de Media
-     * @param listaObserv, lista de mídia que serão exibidas
-     * @param onSelect, ação quando umm item é selecionado
-     * @param <T>, elemento que estende Media
-     */
-    private <T extends Media> void configuraListView(ListView<T> listView, ObservableList<T> listaObserv, Consumer<T> onSelect) {
-        if(listaObserv != null) {
-            listView.setItems(listaObserv);
-            listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-                if (newVal != null) {
-                    onSelect.accept(newVal);
-                }
-            });
-        }
-    }
-
-
-    /**
-     * Atualiza a lista de midias
-     */
-    public void atualizarLista() {
-        ArrayList<Book> listaBooks = memoryManagementAvaliacao.getBooks();
-        ArrayList<Film> listaFilms = memoryManagementAvaliacao.getFilms();
-        ArrayList<Serie> listaSeries = memoryManagementAvaliacao.getSeries();
-
-        livros.setAll(listaBooks); // recarrega os dados da "base"
-        filmes.setAll(listaFilms);
-        series.setAll(listaSeries);
     }
 
     /**
@@ -283,6 +282,8 @@ public class EvaluationController implements Initializable {
             trocarScene("Add-temporada");
             limparCampos();
         }
+
+        atualizarLista();
     }
 
     /**

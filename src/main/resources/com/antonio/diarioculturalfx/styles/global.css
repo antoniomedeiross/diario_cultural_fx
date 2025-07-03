@@ -216,9 +216,8 @@ CheckBox:hover{
     -fx-background-color: linear-gradient(to right, #4A90E2, #7B68EE);
     -fx-text-fill: white;
     -fx-background-radius: 10;
+
 }
-
-
 
 .botao-ver-lista {
     -fx-min-width: 40;

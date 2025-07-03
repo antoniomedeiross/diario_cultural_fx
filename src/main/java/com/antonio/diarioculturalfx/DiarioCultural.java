@@ -1,6 +1,7 @@
 package com.antonio.diarioculturalfx;
 
 import com.antonio.diarioculturalfx.controller.EditController;
+import com.antonio.diarioculturalfx.controller.EvaluationController;
 import com.antonio.diarioculturalfx.controller.MemoryManagementController;
 import com.antonio.diarioculturalfx.controller.SearchController;
 import com.antonio.diarioculturalfx.model.Media;
@@ -37,7 +38,6 @@ public class DiarioCultural extends Application {
     private static Scene listaScene;
     private static Scene listaTipoScene;
     private static Scene addTempScene;
-
 
     // metodo start do javaFx
     @Override
